@@ -1,0 +1,17 @@
+{
+    "name": "Nitro.Editor",
+    "references": [
+        "GUID:813fa97b4962bdd42b97db825655e839"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
