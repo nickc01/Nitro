@@ -3621,12 +3621,10 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652070587228}
   - component: {fileID: 919132147597406696}
-  - component: {fileID: 919132147597406700}
   - component: {fileID: 919132147597406697}
   - component: {fileID: 329948200}
   - component: {fileID: 919132147597406695}
   - component: {fileID: 919132147597406698}
-  - component: {fileID: 919132147597406701}
   m_Layer: 0
   m_Name: Player Car
   m_TagString: Untagged
@@ -3693,34 +3691,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163f68488be09be4f800611675aaeb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &919132147597406700
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132147597406694}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.125, y: 1.125, z: 2.4}
-  m_Center: {x: 0, y: 0.71, z: 0}
---- !u!114 &919132147597406701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132147597406694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b45533189848b0847bc1a27b6737c7fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TerminalVelocity:
-    baseValue: 10
-    value: 10
 --- !u!1 &919132148196424127
 GameObject:
   m_ObjectHideFlags: 0
@@ -3979,7 +3949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2099805620546522007
 MonoBehaviour:
   m_ObjectHideFlags: 0
