@@ -29,7 +29,7 @@ namespace Nitro
 		{
 			if (CurrentPowerup != null)
 			{
-				CurrentPowerup.DoAction(this);
+				CurrentPowerup.DoAction();
 				CurrentPowerup = null;
 			}
 		}

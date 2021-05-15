@@ -8,6 +8,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 	MultiplePowerupCollector collector;
+	PowerupCollector singleCollector;
 
 	CarMovement _movement;
 	public CarMovement Movement
@@ -25,14 +26,20 @@ public class Player : MonoBehaviour
 	private void Awake()
 	{
 		collector = GetComponent<MultiplePowerupCollector>();
+		singleCollector = GetComponent<PowerupCollector>();
+		if (!collector.CollectorEnabled)
+		{
+			PowerupColorDisplay.Instance.gameObject.SetActive(false);
+		}
 		collector.PowerupCollectEvent.AddListener(OnPowerupCollect);
 	}
 
 	static void OnPowerupCollect(Powerup powerup)
 	{
-		if (powerup is DemoPowerup dPowerup)
+		var colorizer = powerup.GetComponent<Colorizer>();
+		if (colorizer != null)
 		{
-			PowerupColorDisplay.AddColor(dPowerup.Color);
+			PowerupColorDisplay.AddColor(colorizer.Color);
 		}
 	}
 
@@ -40,11 +47,18 @@ public class Player : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			if (collector.HeldPowerups.Count > 0)
+			if (collector.CollectorEnabled)
 			{
-				PowerupColorDisplay.Clear();
+				if (collector.HeldPowerups.Count > 0)
+				{
+					PowerupColorDisplay.Clear();
+				}
+				collector.Execute();
 			}
-			collector.Execute();
+			else
+			{
+				singleCollector.Execute();
+			}
 		}
 	}
 }

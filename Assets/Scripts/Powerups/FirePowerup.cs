@@ -3,29 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FirePowerup : DemoPowerup
+public class FirePowerup : CombinablePowerup
 {
-	[SerializeField]
-	[Tooltip("How fast will auxillary powerups spawn as the fireball is travelling forwards")]
-	float auxillaryExecutionRate = 0.25f;
-
 	[SerializeField]
 	[Tooltip("How long the fireball will last")]
 	float lifeTime = 5f;
-
 	[SerializeField]
 	[Tooltip("How fast the fireball will travel")]
 	float fireballVelocity = 10f;
-
 	[SerializeField]
 	Vector3 spawnOffset;
-
 	[SerializeField]
 	GameObject FireballPrefab;
 
 
 	GameObject fireballInstance;
-	[Header("Auxillary Action")]
+	[Header("Auxiliary Action")]
+	[SerializeField]
+	[Tooltip("How fast will auxiliary powerups spawn as the fireball is travelling forwards")]
+	float auxillaryExecutionRate = 0.25f;
 	[SerializeField]
 	float auxillaryLifeTime = 5f;
 	[SerializeField]
@@ -34,42 +30,15 @@ public class FirePowerup : DemoPowerup
 	FireParticles FireParticles;
 	public float auxillaryTerminalVelocityMultiplier = 0.5f;
 
-	/*/// <summary>
-	/// The auxillary action will spawn fire at the position specified
-	/// </summary>
-	/// <param name="position"></param>
-	public override void AuxillaryAction(Vector3 position)
-	{
-		
-
-
-		//Destroy(particleInstance.gameObject, auxillaryLifeTime);
-	}*/
-
-	/*/// <summary>
-	/// The main action shoots a fireball in front of the player
-	/// </summary>
-	public override IEnumerator MainAction()
-	{
-		
-	}*/
-
-	void OnDestroy()
-	{
-		if (fireballInstance != null)
-		{
-			Destroy(fireballInstance.gameObject);
-		}
-	}
-
-	public override void DoMainAction(Collector collector, IEnumerable<CombinablePowerup> AuxillaryPowerups)
+	//The main action of the fire powerup
+	public override void DoMainAction(AuxPowerups AuxillaryPowerups)
 	{
 		var spawnPosition = transform.TransformPoint(transform.localPosition + spawnOffset);
-		fireballInstance = GameObject.Instantiate(FireballPrefab, spawnPosition, collector.transform.rotation);
+		fireballInstance = GameObject.Instantiate(FireballPrefab, spawnPosition, Collector.transform.rotation);
 
 		Rigidbody fireballBody = fireballInstance.GetComponent<Rigidbody>();
 
-		fireballBody.velocity = collector.transform.forward * fireballVelocity;
+		fireballBody.velocity = Collector.transform.forward * fireballVelocity;
 
 		DoneUsingPowerupAfter(lifeTime);
 
@@ -80,15 +49,13 @@ public class FirePowerup : DemoPowerup
 			while (true)
 			{
 				yield return new WaitForSeconds(auxillaryExecutionRate);
-				foreach (var aux in AuxillaryPowerups)
-				{
-					aux.DoAuxillaryAction(this, fireballInstance.transform.position, collector);
-				}
+				AuxillaryPowerups.Execute(this, fireballInstance.transform.position);
 			}
 		}
 	}
-
-	public override void DoAuxillaryAction(CombinablePowerup sourcePowerup, Vector3 position, Collector collector)
+	
+	//The auxiliary action of the fire powerup
+	public override void DoAuxillaryAction(CombinablePowerup sourcePowerup, Vector3 position)
 	{
 		var particleInstance = GameObject.Instantiate(FireParticles, position, Quaternion.identity);
 		particleInstance.SourcePowerup = this;
@@ -116,5 +83,14 @@ public class FirePowerup : DemoPowerup
 			particleInstance.GetComponent<Collider>().enabled = false;
 			particleInstance.Stop();
 		}
+	}
+
+	public override void DoneUsingPowerup()
+	{
+		if (fireballInstance != null)
+		{
+			Destroy(fireballInstance.gameObject);
+		}
+		base.DoneUsingPowerup();
 	}
 }

@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 8522341169077743401}
   - component: {fileID: 8522341169077743400}
   - component: {fileID: 8522341169077743399}
+  - component: {fileID: 2513710391453292496}
   m_Layer: 0
   m_Name: Electric Powerup
   m_TagString: Powerup
@@ -189,7 +190,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hideObjectOnCollect: 1
   priority: 5
-  color: {r: 0.9918979, g: 1, b: 0.6556604, a: 1}
   CloudPrefab: {fileID: -6712593949426341218, guid: c30d2697bcba7724c9f2b4a3b35e2980, type: 3}
   CloudOffset: {x: 0, y: 6.7, z: 0}
   BoltPrefab: {fileID: 1896540172721349946, guid: abba2f44bf72a054fb44728b915c06cc, type: 3}
@@ -202,3 +202,16 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &2513710391453292496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8522341169077743398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 336cd63fb4442e143b6cb5696a9578f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 1, g: 0.9176218, b: 0, a: 1}

@@ -6,14 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public abstract class DemoPowerup : CombinablePowerup
+public class Colorizer : MonoBehaviour
 {
 	new Renderer renderer;
 	MaterialPropertyBlock propBlock;
 
 
 	[SerializeField]
-	Color color;
+	Color color = new Color(1, 1, 1, 1);
 
 	public Color Color
 	{
@@ -52,4 +52,5 @@ public abstract class DemoPowerup : CombinablePowerup
 		renderer.SetPropertyBlock(propBlock);
 	}
 }
+
 

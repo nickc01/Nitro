@@ -9,6 +9,11 @@ namespace Nitro
 	public abstract class Collector : MonoBehaviour
 	{
 		[SerializeField]
+		bool collectorEnabled = true;
+
+		public bool CollectorEnabled { get => collectorEnabled; set => collectorEnabled = value; }
+
+		[SerializeField]
 		[Tooltip("If set to true, all powerups that collide with this object will automatically be collected")]
 		bool collectOnContact = true;
 
@@ -47,6 +52,10 @@ namespace Nitro
 		/// <returns>Returns whether the collector was able to pick up the <see cref="Powerup"/></returns>
 		public bool CollectPowerup(Powerup powerup)
 		{
+			if (!collectorEnabled)
+			{
+				return false;
+			}
 			if (CanCollectPowerup(powerup))
 			{
 				OnCollect(powerup);

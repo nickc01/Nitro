@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Nitro
@@ -21,7 +22,14 @@ namespace Nitro
 		/// <inheritdoc/>
 		public override bool CanCollectPowerup(Powerup powerup)
 		{
-			return powerup is CombinablePowerup && HeldPowerups.Count < MaxPowerupsHeld;
+			if (powerup is CombinablePowerup && HeldPowerups.Count < MaxPowerupsHeld)
+			{
+				if (!DifferingTypesRequired || (DifferingTypesRequired && !HeldPowerups.Any(p => p.GetType() == powerup.GetType())))
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 
 		/// <inheritdoc/>
@@ -29,7 +37,7 @@ namespace Nitro
 		{
 			if (HeldPowerups.Count > 0)
 			{
-				HeldPowerups.Max.DoAction(this);
+				HeldPowerups.Max.DoAction();
 				HeldPowerups.Clear();
 			}
 		}

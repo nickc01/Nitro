@@ -4,7 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ElectricPowerup : DemoPowerup
+
+public class ElectricPowerup : CombinablePowerup
 {
 	[SerializeField]
 	Cloud CloudPrefab;
@@ -27,16 +28,23 @@ public class ElectricPowerup : DemoPowerup
 
 	bool IsAuxillary = false;
 
-	public override void DoMainAction(Collector collector, IEnumerable<CombinablePowerup> AuxillaryPowerups)
+	Cloud CreateCloud()
+	{
+		var instance = GameObject.Instantiate(CloudPrefab, transform.position, Quaternion.identity);
+		instance.SourcePowerup = this;
+		instance.SourceCollector = Collector;
+		return instance;
+	}
+
+	//The main action of the electric powerup
+	public override void DoMainAction(AuxPowerups AuxillaryPowerups)
 	{
 		IsAuxillary = false;
 		StartCoroutine(MainRoutine());
 
 		IEnumerator MainRoutine()
 		{
-			cloudInstance = GameObject.Instantiate(CloudPrefab, transform.position, Quaternion.identity);
-			cloudInstance.SourcePowerup = this;
-			cloudInstance.SourceCollector = collector;
+			cloudInstance = CreateCloud();
 			cloudInstance.DoMainAction();
 
 			for (float i = 0; i < LifeTime + StrikeTime; i += Time.deltaTime)
@@ -48,29 +56,29 @@ public class ElectricPowerup : DemoPowerup
 		}
 	}
 
+	//The auxiliary action of the electric powerup
+	public override void DoAuxillaryAction(CombinablePowerup sourcePowerup, Vector3 position)
+	{
+		IsAuxillary = true;
+		cloudInstance = CreateCloud();
+		cloudInstance.DoSingleStrike(position);
+	}
+
+	//This is called when the cloud object strikes an object. This is used to execute the auxiliary powerups where the lightining struck
 	public void OnStrike(Rigidbody hitObject)
 	{
 		if (!IsAuxillary)
 		{
-			foreach (var powerup in AuxillaryPowerups)
-			{
-				powerup.DoAuxillaryAction(this, hitObject.transform.position, SourceCollector);
-			}
+			AuxillaryPowerups.Execute(this, hitObject.transform.position);
 		}
 	}
 
 	public override void DoneUsingPowerup()
 	{
-		Destroy(cloudInstance);
+		if (cloudInstance != null)
+		{
+			Destroy(cloudInstance);
+		}
 		base.DoneUsingPowerup();
-	}
-
-	public override void DoAuxillaryAction(CombinablePowerup sourcePowerup, Vector3 position, Collector collector)
-	{
-		IsAuxillary = true;
-		cloudInstance = GameObject.Instantiate(CloudPrefab, position, Quaternion.identity);
-		cloudInstance.SourcePowerup = this;
-		cloudInstance.SourceCollector = collector;
-		cloudInstance.DoSingleStrike(position);
 	}
 }

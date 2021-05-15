@@ -5,6 +5,11 @@ namespace Nitro
 {
 	public abstract class Powerup : MonoBehaviour
 	{
+		/// <summary>
+		/// The collector that collected the powerup
+		/// </summary>
+		public Collector Collector { get; private set; }
+
 		[SerializeField]
 		[Tooltip("If set to true, all colliders and renderers on the powerup will be disabled when collected")]
 		protected bool hideObjectOnCollect = true;
@@ -15,7 +20,7 @@ namespace Nitro
 		/// The main action of the powerup
 		/// </summary>
 		/// <param name="collector">The collector that collected the powerup</param>
-		public abstract void DoAction(Collector collector);
+		public abstract void DoAction();
 
 		/// <summary>
 		/// Called when the powerup has been collected
@@ -23,6 +28,7 @@ namespace Nitro
 		/// <param name="collector">The collector that has collected the powerup</param>
 		public virtual void OnCollect(Collector collector)
 		{
+			Collector = collector;
 			if (hideObjectOnCollect)
 			{
 				foreach (var collider in GetComponentsInChildren<Collider>())
@@ -50,6 +56,7 @@ namespace Nitro
 		/// </summary>
 		public virtual void DoneUsingPowerup()
 		{
+			Collector = null;
 			Destroy(gameObject);
 		}
 

@@ -41,32 +41,4 @@ public class Puddle : Collidable
 			player.Movement.TerminalVelocity.Revert(this);
 		}
 	}
-
-	/*List<Player> collidedPlayers = new List<Player>();
-
-	private void OnTriggerEnter(Collider other)
-	{
-		var player = other.attachedRigidbody.GetComponent<Player>();
-		if (player != null)
-		{
-			if (!collidedPlayers.Contains(player))
-			{
-				
-			}
-			collidedPlayers.Add(player);
-		}
-	}
-
-	private void OnTriggerExit(Collider other)
-	{
-		var player = other.attachedRigidbody.GetComponent<Player>();
-		if (player != null)
-		{
-			collidedPlayers.Remove(player);
-			if (!collidedPlayers.Contains(player))
-			{
-				player.Movement.TerminalVelocity.Revert(this);
-			}
-		}
-	}*/
 }

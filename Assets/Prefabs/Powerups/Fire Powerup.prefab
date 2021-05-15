@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 2249322398964901557}
   - component: {fileID: 2249322398964901559}
   - component: {fileID: 2249322398964901558}
+  - component: {fileID: 3746210155824484154}
   m_Layer: 0
   m_Name: Fire Powerup
   m_TagString: Powerup
@@ -189,7 +190,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hideObjectOnCollect: 1
   priority: 1
-  color: {r: 1, g: 0, b: 0, a: 1}
   auxillaryExecutionRate: 0.25
   lifeTime: 5
   fireballVelocity: 10
@@ -199,3 +199,16 @@ MonoBehaviour:
   particleSize: 2.5
   FireParticles: {fileID: 1452785101459022528, guid: ebf4e93e7d642c04fba48f2808513165, type: 3}
   auxillaryTerminalVelocityMultiplier: 0.3
+--- !u!114 &3746210155824484154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2249322398964901556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 336cd63fb4442e143b6cb5696a9578f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 1, g: 0, b: 0, a: 1}
