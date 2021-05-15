@@ -60,5 +60,10 @@ public class Player : MonoBehaviour
 				singleCollector.Execute();
 			}
 		}
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.Quit();
+		}
 	}
 }

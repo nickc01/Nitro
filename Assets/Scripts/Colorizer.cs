@@ -51,6 +51,11 @@ public class Colorizer : MonoBehaviour
 
 		renderer.SetPropertyBlock(propBlock);
 	}
+
+	private void Awake()
+	{
+		ColorUpdate();
+	}
 }
 
 
