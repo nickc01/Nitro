@@ -1,0 +1,81 @@
+{
+    "metadata": [
+        {
+            "src": [
+                {
+                    "src": "..",
+                    "files": [
+                        "Assets/**/*.cs"
+                    ],
+                    "exclude": [
+                        "Assets/Plugins/**"
+                    ]
+                }
+            ],
+            "globalNamespaceId": "Global",
+            "filter": "filterConfig.yml",
+            "dest": "api"
+        }
+    ],
+    "build": {
+        "globalMetadata": {
+            "_appTitle": "Nitro Documentation",
+            "_appFooter": "Nitro Documentation",
+            "_enableSearch": true
+        },
+        "content": [
+            {
+                "files": [
+                    "toc.yml",
+                    "index.md"
+                ]
+            },
+            {
+                "src": "api",
+                "files": [
+                    "*.yml"
+                ],
+                "dest": "api"
+            },
+            {
+                "src": "manual",
+                "files": [
+                    "toc.yml",
+                    "*.md"
+                ],
+                "dest": "manual"
+            }
+        ],
+        "overwrite": [
+            {
+                "src": "..",
+                "files": [
+                    "Assets/Scripts/**/*.md"
+                ]
+            }
+        ],
+        "resource": [
+            {
+                "files": [
+                    "resources/**/*"
+                ]
+            }
+        ],
+        "sitemap": {
+            "baseUrl": "https://nickc01.github.io/Nitro",
+            "changefreq": "weekly",
+            "fileOptions": {
+                "api/*": {
+                    "changefreq": "daily"
+                }
+            }
+        },
+        "xref": [
+            "https://nickc01.github.io/Nitro/xrefmap.yml"
+        ],
+        "xrefService": [
+            "https://xref.docs.microsoft.com/query?uid={uid}"
+        ],
+        "dest": "../docsite"
+    }
+}

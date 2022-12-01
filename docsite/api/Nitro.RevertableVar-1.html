@@ -1,0 +1,1335 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class RevertableVar&lt;T&gt;
+   | Nitro Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class RevertableVar&lt;T&gt;
+   | Nitro Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Nitro.RevertableVar`1">
+  
+  
+  <h1 id="Nitro_RevertableVar_1" data-uid="Nitro.RevertableVar`1" class="text-break">Class RevertableVar&lt;T&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>A variable that allows you to easily modify it&apos;s value and revert it back to it&apos;s original value</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">RevertableVar&lt;T&gt;</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Nitro.IRevertableVar.html">IRevertableVar</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Nitro.html">Nitro</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="Nitro_RevertableVar_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RevertableVar&lt;T&gt; : IRevertableVar</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of variable the RevertableVar is going to hold</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Nitro_RevertableVar_1__ctor_" data-uid="Nitro.RevertableVar`1.#ctor*"></a>
+  <h4 id="Nitro_RevertableVar_1__ctor" data-uid="Nitro.RevertableVar`1.#ctor">RevertableVar()</h4>
+  <div class="markdown level1 summary"><p>Constructs a new revertable variable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RevertableVar()</code></pre>
+  </div>
+  
+  
+  <a id="Nitro_RevertableVar_1__ctor_" data-uid="Nitro.RevertableVar`1.#ctor*"></a>
+  <h4 id="Nitro_RevertableVar_1__ctor__0_" data-uid="Nitro.RevertableVar`1.#ctor(`0)">RevertableVar(T)</h4>
+  <div class="markdown level1 summary"><p>Constructs a new revertable variable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RevertableVar(T baseValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">baseValue</span></td>
+        <td><p>The base value of the variable</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Nitro_RevertableVar_1_BaseValue_" data-uid="Nitro.RevertableVar`1.BaseValue*"></a>
+  <h4 id="Nitro_RevertableVar_1_BaseValue" data-uid="Nitro.RevertableVar`1.BaseValue">BaseValue</h4>
+  <div class="markdown level1 summary"><p>The base value of the revertable variable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T BaseValue { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_ModifiersApplied_" data-uid="Nitro.RevertableVar`1.ModifiersApplied*"></a>
+  <h4 id="Nitro_RevertableVar_1_ModifiersApplied" data-uid="Nitro.RevertableVar`1.ModifiersApplied">ModifiersApplied</h4>
+  <div class="markdown level1 summary"><p>How many modifiers are currently being applied to this revertible variable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ModifiersApplied { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_Value_" data-uid="Nitro.RevertableVar`1.Value*"></a>
+  <h4 id="Nitro_RevertableVar_1_Value" data-uid="Nitro.RevertableVar`1.Value">Value</h4>
+  <div class="markdown level1 summary"><p>The current value of the revertable variable, with all of it&apos;s modifiers applied</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Value { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Nitro_RevertableVar_1_AddBy_" data-uid="Nitro.RevertableVar`1.AddBy*"></a>
+  <h4 id="Nitro_RevertableVar_1_AddBy__0_System_Int32_" data-uid="Nitro.RevertableVar`1.AddBy(`0,System.Int32)">AddBy(T, Int32)</h4>
+  <div class="markdown level1 summary"><p>Applies an addition to the variable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Modifier&lt;T&gt; AddBy(T value, int priority = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to add onto the variable</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">priority</span></td>
+        <td><p>The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.Modifier-1.html">Modifier</a>&lt;T&gt;</td>
+        <td><p>Returns a reference to the modifier currently applied to this variable. Use <a class="xref" href="Nitro.Modifier-1.html#Nitro_Modifier_1_Revert">Revert()</a> to revert the modification</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_AddBy_" data-uid="Nitro.RevertableVar`1.AddBy*"></a>
+  <h4 id="Nitro_RevertableVar_1_AddBy__0_System_Int32_System_Single_" data-uid="Nitro.RevertableVar`1.AddBy(`0,System.Int32,System.Single)">AddBy(T, Int32, Single)</h4>
+  <div class="markdown level1 summary"><p>Applies an addition to the variable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Modifier&lt;T&gt; AddBy(T value, int priority, float timeActive)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to add onto the variable</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">priority</span></td>
+        <td><p>The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td><span class="parametername">timeActive</span></td>
+        <td><p>The amount of time this modifier should remain active. Once the time is up, the modifier will be reverted</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.Modifier-1.html">Modifier</a>&lt;T&gt;</td>
+        <td><p>Returns a reference to the modifier currently applied to this variable. Use <a class="xref" href="Nitro.Modifier-1.html#Nitro_Modifier_1_Revert">Revert()</a> to revert the modification</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_DivideBy_" data-uid="Nitro.RevertableVar`1.DivideBy*"></a>
+  <h4 id="Nitro_RevertableVar_1_DivideBy__0_System_Int32_" data-uid="Nitro.RevertableVar`1.DivideBy(`0,System.Int32)">DivideBy(T, Int32)</h4>
+  <div class="markdown level1 summary"><p>Applies a division to the variable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Modifier&lt;T&gt; DivideBy(T value, int priority = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to divide the variable with</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">priority</span></td>
+        <td><p>The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.Modifier-1.html">Modifier</a>&lt;T&gt;</td>
+        <td><p>Returns a reference to the modifier currently applied to this variable. Use <a class="xref" href="Nitro.Modifier-1.html#Nitro_Modifier_1_Revert">Revert()</a> to revert the modification</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_DivideBy_" data-uid="Nitro.RevertableVar`1.DivideBy*"></a>
+  <h4 id="Nitro_RevertableVar_1_DivideBy__0_System_Int32_System_Single_" data-uid="Nitro.RevertableVar`1.DivideBy(`0,System.Int32,System.Single)">DivideBy(T, Int32, Single)</h4>
+  <div class="markdown level1 summary"><p>Applies a division to the variable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Modifier&lt;T&gt; DivideBy(T value, int priority, float timeActive)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to divide the variable with</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">priority</span></td>
+        <td><p>The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td><span class="parametername">timeActive</span></td>
+        <td><p>The amount of time this modifier should remain active. Once the time is up, the modifier will be reverted</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.Modifier-1.html">Modifier</a>&lt;T&gt;</td>
+        <td><p>Returns a reference to the modifier currently applied to this variable. Use <a class="xref" href="Nitro.Modifier-1.html#Nitro_Modifier_1_Revert">Revert()</a> to revert the modification</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_Equals_" data-uid="Nitro.RevertableVar`1.Equals*"></a>
+  <h4 id="Nitro_RevertableVar_1_Equals_System_Object_" data-uid="Nitro.RevertableVar`1.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a></div>
+  
+  
+  <a id="Nitro_RevertableVar_1_GetHashCode_" data-uid="Nitro.RevertableVar`1.GetHashCode*"></a>
+  <h4 id="Nitro_RevertableVar_1_GetHashCode" data-uid="Nitro.RevertableVar`1.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a></div>
+  
+  
+  <a id="Nitro_RevertableVar_1_MultiplyBy_" data-uid="Nitro.RevertableVar`1.MultiplyBy*"></a>
+  <h4 id="Nitro_RevertableVar_1_MultiplyBy__0_System_Int32_" data-uid="Nitro.RevertableVar`1.MultiplyBy(`0,System.Int32)">MultiplyBy(T, Int32)</h4>
+  <div class="markdown level1 summary"><p>Applies a multiplication to the variable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Modifier&lt;T&gt; MultiplyBy(T value, int priority = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to multiply the variable with</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">priority</span></td>
+        <td><p>The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.Modifier-1.html">Modifier</a>&lt;T&gt;</td>
+        <td><p>Returns a reference to the modifier currently applied to this variable. Use <a class="xref" href="Nitro.Modifier-1.html#Nitro_Modifier_1_Revert">Revert()</a> to revert the modification</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_MultiplyBy_" data-uid="Nitro.RevertableVar`1.MultiplyBy*"></a>
+  <h4 id="Nitro_RevertableVar_1_MultiplyBy__0_System_Int32_System_Single_" data-uid="Nitro.RevertableVar`1.MultiplyBy(`0,System.Int32,System.Single)">MultiplyBy(T, Int32, Single)</h4>
+  <div class="markdown level1 summary"><p>Applies a multiplication to the variable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Modifier&lt;T&gt; MultiplyBy(T value, int priority, float timeActive)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to multiply the variable with</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">priority</span></td>
+        <td><p>The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td><span class="parametername">timeActive</span></td>
+        <td><p>The amount of time this modifier should remain active. Once the time is up, the modifier will be reverted</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.Modifier-1.html">Modifier</a>&lt;T&gt;</td>
+        <td><p>Returns a reference to the modifier currently applied to this variable. Use <a class="xref" href="Nitro.Modifier-1.html#Nitro_Modifier_1_Revert">Revert()</a> to revert the modification</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_Revert_" data-uid="Nitro.RevertableVar`1.Revert*"></a>
+  <h4 id="Nitro_RevertableVar_1_Revert_Nitro_Modifier__0__" data-uid="Nitro.RevertableVar`1.Revert(Nitro.Modifier{`0})">Revert(Modifier&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Reverts a modifier</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Revert(Modifier&lt;T&gt; modifier)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.Modifier-1.html">Modifier</a>&lt;T&gt;</td>
+        <td><span class="parametername">modifier</span></td>
+        <td><p>The modifier to revert</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_Set_" data-uid="Nitro.RevertableVar`1.Set*"></a>
+  <h4 id="Nitro_RevertableVar_1_Set__0_System_Int32_" data-uid="Nitro.RevertableVar`1.Set(`0,System.Int32)">Set(T, Int32)</h4>
+  <div class="markdown level1 summary"><p>Applies an subtraction to the variable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Modifier&lt;T&gt; Set(T value, int priority = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to subtract from the variable</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">priority</span></td>
+        <td><p>The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.Modifier-1.html">Modifier</a>&lt;T&gt;</td>
+        <td><p>Returns a reference to the modifier currently applied to this variable. Use <a class="xref" href="Nitro.Modifier-1.html#Nitro_Modifier_1_Revert">Revert()</a> to revert the modification</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_Set_" data-uid="Nitro.RevertableVar`1.Set*"></a>
+  <h4 id="Nitro_RevertableVar_1_Set__0_System_Int32_System_Single_" data-uid="Nitro.RevertableVar`1.Set(`0,System.Int32,System.Single)">Set(T, Int32, Single)</h4>
+  <div class="markdown level1 summary"><p>Applies an subtraction to the variable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Modifier&lt;T&gt; Set(T value, int priority, float timeActive)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to subtract from the variable</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">priority</span></td>
+        <td><p>The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td><span class="parametername">timeActive</span></td>
+        <td><p>The amount of time this modifier should remain active. Once the time is up, the modifier will be reverted</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.Modifier-1.html">Modifier</a>&lt;T&gt;</td>
+        <td><p>Returns a reference to the modifier currently applied to this variable. Use <a class="xref" href="Nitro.Modifier-1.html#Nitro_Modifier_1_Revert">Revert()</a> to revert the modification</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_SubtractBy_" data-uid="Nitro.RevertableVar`1.SubtractBy*"></a>
+  <h4 id="Nitro_RevertableVar_1_SubtractBy__0_System_Int32_" data-uid="Nitro.RevertableVar`1.SubtractBy(`0,System.Int32)">SubtractBy(T, Int32)</h4>
+  <div class="markdown level1 summary"><p>Applies an subtraction to the variable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Modifier&lt;T&gt; SubtractBy(T value, int priority = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to subtract from the variable</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">priority</span></td>
+        <td><p>The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.Modifier-1.html">Modifier</a>&lt;T&gt;</td>
+        <td><p>Returns a reference to the modifier currently applied to this variable. Use <a class="xref" href="Nitro.Modifier-1.html#Nitro_Modifier_1_Revert">Revert()</a> to revert the modification</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_SubtractBy_" data-uid="Nitro.RevertableVar`1.SubtractBy*"></a>
+  <h4 id="Nitro_RevertableVar_1_SubtractBy__0_System_Int32_System_Single_" data-uid="Nitro.RevertableVar`1.SubtractBy(`0,System.Int32,System.Single)">SubtractBy(T, Int32, Single)</h4>
+  <div class="markdown level1 summary"><p>Applies an subtraction to the variable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Modifier&lt;T&gt; SubtractBy(T value, int priority, float timeActive)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to subtract from the variable</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">priority</span></td>
+        <td><p>The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td><span class="parametername">timeActive</span></td>
+        <td><p>The amount of time this modifier should remain active. Once the time is up, the modifier will be reverted</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.Modifier-1.html">Modifier</a>&lt;T&gt;</td>
+        <td><p>Returns a reference to the modifier currently applied to this variable. Use <a class="xref" href="Nitro.Modifier-1.html#Nitro_Modifier_1_Revert">Revert()</a> to revert the modification</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_ToString_" data-uid="Nitro.RevertableVar`1.ToString*"></a>
+  <h4 id="Nitro_RevertableVar_1_ToString" data-uid="Nitro.RevertableVar`1.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a></div>
+  <h3 id="operators">Operators
+  </h3>
+  
+  
+  <a id="Nitro_RevertableVar_1_op_Equality_" data-uid="Nitro.RevertableVar`1.op_Equality*"></a>
+  <h4 id="Nitro_RevertableVar_1_op_Equality_Nitro_RevertableVar__0___0_" data-uid="Nitro.RevertableVar`1.op_Equality(Nitro.RevertableVar{`0},`0)">Equality(RevertableVar&lt;T&gt;, T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(RevertableVar&lt;T&gt; a, T b)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.RevertableVar-1.html">RevertableVar</a>&lt;T&gt;</td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">b</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_op_Equality_" data-uid="Nitro.RevertableVar`1.op_Equality*"></a>
+  <h4 id="Nitro_RevertableVar_1_op_Equality_Nitro_RevertableVar__0__Nitro_RevertableVar__0__" data-uid="Nitro.RevertableVar`1.op_Equality(Nitro.RevertableVar{`0},Nitro.RevertableVar{`0})">Equality(RevertableVar&lt;T&gt;, RevertableVar&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(RevertableVar&lt;T&gt; a, RevertableVar&lt;T&gt; b)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.RevertableVar-1.html">RevertableVar</a>&lt;T&gt;</td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Nitro.RevertableVar-1.html">RevertableVar</a>&lt;T&gt;</td>
+        <td><span class="parametername">b</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_op_Implicit_" data-uid="Nitro.RevertableVar`1.op_Implicit*"></a>
+  <h4 id="Nitro_RevertableVar_1_op_Implicit__0__Nitro_RevertableVar__0_" data-uid="Nitro.RevertableVar`1.op_Implicit(`0)~Nitro.RevertableVar{`0}">Implicit(T to RevertableVar&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implicitly converts from a variable of type T to a revertable variable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator RevertableVar&lt;T&gt;(T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The variable</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.RevertableVar-1.html">RevertableVar</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_op_Implicit_" data-uid="Nitro.RevertableVar`1.op_Implicit*"></a>
+  <h4 id="Nitro_RevertableVar_1_op_Implicit_Nitro_RevertableVar__0____0" data-uid="Nitro.RevertableVar`1.op_Implicit(Nitro.RevertableVar{`0})~`0">Implicit(RevertableVar&lt;T&gt; to T)</h4>
+  <div class="markdown level1 summary"><p>Implicitly converts from a revertable variable to the variable of type T</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator T(RevertableVar&lt;T&gt; v)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.RevertableVar-1.html">RevertableVar</a>&lt;T&gt;</td>
+        <td><span class="parametername">v</span></td>
+        <td><p>The revertable variable</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_op_Inequality_" data-uid="Nitro.RevertableVar`1.op_Inequality*"></a>
+  <h4 id="Nitro_RevertableVar_1_op_Inequality_Nitro_RevertableVar__0___0_" data-uid="Nitro.RevertableVar`1.op_Inequality(Nitro.RevertableVar{`0},`0)">Inequality(RevertableVar&lt;T&gt;, T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(RevertableVar&lt;T&gt; a, T b)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.RevertableVar-1.html">RevertableVar</a>&lt;T&gt;</td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">b</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_op_Inequality_" data-uid="Nitro.RevertableVar`1.op_Inequality*"></a>
+  <h4 id="Nitro_RevertableVar_1_op_Inequality_Nitro_RevertableVar__0__Nitro_RevertableVar__0__" data-uid="Nitro.RevertableVar`1.op_Inequality(Nitro.RevertableVar{`0},Nitro.RevertableVar{`0})">Inequality(RevertableVar&lt;T&gt;, RevertableVar&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(RevertableVar&lt;T&gt; a, RevertableVar&lt;T&gt; b)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.RevertableVar-1.html">RevertableVar</a>&lt;T&gt;</td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Nitro.RevertableVar-1.html">RevertableVar</a>&lt;T&gt;</td>
+        <td><span class="parametername">b</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="Nitro_RevertableVar_1_Nitro_IRevertableVar_BaseValue_" data-uid="Nitro.RevertableVar`1.Nitro#IRevertableVar#BaseValue*"></a>
+  <h4 id="Nitro_RevertableVar_1_Nitro_IRevertableVar_BaseValue" data-uid="Nitro.RevertableVar`1.Nitro#IRevertableVar#BaseValue">IRevertableVar.BaseValue</h4>
+  <div class="markdown level1 summary"><p>The base value of the revertible variable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object IRevertableVar.BaseValue { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_Nitro_IRevertableVar_ModifiersApplied_" data-uid="Nitro.RevertableVar`1.Nitro#IRevertableVar#ModifiersApplied*"></a>
+  <h4 id="Nitro_RevertableVar_1_Nitro_IRevertableVar_ModifiersApplied" data-uid="Nitro.RevertableVar`1.Nitro#IRevertableVar#ModifiersApplied">IRevertableVar.ModifiersApplied</h4>
+  <div class="markdown level1 summary"><p>How many variable modifiers are currently applied to the revertible variable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int IRevertableVar.ModifiersApplied { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_Nitro_IRevertableVar_Value_" data-uid="Nitro.RevertableVar`1.Nitro#IRevertableVar#Value*"></a>
+  <h4 id="Nitro_RevertableVar_1_Nitro_IRevertableVar_Value" data-uid="Nitro.RevertableVar`1.Nitro#IRevertableVar#Value">IRevertableVar.Value</h4>
+  <div class="markdown level1 summary"><p>The current value of the revertible variable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object IRevertableVar.Value { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_Nitro_IRevertableVar_ValueType_" data-uid="Nitro.RevertableVar`1.Nitro#IRevertableVar#ValueType*"></a>
+  <h4 id="Nitro_RevertableVar_1_Nitro_IRevertableVar_ValueType" data-uid="Nitro.RevertableVar`1.Nitro#IRevertableVar#ValueType">IRevertableVar.ValueType</h4>
+  <div class="markdown level1 summary"><p>The type of the value being held by the revertible variable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Type IRevertableVar.ValueType { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Nitro.IRevertableVar.html">IRevertableVar</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Nitro Documentation
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
