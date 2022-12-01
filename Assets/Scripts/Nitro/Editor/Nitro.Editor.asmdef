@@ -1,5 +1,6 @@
 {
     "name": "Nitro.Editor",
+    "rootNamespace": "",
     "references": [
         "GUID:813fa97b4962bdd42b97db825655e839"
     ],

@@ -1,8 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Nitro
 {
+	/// <summary>
+	/// The base class for all powerups
+	/// </summary>
 	public abstract class Powerup : MonoBehaviour
 	{
 		/// <summary>
@@ -64,14 +68,15 @@ namespace Nitro
 		/// Used to dispose of the powerup after a set amount of time
 		/// </summary>
 		/// <param name="lifetime">How long before the powerup is destroyed</param>
-		public void DoneUsingPowerupAfter(float lifetime)
+		public void DoneUsingPowerupAfter(float lifetime, Action onDone = null)
 		{
 			StartCoroutine(Routine());
 
 			IEnumerator Routine()
 			{
 				yield return new WaitForSeconds(lifetime);
-				DoneUsingPowerup();
+				onDone?.Invoke();
+                DoneUsingPowerup();
 			}
 		}
 	}

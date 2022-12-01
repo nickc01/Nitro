@@ -1,70 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Nitro;
 using UnityEngine;
-using System.Linq;
-using Nitro;
 
 public class FireParticles : Collidable
 {
-	[HideInInspector]
-	public FirePowerup SourcePowerup;
+    [HideInInspector]
+    public FirePowerup SourcePowerup;
+    private ModifierCollection modifiers = new ModifierCollection();
 
-	List<Player> collidedPlayers = new List<Player>();
+    private void OnParticleSystemStopped()
+    {
+        Destroy(gameObject);
+    }
 
-	/*private void OnTriggerEnter(Collider other)
-	{
-		var player = other.attachedRigidbody.GetComponent<Player>();
-		if (player != null)
-		{
-			if (!collidedPlayers.Contains(player))
-			{
-				
-			}
-			collidedPlayers.Add(player);
-		}
-	}
+    protected override void OnCollideStart(Collider collider)
+    {
+        if (collider.attachedRigidbody.TryGetComponent<Player>(out Player player))
+        {
+            modifiers.Add(player.Movement.TerminalVelocity.MultiplyBy(SourcePowerup.auxillaryTerminalVelocityMultiplier));
+        }
+    }
 
-	private void OnTriggerExit(Collider other)
-	{
-		var player = other.attachedRigidbody.GetComponent<Player>();
-		if (player != null)
-		{
-			collidedPlayers.Remove(player);
-			if (!collidedPlayers.Contains(player))
-			{
-				
-			}
-		}
-	}*/
-
-	public void Stop()
-	{
-		foreach (var player in collidedPlayers.Distinct())
-		{
-			player.Movement.TerminalVelocity.Revert(this);
-		}
-	}
-
-	private void OnParticleSystemStopped()
-	{
-		Destroy(gameObject);
-	}
-
-	protected override void OnCollideStart(Rigidbody body)
-	{
-		var player = body.GetComponent<Player>();
-		if (player != null)
-		{
-			player.Movement.TerminalVelocity.Modify(player.Movement.TerminalVelocity.BaseValue * SourcePowerup.auxillaryTerminalVelocityMultiplier, this, 20);
-		}
-	}
-
-	protected override void OnCollideStop(Rigidbody body)
-	{
-		var player = body.GetComponent<Player>();
-		if (player != null)
-		{
-			player.Movement.TerminalVelocity.Revert(this);
-		}
-	}
+    protected override void OnCollideStop(Collider collider, bool destroyed)
+    {
+        if (!destroyed && collider.attachedRigidbody.TryGetComponent<Player>(out Player player))
+        {
+            modifiers.RevertAllFor(player.Movement.TerminalVelocity);
+        }
+    }
 }

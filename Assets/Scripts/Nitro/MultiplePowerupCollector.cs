@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Nitro
 {
+	/// <summary>
+	/// A collector that can collect multiple powerups
+	/// </summary>
 	public class MultiplePowerupCollector : Collector
 	{
 		[Tooltip("Represents the maximum amount of powerups the collector can hold at once")]

@@ -1,5 +1,5 @@
-﻿using MyBox;
-using Nitro;
+﻿using Nitro;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +26,7 @@ public class ElectricPowerup : CombinablePowerup
 
 	public LayerMask collisionMask;
 
-	bool IsAuxillary = false;
+	bool IsFirst = false;
 
 	Cloud CreateCloud()
 	{
@@ -37,9 +37,9 @@ public class ElectricPowerup : CombinablePowerup
 	}
 
 	//The main action of the electric powerup
-	public override void DoMainAction(AuxPowerups AuxillaryPowerups)
+	/*public override void DoMainAction(AuxPowerups AuxillaryPowerups)
 	{
-		IsAuxillary = false;
+		IsFirst = false;
 		StartCoroutine(MainRoutine());
 
 		IEnumerator MainRoutine()
@@ -52,33 +52,71 @@ public class ElectricPowerup : CombinablePowerup
 				cloudInstance.transform.position = transform.TransformPoint(CloudOffset);
 				yield return null;
 			}
-			DoneUsingPowerup();
+			DoneUsingPowerup(); 
 		}
 	}
 
 	//The auxiliary action of the electric powerup
 	public override void DoAuxillaryAction(CombinablePowerup sourcePowerup, Vector3 position)
 	{
-		IsAuxillary = true;
+		IsFirst = true;
 		cloudInstance = CreateCloud();
 		cloudInstance.DoSingleStrike(position);
+	}*/
+
+	Action<Vector3, Quaternion> RunNextPowerup;
+
+    public override void Execute(CombinablePowerup previous, Vector3 position, Quaternion rotation, Action<Vector3, Quaternion> runNextPowerup)
+    {
+        RunNextPowerup = runNextPowerup;
+        IsFirst = previous == null;
+
+
+		IEnumerator Routine()
+		{
+            if (IsFirst)
+            {
+                cloudInstance = CreateCloud();
+				var strikeRoutine = StartCoroutine(cloudInstance.DoMultipleStrikes());
+
+                for (float i = 0; i < LifeTime + StrikeTime; i += Time.deltaTime)
+                {
+                    cloudInstance.transform.position = transform.TransformPoint(CloudOffset);
+                    yield return null;
+                }
+
+				yield return strikeRoutine;
+            }
+            else
+            {
+                cloudInstance = CreateCloud();
+				yield return cloudInstance.DoSingleStrike(position);
+            }
+
+            if (cloudInstance != null)
+            {
+                Destroy(cloudInstance.gameObject);
+            }
+            DoneUsingPowerup();
+        }
+
+		StartCoroutine(Routine());
+
+		//If this is the first powerup in the chain
+    }
+
+    //This is called when the cloud object strikes an object. This is used to execute the auxiliary powerups where the lightining struck
+    public void OnStrike(Rigidbody hitObject)
+	{
+		if (IsFirst)
+		{
+			RunNextPowerup(hitObject.transform.position, hitObject.transform.rotation);
+            //AuxillaryPowerups.Execute(this, hitObject.transform.position);
+        }
 	}
 
-	//This is called when the cloud object strikes an object. This is used to execute the auxiliary powerups where the lightining struck
-	public void OnStrike(Rigidbody hitObject)
+	/*public override void DoneUsingPowerup()
 	{
-		if (!IsAuxillary)
-		{
-			AuxillaryPowerups.Execute(this, hitObject.transform.position);
-		}
-	}
-
-	public override void DoneUsingPowerup()
-	{
-		if (cloudInstance != null)
-		{
-			Destroy(cloudInstance);
-		}
 		base.DoneUsingPowerup();
-	}
+	}*/
 }

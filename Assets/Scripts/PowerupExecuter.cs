@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class PowerupExecuter : MonoBehaviour
 {
-	PowerupCollector collector;
+	SinglePowerupCollector collector;
 
 	private void Awake()
 	{
-		collector = GetComponent<PowerupCollector>();
+		collector = GetComponent<SinglePowerupCollector>();
 	}
 
 	private void Update()

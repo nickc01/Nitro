@@ -4,72 +4,105 @@ using UnityEngine;
 
 namespace Nitro
 {
-	/// <inheritdoc cref="Collidable"/>
-	public abstract class Collidable2D : MonoBehaviour
-	{
-		List<Rigidbody2D> collidedBodies = new List<Rigidbody2D>();
+    /// <summary>
+    /// A component that makes it easier to keep track of objects that have collided with an object.
+    /// </summary>
+    public abstract class Collidable2D : MonoBehaviour
+    {
+        private HashSet<Collider2D> collisions = new HashSet<Collider2D>();
 
-		/// <inheritdoc cref="Collidable.CollidedBodies"/>
-		public IEnumerable<Rigidbody2D> CollidedBodies => collidedBodies.Distinct();
+        /// <summary>
+        /// Returns a list of all the collided objects
+        /// </summary>
+        public IEnumerable<Collider2D> CollidedBodies => collisions;
 
-		/// <inheritdoc cref="Collidable.OnCollideStart"/>
-		protected abstract void OnCollideStart(Rigidbody2D body);
+        /// <summary>
+        /// Called when an object collides with this object.
+        /// </summary>
+        /// <param name="body">The rigidbody on the collided object</param>
+        protected abstract void OnCollideStart(Collider2D Collider2D);
 
-		/// <inheritdoc cref="Collidable.OnCollideStop"/>
-		protected abstract void OnCollideStop(Rigidbody2D body);
+        /// <summary>
+        /// Called when an object is no longer colliding with this object.
+        /// </summary>
+        /// <param name="body">The rigidbody on the collided object</param>
+        protected abstract void OnCollideStop(Collider2D Collider2D, bool destroyed);
 
+        protected virtual void OnTriggerEnter2D(Collider2D other)
+        {
+            if (collisions.Add(other) && enabled)
+            {
+                OnCollideStart(other);
+            }
+        }
 
-		private void OnTriggerEnter2D(Collider2D collision)
-		{
-			if (collision.attachedRigidbody != null && !collidedBodies.Contains(collision.attachedRigidbody))
-			{
-				collidedBodies.Add(collision.attachedRigidbody);
-				OnCollideStart(collision.attachedRigidbody);
-			}
-			else
-			{
-				collidedBodies.Add(collision.attachedRigidbody);
-			}
-		}
+        protected virtual void OnTriggerExit2D(Collider2D other)
+        {
+            if (collisions.Remove(other) && enabled)
+            {
+                OnCollideStop(other, false);
+            }
+        }
 
-		private void OnTriggerExit2D(Collider2D collision)
-		{
-			collidedBodies.Remove(collision.attachedRigidbody);
-			if (collision.attachedRigidbody != null && !collidedBodies.Contains(collision.attachedRigidbody))
-			{
-				OnCollideStop(collision.attachedRigidbody);
-			}
-		}
+        protected virtual void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collisions.Add(collision.collider) && enabled)
+            {
+                OnCollideStart(collision.collider);
+            }
+        }
 
-		private void OnCollisionEnter2D(Collision2D collision)
-		{
-			if (collision.rigidbody != null && !collidedBodies.Contains(collision.rigidbody))
-			{
-				collidedBodies.Add(collision.rigidbody);
-				OnCollideStart(collision.rigidbody);
-			}
-			else
-			{
-				collidedBodies.Add(collision.rigidbody);
-			}
-		}
+        protected virtual void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collisions.Remove(collision.collider) && enabled)
+            {
+                OnCollideStop(collision.collider, false);
+            }
+        }
 
-		private void OnCollisionExit2D(Collision2D collision)
-		{
-			collidedBodies.Remove(collision.rigidbody);
-			if (collision.rigidbody != null && !collidedBodies.Contains(collision.rigidbody))
-			{
-				OnCollideStop(collision.rigidbody);
-			}
-		}
+        protected virtual void LateUpdate()
+        {
+            foreach (Collider2D Collider2D in collisions)
+            {
+                if (Collider2D == null)
+                {
+                    OnCollideStop(Collider2D, true);
+                }
+            }
+            collisions.RemoveWhere(c => c == null);
+        }
 
-		protected virtual void OnDisable()
-		{
-			foreach (var body in collidedBodies.Distinct())
-			{
-				OnCollideStop(body);
-			}
-			collidedBodies.Clear();
-		}
-	}
+        protected virtual void OnDisable()
+        {
+            foreach (Collider2D Collider2D in collisions)
+            {
+                OnCollideStop(Collider2D, Collider2D == null);
+            }
+            collisions.RemoveWhere(c => c == null);
+        }
+
+        protected virtual void OnEnable()
+        {
+            foreach (Collider2D Collider2D in collisions)
+            {
+                if (Collider2D != null)
+                {
+                    OnCollideStart(Collider2D);
+                }
+            }
+            collisions.RemoveWhere(c => c == null);
+        }
+
+        protected virtual void OnDestroy()
+        {
+            if (enabled)
+            {
+                foreach (Collider2D Collider2D in collisions)
+                {
+                    OnCollideStop(Collider2D, Collider2D == null);
+                }
+                collisions.RemoveWhere(c => c == null);
+            }
+        }
+    }
 }

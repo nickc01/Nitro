@@ -1,44 +1,43 @@
 ﻿using Nitro;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Puddle : Collidable
 {
-	[SerializeField]
-	float terminalVelocityMultiplier = 0.5f;
+    private ModifierCollection modifiers = new ModifierCollection();
 
-	[SerializeField]
-	Vector3 spawnOffset;
+    [SerializeField]
+    private float terminalVelocityMultiplier = 0.5f;
 
-	[SerializeField]
-	float puddleLifeTime = 5f;
+    [SerializeField]
+    private Vector3 spawnOffset;
 
-	private void Awake()
-	{
-		Debug.DrawLine(transform.position, transform.position + (Vector3.down * 100f), Color.red, 10f);
-		if (Physics.Raycast(transform.position, Vector3.down, out var info, 100f))
-		{
-			transform.position = info.point + spawnOffset;
-		}
+    [SerializeField]
+    private float puddleLifeTime = 5f;
 
-		Destroy(gameObject, puddleLifeTime);
-	}
+    private void Awake()
+    {
+        Debug.DrawLine(transform.position, transform.position + (Vector3.down * 100f), Color.red, 10f);
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit info, 100f))
+        {
+            transform.position = info.point + spawnOffset;
+        }
 
-	protected override void OnCollideStart(Rigidbody body)
-	{
-		var player = body.GetComponent<Player>();
-		if (player != null)
-		{
-			player.Movement.TerminalVelocity.Modify(player.Movement.TerminalVelocity.BaseValue * terminalVelocityMultiplier, this, 10);
-		}
-	}
+        Destroy(gameObject, puddleLifeTime);
+    }
 
-	protected override void OnCollideStop(Rigidbody body)
-	{
-		var player = body.GetComponent<Player>();
-		if (player != null)
-		{
-			player.Movement.TerminalVelocity.Revert(this);
-		}
-	}
+    protected override void OnCollideStart(Collider collider)
+    {
+        if (collider.attachedRigidbody.TryGetComponent<Player>(out Player player))
+        {
+            modifiers.Add(player.Movement.TerminalVelocity.MultiplyBy(terminalVelocityMultiplier));
+        }
+    }
+
+    protected override void OnCollideStop(Collider collider, bool destroyed)
+    {
+        if (!destroyed && collider.attachedRigidbody.TryGetComponent<Player>(out Player player))
+        {
+            modifiers.RevertAllFor(player.Movement.TerminalVelocity);
+        }
+    }
 }

@@ -13,7 +13,7 @@ public class Cloud : MonoBehaviour
 	[HideInInspector]
 	public Collector SourceCollector;
 
-	IEnumerator Action()
+	public IEnumerator DoMultipleStrikes()
 	{
 		float waitCounter = 0f;
 		float waitAmount = Random.Range(SourcePowerup.MinWaitTime, SourcePowerup.MaxWaitTime);
@@ -24,34 +24,27 @@ public class Cloud : MonoBehaviour
 			{
 				waitCounter -= waitAmount;
 				waitAmount = Random.Range(SourcePowerup.MinWaitTime, SourcePowerup.MaxWaitTime);
-				StartCoroutine(DoStrike(transform.position));
+				StartCoroutine(StrikeRoutine(transform.position));
 			}
 
 			yield return null;
 		}
 
 		yield return new WaitForSeconds(SourcePowerup.StrikeTime);
-
-		Destroy(gameObject);
 	}
 
-	public void DoMainAction()
+	public IEnumerator DoSingleStrike(Vector3 source)
 	{
-		StartCoroutine(Action());
-	}
+        foreach (var renderer in GetComponentsInChildren<Renderer>())
+        {
+            renderer.enabled = false;
+        }
+		yield return StrikeRoutine(source);
+    }
 
-	public void DoSingleStrike(Vector3 source)
+	IEnumerator StrikeRoutine(Vector3 source)
 	{
-		foreach (var renderer in GetComponentsInChildren<Renderer>())
-		{
-			renderer.enabled = false;
-		}
-		StartCoroutine(DoStrike(source));
-		Destroy(gameObject, SourcePowerup.StrikeTime);
-	}
-
-	IEnumerator DoStrike(Vector3 source)
-	{
+		yield return new WaitForFixedUpdate();
 		yield return null;
 		if (Targets.Count == 0)
 		{
@@ -118,7 +111,7 @@ public class Cloud : MonoBehaviour
 		Targets.Remove(other.attachedRigidbody);
 	}
 
-	static Transform GetTopParent(Transform transform)
+	/*static Transform GetTopParent(Transform transform)
 	{
 		while (true)
 		{
@@ -131,5 +124,5 @@ public class Cloud : MonoBehaviour
 				transform = transform.parent;
 			}
 		}
-	}
+	}*/
 }

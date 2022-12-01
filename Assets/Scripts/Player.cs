@@ -8,7 +8,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 	MultiplePowerupCollector collector;
-	PowerupCollector singleCollector;
+	SinglePowerupCollector singleCollector;
 
 	CarMovement _movement;
 	public CarMovement Movement
@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
 	private void Awake()
 	{
 		collector = GetComponent<MultiplePowerupCollector>();
-		singleCollector = GetComponent<PowerupCollector>();
+		singleCollector = GetComponent<SinglePowerupCollector>();
 		if (!collector.CollectorEnabled)
 		{
 			PowerupColorDisplay.Instance.gameObject.SetActive(false);

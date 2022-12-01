@@ -1,16 +1,22 @@
 ﻿using Nitro;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 
 namespace Nitro
 {
-	/// <summary>
-	/// A powerup that can have its effects combined with other powerups. Combinable powerups work by having 1 powerup act as the primary powerup, where it does its main action. All other powerups will act as secondary powerups, and they will do auxiliary actions on top of the primary's main action
-	/// </summary>
-	public abstract class CombinablePowerup : Powerup
+    /// <summary>
+    /// A powerup that can have its effects combined with other powerups. When several powerups are collected via a <see cref="MultiplePowerupCollector"/>, they will form a chain that is sorted based on the <see cref="Priority"/> of the powerups.
+    /// 
+    /// The powerups with the highest priority will be executed first, while the ones with the lowest priority will be executed last. When a powerup is executed, it will have it's <see cref="Execute(CombinablePowerup, Vector3, Quaternion, Action{Vector3, Quaternion})"/> function called.
+    /// 
+    /// With the execute function, you will be able to know the previous powerup in the chain, the position and rotation of where the powerup is affecting, and a delegate called runNextPowerup, which when called, will execute the next powerup in the chain. You can use this delegate to control where and when the next powerups in the chain are executed"/>
+    /// </summary>
+    public abstract class CombinablePowerup : Powerup
 	{
 		/// <summary>
 		/// A comparer used for sorting combinable powerups by priority
@@ -22,65 +28,155 @@ namespace Nitro
 			{
 				if (x.priority == y.priority)
 				{
-					return intComparer.Compare(x.GetInstanceID(), y.GetInstanceID());
+					return intComparer.Compare(y.GetInstanceID(), x.GetInstanceID());
 				}
 				else
 				{
-					return intComparer.Compare(x.priority, y.priority);
+					return intComparer.Compare(y.priority, x.priority);
 				}
 			}
 		}
 
 		[SerializeField]
-		[Tooltip(@"The priority of the powerup, which determines how the powerup will be done when in a combo
+		[Tooltip(@"The priority of the powerup, which determines whether or not this powerup will get executed before others
 
-For example, if you have a fire powerup that has a higher priority than a water powerup, then the fire effect will be applied before the water effect. The fire powerup will be the primary powerup doing its primary action, while the water powerup is secondary and does an auxiliary action on top of the fire effect")]
+For example, if you have a fire powerup that has a higher priority than a water powerup, then the fire effect will be executed before the water effect.")]
 		protected int priority;
 
+        /// <summary>
+        /// The priority of the powerup, which determines whether or not this powerup will get executed before others
+        ///
+        ///For example, if you have a fire powerup that has a higher priority than a water powerup, then the fire effect will be executed before the water effect.
+        /// </summary>
 		public int Priority => priority;
 
-		/// <summary>
-		/// A list of all the secondary/auxiliary powerups that are to be combined with the main powerup. This list is empty of the current powerup is not the primary powerup
-		/// </summary>
-		protected AuxPowerups AuxillaryPowerups = new AuxPowerups();
+        [NonSerialized]
+		private CombinablePowerup[] _powerups;
+        [NonSerialized]
+        private bool[] _completedPowerups;
+        [NonSerialized]
+        private int _index;
+        [NonSerialized]
+        private Dictionary<int, Action<Vector3, Quaternion>> _lambdaCache;
+
+        /// <summary>
+        /// Gets a list of all the powerups in the chain
+        /// </summary>
+        protected ReadOnlyMemory<CombinablePowerup> GetPowerupChain() => _powerups != null ? ReadOnlyMemory<CombinablePowerup>.Empty : new ReadOnlyMemory<CombinablePowerup>(_powerups);
+
+        /// <summary>
+        /// Retrieves the index of the current powerup within the powerup chain.
+        /// </summary>
+        /// <returns></returns>
+        protected int GetPowerupIndex() => _index;
 
 		/// <inheritdoc/>
 		public override sealed void DoAction()
 		{
-			if (Collector is MultiplePowerupCollector mpc)
-			{
-				AuxillaryPowerups = GetAuxillaryPowerups(mpc);
-			}
-			DoMainAction(AuxillaryPowerups);
-		}
+			_powerups = (Collector as MultiplePowerupCollector).HeldPowerups.ToArray();
+			_completedPowerups = new bool[_powerups.Length];
+            _lambdaCache = new Dictionary<int, Action<Vector3, Quaternion>>();
 
-		/// <summary>
-		/// The main action that is only called if this powerup is the primary powerup
-		/// </summary>
-		/// <param name="collector">The source collector that collected this powerup</param>
-		/// <param name="auxillaryPowerups">All the other auxiliary actions that are to be applied</param>
-		public abstract void DoMainAction(AuxPowerups auxillaryPowerups);
+            for (int i = 0; i < _powerups.Length; i++)
+            {
+                var p = _powerups[i];
+                p._powerups = _powerups;
+                p._completedPowerups = _completedPowerups;
+                p._index = i;
+                p._lambdaCache = _lambdaCache;
+            }
 
-		/// <summary>
-		/// The auxiliary action that is only called if this powerup is a secondary powerup
-		/// </summary>
-		/// <param name="primaryPowerup">The primary powerup</param>
-		/// <param name="position">The position that the effects are to be played at</param>
-		public abstract void DoAuxillaryAction(CombinablePowerup primaryPowerup, Vector3 position);
+			var runNextPowerup = GetCallToNextPowerup(null, 0);
 
-		private AuxPowerups GetAuxillaryPowerups(MultiplePowerupCollector collector)
+			runNextPowerup(Collector.transform.position, Collector.transform.rotation);
+        }
+
+        /// <summary>
+        /// The main action of the combinable powerup
+        /// </summary>
+        /// <param name="previous">The previous powerup in the chain. If this is null, then the currently executing powerup is first in the chain</param>
+        /// <param name="position">The position of the collector the powerup is from</param>
+        /// <param name="rotation">The rotation of the collector the powerup is from</param>
+        /// <param name="runNextPowerup">A delegate used to execute the next powerup in the chain. Be sure to call this to make sure all the powerups in the chain get executed</param>
+		public abstract void Execute(CombinablePowerup previous, Vector3 position, Quaternion rotation, Action<Vector3, Quaternion> runNextPowerup);
+
+        /// <summary>
+        /// Creates a delegate to the next powerup in the chain.
+        /// </summary>
+        /// <param name="currentIndex">The current index in the powerup chain. A delegate will be created that will call the next powerup</param>
+        /// <returns>Returns a delgate that executes the next powerup in the chain</returns>
+        public Action<Vector3, Quaternion> GetCallToNextPowerup(int currentIndex)
+        {
+            CombinablePowerup previous = null;
+            if (currentIndex > 0 && currentIndex <= _powerups.Length)
+            {
+                previous = _powerups[currentIndex - 1];
+            }
+
+            return GetCallToNextPowerup(previous, currentIndex);
+        }
+
+        private Action<Vector3, Quaternion> GetCallToNextPowerup(CombinablePowerup previous, int currentIndex)
+        {
+            if (_lambdaCache.TryGetValue(currentIndex, out var result))
+            {
+                return result;
+            }
+            else
+            {
+                Action<Vector3, Quaternion> func = (pos, rot) =>
+                {
+                    if (currentIndex < _powerups.Length)
+                    {
+                        var currentPowerup = _powerups[currentIndex];
+                        currentPowerup.Execute(previous, pos, rot, GetCallToNextPowerup(currentPowerup, currentIndex + 1));
+                    }
+                };
+                _lambdaCache.Add(currentIndex, func);
+                return func;
+            }
+        }
+
+        /// <inheritdoc/>
+        public override sealed void DoneUsingPowerup()
 		{
-			return new AuxPowerups(collector.HeldPowerups.Where(p => p != this));
-		}
-
-		/// <inheritdoc/>
-		public override void DoneUsingPowerup()
-		{
-			foreach (var aux in AuxillaryPowerups)
-			{
-				Destroy(aux.gameObject);
-			}
-			base.DoneUsingPowerup();
-		}
+            if (_completedPowerups == null)
+            {
+                base.DoneUsingPowerup();
+                return;
+            }
+            else
+            {
+            }
+            for (int i = 0; i < _powerups.Length; i++)
+            {
+                if (_powerups[i] == this)
+                {
+                    if (_completedPowerups[i] == false)
+                    {
+                        _completedPowerups[i] = true;
+                        if (_completedPowerups.All(b => b == true))
+                        {
+                            foreach (var p in _powerups)
+                            {
+                                if (p == this)
+                                {
+                                    continue;
+                                }
+                                p._completedPowerups = null;
+                                p._powerups = null;
+                                p._lambdaCache = null;
+                                p.DoneUsingPowerup();
+                            }
+                            _completedPowerups = null;
+                            _powerups = null;
+                            _lambdaCache = null;
+                            DoneUsingPowerup();
+                        }
+                    }
+                    break;
+                }
+            }
+        }
 	}
 }

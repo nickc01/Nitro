@@ -3,15 +3,25 @@ using UnityEngine;
 
 public class OilSlick : Collidable
 {
-	protected override void OnCollideStart(Rigidbody body)
-	{
-		var player = body.GetComponent<Player>();
-		player?.Movement.TerminalVelocity.Modify(1f, this, 10);
-	}
+    ModifierCollection modifiers = new ModifierCollection();
 
-	protected override void OnCollideStop(Rigidbody body)
-	{
-		var player = body.GetComponent<Player>();
-		player?.Movement.TerminalVelocity.Revert(this);
-	}
+    protected override void OnCollideStart(Collider collider)
+    {
+        if (collider.attachedRigidbody.TryGetComponent<Player>(out Player player))
+        {
+            using (player.Movement.TerminalVelocity.DivideBy(8f))
+            {
+
+            }
+            modifiers.Add(player.Movement.TerminalVelocity.DivideBy(8f));
+        }
+    }
+
+    protected override void OnCollideStop(Collider collider, bool destroyed)
+    {
+        if (collider.attachedRigidbody.TryGetComponent<Player>(out Player player))
+        {
+            modifiers.RevertAllFor(player.Movement.TerminalVelocity);
+        }
+    }
 }
