@@ -44,7 +44,7 @@ namespace Nitro
                     for (int i = modifiersToCheck.Count - 1; i >= 0; i--)
                     {
                         Modifier<T> mod = modifiersToCheck[i];
-                        if (Time.unscaledTime >= mod.TimeActive + mod.TimeActive)
+                        if ((mod.TimeActive > 0f && Time.unscaledTime >= mod.TimeActive + mod.TimeActive) || (mod.HasBoundObject && mod.BoundObject == null))
                         {
                             modifiersToCheck.RemoveAt(i);
                             mod.Revert();
@@ -124,10 +124,11 @@ namespace Nitro
         /// </summary>
         /// <param name="value">The value to multiply the variable with</param>
         /// <param name="priority">The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</param>
+        /// <param name="boundObject">The object this modifier is bound to. When the bound object gets destroyed, the modifier gets reverted</param>
         /// <returns>Returns a reference to the modifier currently applied to this variable. Use <see cref="Modifier{T}.Revert"/> to revert the modification</returns>
-        public Modifier<T> MultiplyBy(T value, int priority = 0)
+        public Modifier<T> MultiplyBy(T value, UnityEngine.Object boundObject = null, int priority = 0)
         {
-            return MultiplyBy(value, priority, 0f);
+            return MultiplyBy(value, boundObject, priority, 0f);
         }
 
         /// <summary>
@@ -135,10 +136,11 @@ namespace Nitro
         /// </summary>
         /// <param name="value">The value to divide the variable with</param>
         /// <param name="priority">The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</param>
+        /// <param name="boundObject">The object this modifier is bound to. When the bound object gets destroyed, the modifier gets reverted</param>
         /// <returns>Returns a reference to the modifier currently applied to this variable. Use <see cref="Modifier{T}.Revert"/> to revert the modification</returns>
-        public Modifier<T> DivideBy(T value, int priority = 0)
+        public Modifier<T> DivideBy(T value, UnityEngine.Object boundObject = null, int priority = 0)
         {
-            return DivideBy(value, priority, 0f);
+            return DivideBy(value, boundObject, priority, 0f);
         }
 
         /// <summary>
@@ -146,10 +148,11 @@ namespace Nitro
         /// </summary>
         /// <param name="value">The value to add onto the variable</param>
         /// <param name="priority">The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</param>
+        /// <param name="boundObject">The object this modifier is bound to. When the bound object gets destroyed, the modifier gets reverted</param>
         /// <returns>Returns a reference to the modifier currently applied to this variable. Use <see cref="Modifier{T}.Revert"/> to revert the modification</returns>
-        public Modifier<T> AddBy(T value, int priority = 0)
+        public Modifier<T> AddBy(T value, UnityEngine.Object boundObject = null, int priority = 0)
         {
-            return AddBy(value, priority, 0f);
+            return AddBy(value, boundObject, priority, 0f);
         }
 
         /// <summary>
@@ -157,10 +160,11 @@ namespace Nitro
         /// </summary>
         /// <param name="value">The value to subtract from the variable</param>
         /// <param name="priority">The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</param>
+        /// <param name="boundObject">The object this modifier is bound to. When the bound object gets destroyed, the modifier gets reverted</param>
         /// <returns>Returns a reference to the modifier currently applied to this variable. Use <see cref="Modifier{T}.Revert"/> to revert the modification</returns>
-        public Modifier<T> SubtractBy(T value, int priority = 0)
+        public Modifier<T> SubtractBy(T value, UnityEngine.Object boundObject = null, int priority = 0)
         {
-            return SubtractBy(value, priority, 0f);
+            return SubtractBy(value, boundObject, priority, 0f);
         }
 
         /// <summary>
@@ -168,10 +172,11 @@ namespace Nitro
         /// </summary>
         /// <param name="value">The value to subtract from the variable</param>
         /// <param name="priority">The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</param>
+        /// <param name="boundObject">The object this modifier is bound to. When the bound object gets destroyed, the modifier gets reverted</param>
         /// <returns>Returns a reference to the modifier currently applied to this variable. Use <see cref="Modifier{T}.Revert"/> to revert the modification</returns>
-        public Modifier<T> Set(T value, int priority = 0)
+        public Modifier<T> Set(T value, UnityEngine.Object boundObject = null, int priority = 0)
         {
-            return Set(value, priority, 0f);
+            return Set(value, boundObject, priority, 0f);
         }
 
 
@@ -180,11 +185,12 @@ namespace Nitro
         /// </summary>
         /// <param name="value">The value to multiply the variable with</param>
         /// <param name="priority">The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</param>
+        /// <param name="boundObject">The object this modifier is bound to. When the bound object gets destroyed, the modifier gets reverted</param>
         /// <param name="timeActive">The amount of time this modifier should remain active. Once the time is up, the modifier will be reverted</param>
         /// <returns>Returns a reference to the modifier currently applied to this variable. Use <see cref="Modifier{T}.Revert"/> to revert the modification</returns>
-        public Modifier<T> MultiplyBy(T value, int priority, float timeActive)
+        public Modifier<T> MultiplyBy(T value, UnityEngine.Object boundObject, int priority, float timeActive)
         {
-            return ModifyInternal(Modifier<T>.Operation.Multiply, value, priority, timeActive);
+            return ModifyInternal(Modifier<T>.Operation.Multiply, value, boundObject, priority, timeActive);
         }
 
         /// <summary>
@@ -192,11 +198,12 @@ namespace Nitro
         /// </summary>
         /// <param name="value">The value to divide the variable with</param>
         /// <param name="priority">The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</param>
+        /// <param name="boundObject">The object this modifier is bound to. When the bound object gets destroyed, the modifier gets reverted</param>
         /// <param name="timeActive">The amount of time this modifier should remain active. Once the time is up, the modifier will be reverted</param>
         /// <returns>Returns a reference to the modifier currently applied to this variable. Use <see cref="Modifier{T}.Revert"/> to revert the modification</returns>
-        public Modifier<T> DivideBy(T value, int priority, float timeActive)
+        public Modifier<T> DivideBy(T value, UnityEngine.Object boundObject, int priority, float timeActive)
         {
-            return ModifyInternal(Modifier<T>.Operation.Divide, value, priority, timeActive);
+            return ModifyInternal(Modifier<T>.Operation.Divide, value, boundObject, priority, timeActive);
         }
 
         /// <summary>
@@ -204,11 +211,12 @@ namespace Nitro
         /// </summary>
         /// <param name="value">The value to add onto the variable</param>
         /// <param name="priority">The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</param>
+        /// <param name="boundObject">The object this modifier is bound to. When the bound object gets destroyed, the modifier gets reverted</param>
         /// <param name="timeActive">The amount of time this modifier should remain active. Once the time is up, the modifier will be reverted</param>
         /// <returns>Returns a reference to the modifier currently applied to this variable. Use <see cref="Modifier{T}.Revert"/> to revert the modification</returns>
-        public Modifier<T> AddBy(T value, int priority, float timeActive)
+        public Modifier<T> AddBy(T value, UnityEngine.Object boundObject, int priority, float timeActive)
         {
-            return ModifyInternal(Modifier<T>.Operation.Add, value, priority, timeActive);
+            return ModifyInternal(Modifier<T>.Operation.Add, value, boundObject, priority, timeActive);
         }
 
         /// <summary>
@@ -216,11 +224,12 @@ namespace Nitro
         /// </summary>
         /// <param name="value">The value to subtract from the variable</param>
         /// <param name="priority">The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</param>
+        /// <param name="boundObject">The object this modifier is bound to. When the bound object gets destroyed, the modifier gets reverted</param>
         /// /// <param name="timeActive">The amount of time this modifier should remain active. Once the time is up, the modifier will be reverted</param>
         /// <returns>Returns a reference to the modifier currently applied to this variable. Use <see cref="Modifier{T}.Revert"/> to revert the modification</returns>
-        public Modifier<T> SubtractBy(T value, int priority, float timeActive)
+        public Modifier<T> SubtractBy(T value, UnityEngine.Object boundObject, int priority, float timeActive)
         {
-            return ModifyInternal(Modifier<T>.Operation.Subtract, value, priority, timeActive);
+            return ModifyInternal(Modifier<T>.Operation.Subtract, value, boundObject, priority, timeActive);
         }
 
         /// <summary>
@@ -229,14 +238,15 @@ namespace Nitro
         /// <param name="value">The value to subtract from the variable</param>
         /// <param name="priority">The priority of the modifier. The lower the priority, the sooner it will be applied to the variable before other modifiers</param>
         /// <param name="timeActive">The amount of time this modifier should remain active. Once the time is up, the modifier will be reverted</param>
+        /// <param name="boundObject">The object this modifier is bound to. When the bound object gets destroyed, the modifier gets reverted</param>
         /// <returns>Returns a reference to the modifier currently applied to this variable. Use <see cref="Modifier{T}.Revert"/> to revert the modification</returns>
-        public Modifier<T> Set(T value, int priority, float timeActive)
+        public Modifier<T> Set(T value, UnityEngine.Object boundObject, int priority, float timeActive)
         {
-            return ModifyInternal(Modifier<T>.Operation.Set, value, priority, timeActive);
+            return ModifyInternal(Modifier<T>.Operation.Set, value, boundObject, priority, timeActive);
         }
 
 
-        private Modifier<T> ModifyInternal(Modifier<T>.Operation op, T value, int priority, float timeActive)
+        private Modifier<T> ModifyInternal(Modifier<T>.Operation op, T value, UnityEngine.Object boundObject, int priority, float timeActive)
         {
             if (!Application.isPlaying)
             {
@@ -251,12 +261,14 @@ namespace Nitro
                 Priority = priority,
                 TimeActive = timeActive,
                 TimeAdded = Time.unscaledTime,
+                BoundObject = boundObject,
+                HasBoundObject = boundObject != null,
                 ID = ++idCounter
             };
 
             modifiers.Add(modifier);
 
-            if (timeActive > 0f)
+            if (timeActive > 0f || boundObject != null)
             {
                 RoutineRunner.Instance.modifiersToCheck.Add(modifier);
             }

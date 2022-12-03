@@ -155,19 +155,19 @@ references:
   commentId: T:Nitro.Collidable
   fullName: Nitro.Collidable
   nameWithType: Collidable
-- uid: Nitro.Collidable.CollidedBodies
-  name: CollidedBodies
-  href: api/Nitro.Collidable.html#Nitro_Collidable_CollidedBodies
-  commentId: P:Nitro.Collidable.CollidedBodies
-  fullName: Nitro.Collidable.CollidedBodies
-  nameWithType: Collidable.CollidedBodies
-- uid: Nitro.Collidable.CollidedBodies*
-  name: CollidedBodies
-  href: api/Nitro.Collidable.html#Nitro_Collidable_CollidedBodies_
-  commentId: Overload:Nitro.Collidable.CollidedBodies
+- uid: Nitro.Collidable.Collisions
+  name: Collisions
+  href: api/Nitro.Collidable.html#Nitro_Collidable_Collisions
+  commentId: P:Nitro.Collidable.Collisions
+  fullName: Nitro.Collidable.Collisions
+  nameWithType: Collidable.Collisions
+- uid: Nitro.Collidable.Collisions*
+  name: Collisions
+  href: api/Nitro.Collidable.html#Nitro_Collidable_Collisions_
+  commentId: Overload:Nitro.Collidable.Collisions
   isSpec: "True"
-  fullName: Nitro.Collidable.CollidedBodies
-  nameWithType: Collidable.CollidedBodies
+  fullName: Nitro.Collidable.Collisions
+  nameWithType: Collidable.Collisions
 - uid: Nitro.Collidable.LateUpdate
   name: LateUpdate()
   href: api/Nitro.Collidable.html#Nitro_Collidable_LateUpdate
@@ -553,6 +553,46 @@ references:
   isSpec: "True"
   fullName: Nitro.CombinablePowerup.GetPowerupIndex
   nameWithType: CombinablePowerup.GetPowerupIndex
+- uid: Nitro.CombinablePowerup.HasPowerupInChain(Type)
+  name: HasPowerupInChain(Type)
+  href: api/Nitro.CombinablePowerup.html#Nitro_CombinablePowerup_HasPowerupInChain_Type_
+  commentId: M:Nitro.CombinablePowerup.HasPowerupInChain(Type)
+  fullName: Nitro.CombinablePowerup.HasPowerupInChain(Type)
+  nameWithType: CombinablePowerup.HasPowerupInChain(Type)
+- uid: Nitro.CombinablePowerup.HasPowerupInChain(Type,Nitro.CombinablePowerup@)
+  name: HasPowerupInChain(Type, out CombinablePowerup)
+  href: api/Nitro.CombinablePowerup.html#Nitro_CombinablePowerup_HasPowerupInChain_Type_Nitro_CombinablePowerup__
+  commentId: M:Nitro.CombinablePowerup.HasPowerupInChain(Type,Nitro.CombinablePowerup@)
+  name.vb: HasPowerupInChain(Type, ByRef CombinablePowerup)
+  fullName: Nitro.CombinablePowerup.HasPowerupInChain(Type, out Nitro.CombinablePowerup)
+  fullName.vb: Nitro.CombinablePowerup.HasPowerupInChain(Type, ByRef Nitro.CombinablePowerup)
+  nameWithType: CombinablePowerup.HasPowerupInChain(Type, out CombinablePowerup)
+  nameWithType.vb: CombinablePowerup.HasPowerupInChain(Type, ByRef CombinablePowerup)
+- uid: Nitro.CombinablePowerup.HasPowerupInChain*
+  name: HasPowerupInChain
+  href: api/Nitro.CombinablePowerup.html#Nitro_CombinablePowerup_HasPowerupInChain_
+  commentId: Overload:Nitro.CombinablePowerup.HasPowerupInChain
+  isSpec: "True"
+  fullName: Nitro.CombinablePowerup.HasPowerupInChain
+  nameWithType: CombinablePowerup.HasPowerupInChain
+- uid: Nitro.CombinablePowerup.HasPowerupInChain``1
+  name: HasPowerupInChain<T>()
+  href: api/Nitro.CombinablePowerup.html#Nitro_CombinablePowerup_HasPowerupInChain__1
+  commentId: M:Nitro.CombinablePowerup.HasPowerupInChain``1
+  name.vb: HasPowerupInChain(Of T)()
+  fullName: Nitro.CombinablePowerup.HasPowerupInChain<T>()
+  fullName.vb: Nitro.CombinablePowerup.HasPowerupInChain(Of T)()
+  nameWithType: CombinablePowerup.HasPowerupInChain<T>()
+  nameWithType.vb: CombinablePowerup.HasPowerupInChain(Of T)()
+- uid: Nitro.CombinablePowerup.HasPowerupInChain``1(``0@)
+  name: HasPowerupInChain<T>(out T)
+  href: api/Nitro.CombinablePowerup.html#Nitro_CombinablePowerup_HasPowerupInChain__1___0__
+  commentId: M:Nitro.CombinablePowerup.HasPowerupInChain``1(``0@)
+  name.vb: HasPowerupInChain(Of T)(ByRef T)
+  fullName: Nitro.CombinablePowerup.HasPowerupInChain<T>(out T)
+  fullName.vb: Nitro.CombinablePowerup.HasPowerupInChain(Of T)(ByRef T)
+  nameWithType: CombinablePowerup.HasPowerupInChain<T>(out T)
+  nameWithType.vb: CombinablePowerup.HasPowerupInChain(Of T)(ByRef T)
 - uid: Nitro.CombinablePowerup.priority
   name: priority
   href: api/Nitro.CombinablePowerup.html#Nitro_CombinablePowerup_priority
@@ -712,6 +752,32 @@ references:
   commentId: T:Nitro.IModifier
   fullName: Nitro.IModifier
   nameWithType: IModifier
+- uid: Nitro.IModifier.BoundObject
+  name: BoundObject
+  href: api/Nitro.IModifier.html#Nitro_IModifier_BoundObject
+  commentId: P:Nitro.IModifier.BoundObject
+  fullName: Nitro.IModifier.BoundObject
+  nameWithType: IModifier.BoundObject
+- uid: Nitro.IModifier.BoundObject*
+  name: BoundObject
+  href: api/Nitro.IModifier.html#Nitro_IModifier_BoundObject_
+  commentId: Overload:Nitro.IModifier.BoundObject
+  isSpec: "True"
+  fullName: Nitro.IModifier.BoundObject
+  nameWithType: IModifier.BoundObject
+- uid: Nitro.IModifier.HasBoundObject
+  name: HasBoundObject
+  href: api/Nitro.IModifier.html#Nitro_IModifier_HasBoundObject
+  commentId: P:Nitro.IModifier.HasBoundObject
+  fullName: Nitro.IModifier.HasBoundObject
+  nameWithType: IModifier.HasBoundObject
+- uid: Nitro.IModifier.HasBoundObject*
+  name: HasBoundObject
+  href: api/Nitro.IModifier.html#Nitro_IModifier_HasBoundObject_
+  commentId: Overload:Nitro.IModifier.HasBoundObject
+  isSpec: "True"
+  fullName: Nitro.IModifier.HasBoundObject
+  nameWithType: IModifier.HasBoundObject
 - uid: Nitro.IModifier.Priority
   name: Priority
   href: api/Nitro.IModifier.html#Nitro_IModifier_Priority
@@ -831,6 +897,23 @@ references:
   fullName.vb: Nitro.Modifier(Of T)
   nameWithType: Modifier<T>
   nameWithType.vb: Modifier(Of T)
+- uid: Nitro.Modifier`1.BoundObject
+  name: BoundObject
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_BoundObject
+  commentId: P:Nitro.Modifier`1.BoundObject
+  fullName: Nitro.Modifier<T>.BoundObject
+  fullName.vb: Nitro.Modifier(Of T).BoundObject
+  nameWithType: Modifier<T>.BoundObject
+  nameWithType.vb: Modifier(Of T).BoundObject
+- uid: Nitro.Modifier`1.BoundObject*
+  name: BoundObject
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_BoundObject_
+  commentId: Overload:Nitro.Modifier`1.BoundObject
+  isSpec: "True"
+  fullName: Nitro.Modifier<T>.BoundObject
+  fullName.vb: Nitro.Modifier(Of T).BoundObject
+  nameWithType: Modifier<T>.BoundObject
+  nameWithType.vb: Modifier(Of T).BoundObject
 - uid: Nitro.Modifier`1.Dispose
   name: Dispose()
   href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_Dispose
@@ -848,6 +931,23 @@ references:
   fullName.vb: Nitro.Modifier(Of T).Dispose
   nameWithType: Modifier<T>.Dispose
   nameWithType.vb: Modifier(Of T).Dispose
+- uid: Nitro.Modifier`1.HasBoundObject
+  name: HasBoundObject
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_HasBoundObject
+  commentId: P:Nitro.Modifier`1.HasBoundObject
+  fullName: Nitro.Modifier<T>.HasBoundObject
+  fullName.vb: Nitro.Modifier(Of T).HasBoundObject
+  nameWithType: Modifier<T>.HasBoundObject
+  nameWithType.vb: Modifier(Of T).HasBoundObject
+- uid: Nitro.Modifier`1.HasBoundObject*
+  name: HasBoundObject
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_HasBoundObject_
+  commentId: Overload:Nitro.Modifier`1.HasBoundObject
+  isSpec: "True"
+  fullName: Nitro.Modifier<T>.HasBoundObject
+  fullName.vb: Nitro.Modifier(Of T).HasBoundObject
+  nameWithType: Modifier<T>.HasBoundObject
+  nameWithType.vb: Modifier(Of T).HasBoundObject
 - uid: Nitro.Modifier`1.Nitro#IModifier#SourceVariable
   name: IModifier.SourceVariable
   href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_Nitro_IModifier_SourceVariable
@@ -968,6 +1068,198 @@ references:
   commentId: T:Nitro.ModifierCollection
   fullName: Nitro.ModifierCollection
   nameWithType: ModifierCollection
+- uid: Nitro.ModifierCollection.Add(Nitro.IModifier)
+  name: Add(IModifier)
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_Add_Nitro_IModifier_
+  commentId: M:Nitro.ModifierCollection.Add(Nitro.IModifier)
+  fullName: Nitro.ModifierCollection.Add(Nitro.IModifier)
+  nameWithType: ModifierCollection.Add(IModifier)
+- uid: Nitro.ModifierCollection.Add(Nitro.IModifier,UnityEngine.Object)
+  name: Add(IModifier, UnityEngine.Object)
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_Add_Nitro_IModifier_UnityEngine_Object_
+  commentId: M:Nitro.ModifierCollection.Add(Nitro.IModifier,UnityEngine.Object)
+  fullName: Nitro.ModifierCollection.Add(Nitro.IModifier, UnityEngine.Object)
+  nameWithType: ModifierCollection.Add(IModifier, UnityEngine.Object)
+- uid: Nitro.ModifierCollection.Add*
+  name: Add
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_Add_
+  commentId: Overload:Nitro.ModifierCollection.Add
+  isSpec: "True"
+  fullName: Nitro.ModifierCollection.Add
+  nameWithType: ModifierCollection.Add
+- uid: Nitro.ModifierCollection.Clear
+  name: Clear()
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_Clear
+  commentId: M:Nitro.ModifierCollection.Clear
+  fullName: Nitro.ModifierCollection.Clear()
+  nameWithType: ModifierCollection.Clear()
+- uid: Nitro.ModifierCollection.Clear*
+  name: Clear
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_Clear_
+  commentId: Overload:Nitro.ModifierCollection.Clear
+  isSpec: "True"
+  fullName: Nitro.ModifierCollection.Clear
+  nameWithType: ModifierCollection.Clear
+- uid: Nitro.ModifierCollection.Contains(Nitro.IModifier)
+  name: Contains(IModifier)
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_Contains_Nitro_IModifier_
+  commentId: M:Nitro.ModifierCollection.Contains(Nitro.IModifier)
+  fullName: Nitro.ModifierCollection.Contains(Nitro.IModifier)
+  nameWithType: ModifierCollection.Contains(IModifier)
+- uid: Nitro.ModifierCollection.Contains(System.Object)
+  name: Contains(Object)
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_Contains_System_Object_
+  commentId: M:Nitro.ModifierCollection.Contains(System.Object)
+  fullName: Nitro.ModifierCollection.Contains(System.Object)
+  nameWithType: ModifierCollection.Contains(Object)
+- uid: Nitro.ModifierCollection.Contains*
+  name: Contains
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_Contains_
+  commentId: Overload:Nitro.ModifierCollection.Contains
+  isSpec: "True"
+  fullName: Nitro.ModifierCollection.Contains
+  nameWithType: ModifierCollection.Contains
+- uid: Nitro.ModifierCollection.CopyTo(Array,System.Int32)
+  name: CopyTo(Array, Int32)
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_CopyTo_Array_System_Int32_
+  commentId: M:Nitro.ModifierCollection.CopyTo(Array,System.Int32)
+  fullName: Nitro.ModifierCollection.CopyTo(Array, System.Int32)
+  nameWithType: ModifierCollection.CopyTo(Array, Int32)
+- uid: Nitro.ModifierCollection.CopyTo(Nitro.IModifier[],System.Int32)
+  name: CopyTo(IModifier[], Int32)
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_CopyTo_Nitro_IModifier___System_Int32_
+  commentId: M:Nitro.ModifierCollection.CopyTo(Nitro.IModifier[],System.Int32)
+  name.vb: CopyTo(IModifier(), Int32)
+  fullName: Nitro.ModifierCollection.CopyTo(Nitro.IModifier[], System.Int32)
+  fullName.vb: Nitro.ModifierCollection.CopyTo(Nitro.IModifier(), System.Int32)
+  nameWithType: ModifierCollection.CopyTo(IModifier[], Int32)
+  nameWithType.vb: ModifierCollection.CopyTo(IModifier(), Int32)
+- uid: Nitro.ModifierCollection.CopyTo*
+  name: CopyTo
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_CopyTo_
+  commentId: Overload:Nitro.ModifierCollection.CopyTo
+  isSpec: "True"
+  fullName: Nitro.ModifierCollection.CopyTo
+  nameWithType: ModifierCollection.CopyTo
+- uid: Nitro.ModifierCollection.Count
+  name: Count
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_Count
+  commentId: P:Nitro.ModifierCollection.Count
+  fullName: Nitro.ModifierCollection.Count
+  nameWithType: ModifierCollection.Count
+- uid: Nitro.ModifierCollection.Count*
+  name: Count
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_Count_
+  commentId: Overload:Nitro.ModifierCollection.Count
+  isSpec: "True"
+  fullName: Nitro.ModifierCollection.Count
+  nameWithType: ModifierCollection.Count
+- uid: Nitro.ModifierCollection.GetEnumerator
+  name: GetEnumerator()
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_GetEnumerator
+  commentId: M:Nitro.ModifierCollection.GetEnumerator
+  fullName: Nitro.ModifierCollection.GetEnumerator()
+  nameWithType: ModifierCollection.GetEnumerator()
+- uid: Nitro.ModifierCollection.GetEnumerator*
+  name: GetEnumerator
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_GetEnumerator_
+  commentId: Overload:Nitro.ModifierCollection.GetEnumerator
+  isSpec: "True"
+  fullName: Nitro.ModifierCollection.GetEnumerator
+  nameWithType: ModifierCollection.GetEnumerator
+- uid: Nitro.ModifierCollection.IndexOf(Nitro.IModifier)
+  name: IndexOf(IModifier)
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_IndexOf_Nitro_IModifier_
+  commentId: M:Nitro.ModifierCollection.IndexOf(Nitro.IModifier)
+  fullName: Nitro.ModifierCollection.IndexOf(Nitro.IModifier)
+  nameWithType: ModifierCollection.IndexOf(IModifier)
+- uid: Nitro.ModifierCollection.IndexOf(System.Object)
+  name: IndexOf(Object)
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_IndexOf_System_Object_
+  commentId: M:Nitro.ModifierCollection.IndexOf(System.Object)
+  fullName: Nitro.ModifierCollection.IndexOf(System.Object)
+  nameWithType: ModifierCollection.IndexOf(Object)
+- uid: Nitro.ModifierCollection.IndexOf*
+  name: IndexOf
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_IndexOf_
+  commentId: Overload:Nitro.ModifierCollection.IndexOf
+  isSpec: "True"
+  fullName: Nitro.ModifierCollection.IndexOf
+  nameWithType: ModifierCollection.IndexOf
+- uid: Nitro.ModifierCollection.IsFixedSize
+  name: IsFixedSize
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_IsFixedSize
+  commentId: P:Nitro.ModifierCollection.IsFixedSize
+  fullName: Nitro.ModifierCollection.IsFixedSize
+  nameWithType: ModifierCollection.IsFixedSize
+- uid: Nitro.ModifierCollection.IsFixedSize*
+  name: IsFixedSize
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_IsFixedSize_
+  commentId: Overload:Nitro.ModifierCollection.IsFixedSize
+  isSpec: "True"
+  fullName: Nitro.ModifierCollection.IsFixedSize
+  nameWithType: ModifierCollection.IsFixedSize
+- uid: Nitro.ModifierCollection.IsReadOnly
+  name: IsReadOnly
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_IsReadOnly
+  commentId: P:Nitro.ModifierCollection.IsReadOnly
+  fullName: Nitro.ModifierCollection.IsReadOnly
+  nameWithType: ModifierCollection.IsReadOnly
+- uid: Nitro.ModifierCollection.IsReadOnly*
+  name: IsReadOnly
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_IsReadOnly_
+  commentId: Overload:Nitro.ModifierCollection.IsReadOnly
+  isSpec: "True"
+  fullName: Nitro.ModifierCollection.IsReadOnly
+  nameWithType: ModifierCollection.IsReadOnly
+- uid: Nitro.ModifierCollection.IsSynchronized
+  name: IsSynchronized
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_IsSynchronized
+  commentId: P:Nitro.ModifierCollection.IsSynchronized
+  fullName: Nitro.ModifierCollection.IsSynchronized
+  nameWithType: ModifierCollection.IsSynchronized
+- uid: Nitro.ModifierCollection.IsSynchronized*
+  name: IsSynchronized
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_IsSynchronized_
+  commentId: Overload:Nitro.ModifierCollection.IsSynchronized
+  isSpec: "True"
+  fullName: Nitro.ModifierCollection.IsSynchronized
+  nameWithType: ModifierCollection.IsSynchronized
+- uid: Nitro.ModifierCollection.Item(System.Int32)
+  name: Item[Int32]
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_Item_System_Int32_
+  commentId: P:Nitro.ModifierCollection.Item(System.Int32)
+  name.vb: Item(Int32)
+  fullName: Nitro.ModifierCollection.Item[System.Int32]
+  fullName.vb: Nitro.ModifierCollection.Item(System.Int32)
+  nameWithType: ModifierCollection.Item[Int32]
+  nameWithType.vb: ModifierCollection.Item(Int32)
+- uid: Nitro.ModifierCollection.Item*
+  name: Item
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_Item_
+  commentId: Overload:Nitro.ModifierCollection.Item
+  isSpec: "True"
+  fullName: Nitro.ModifierCollection.Item
+  nameWithType: ModifierCollection.Item
+- uid: Nitro.ModifierCollection.Remove(Nitro.IModifier)
+  name: Remove(IModifier)
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_Remove_Nitro_IModifier_
+  commentId: M:Nitro.ModifierCollection.Remove(Nitro.IModifier)
+  fullName: Nitro.ModifierCollection.Remove(Nitro.IModifier)
+  nameWithType: ModifierCollection.Remove(IModifier)
+- uid: Nitro.ModifierCollection.Remove(System.Object)
+  name: Remove(Object)
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_Remove_System_Object_
+  commentId: M:Nitro.ModifierCollection.Remove(System.Object)
+  fullName: Nitro.ModifierCollection.Remove(System.Object)
+  nameWithType: ModifierCollection.Remove(Object)
+- uid: Nitro.ModifierCollection.Remove*
+  name: Remove
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_Remove_
+  commentId: Overload:Nitro.ModifierCollection.Remove
+  isSpec: "True"
+  fullName: Nitro.ModifierCollection.Remove
+  nameWithType: ModifierCollection.Remove
 - uid: Nitro.ModifierCollection.RevertAll
   name: RevertAll()
   href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_RevertAll
@@ -981,6 +1273,19 @@ references:
   isSpec: "True"
   fullName: Nitro.ModifierCollection.RevertAll
   nameWithType: ModifierCollection.RevertAll
+- uid: Nitro.ModifierCollection.RevertAllByObject(UnityEngine.Object)
+  name: RevertAllByObject(UnityEngine.Object)
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_RevertAllByObject_UnityEngine_Object_
+  commentId: M:Nitro.ModifierCollection.RevertAllByObject(UnityEngine.Object)
+  fullName: Nitro.ModifierCollection.RevertAllByObject(UnityEngine.Object)
+  nameWithType: ModifierCollection.RevertAllByObject(UnityEngine.Object)
+- uid: Nitro.ModifierCollection.RevertAllByObject*
+  name: RevertAllByObject
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_RevertAllByObject_
+  commentId: Overload:Nitro.ModifierCollection.RevertAllByObject
+  isSpec: "True"
+  fullName: Nitro.ModifierCollection.RevertAllByObject
+  nameWithType: ModifierCollection.RevertAllByObject
 - uid: Nitro.ModifierCollection.RevertAllFor(Nitro.IRevertableVar)
   name: RevertAllFor(IRevertableVar)
   href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_RevertAllFor_Nitro_IRevertableVar_
@@ -1003,6 +1308,19 @@ references:
   fullName.vb: Nitro.ModifierCollection.RevertAllFor(Of T)(Nitro.RevertableVar(Of T))
   nameWithType: ModifierCollection.RevertAllFor<T>(RevertableVar<T>)
   nameWithType.vb: ModifierCollection.RevertAllFor(Of T)(RevertableVar(Of T))
+- uid: Nitro.ModifierCollection.SyncRoot
+  name: SyncRoot
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_SyncRoot
+  commentId: P:Nitro.ModifierCollection.SyncRoot
+  fullName: Nitro.ModifierCollection.SyncRoot
+  nameWithType: ModifierCollection.SyncRoot
+- uid: Nitro.ModifierCollection.SyncRoot*
+  name: SyncRoot
+  href: api/Nitro.ModifierCollection.html#Nitro_ModifierCollection_SyncRoot_
+  commentId: Overload:Nitro.ModifierCollection.SyncRoot
+  isSpec: "True"
+  fullName: Nitro.ModifierCollection.SyncRoot
+  nameWithType: ModifierCollection.SyncRoot
 - uid: Nitro.MultiplePowerupCollector
   name: MultiplePowerupCollector
   href: api/Nitro.MultiplePowerupCollector.html
@@ -1190,22 +1508,22 @@ references:
   fullName.vb: Nitro.RevertableVar(Of T).RevertableVar
   nameWithType: RevertableVar<T>.RevertableVar
   nameWithType.vb: RevertableVar(Of T).RevertableVar
-- uid: Nitro.RevertableVar`1.AddBy(`0,System.Int32)
-  name: AddBy(T, Int32)
-  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_AddBy__0_System_Int32_
-  commentId: M:Nitro.RevertableVar`1.AddBy(`0,System.Int32)
-  fullName: Nitro.RevertableVar<T>.AddBy(T, System.Int32)
-  fullName.vb: Nitro.RevertableVar(Of T).AddBy(T, System.Int32)
-  nameWithType: RevertableVar<T>.AddBy(T, Int32)
-  nameWithType.vb: RevertableVar(Of T).AddBy(T, Int32)
-- uid: Nitro.RevertableVar`1.AddBy(`0,System.Int32,System.Single)
-  name: AddBy(T, Int32, Single)
-  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_AddBy__0_System_Int32_System_Single_
-  commentId: M:Nitro.RevertableVar`1.AddBy(`0,System.Int32,System.Single)
-  fullName: Nitro.RevertableVar<T>.AddBy(T, System.Int32, System.Single)
-  fullName.vb: Nitro.RevertableVar(Of T).AddBy(T, System.Int32, System.Single)
-  nameWithType: RevertableVar<T>.AddBy(T, Int32, Single)
-  nameWithType.vb: RevertableVar(Of T).AddBy(T, Int32, Single)
+- uid: Nitro.RevertableVar`1.AddBy(`0,UnityEngine.Object,System.Int32)
+  name: AddBy(T, UnityEngine.Object, Int32)
+  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_AddBy__0_UnityEngine_Object_System_Int32_
+  commentId: M:Nitro.RevertableVar`1.AddBy(`0,UnityEngine.Object,System.Int32)
+  fullName: Nitro.RevertableVar<T>.AddBy(T, UnityEngine.Object, System.Int32)
+  fullName.vb: Nitro.RevertableVar(Of T).AddBy(T, UnityEngine.Object, System.Int32)
+  nameWithType: RevertableVar<T>.AddBy(T, UnityEngine.Object, Int32)
+  nameWithType.vb: RevertableVar(Of T).AddBy(T, UnityEngine.Object, Int32)
+- uid: Nitro.RevertableVar`1.AddBy(`0,UnityEngine.Object,System.Int32,System.Single)
+  name: AddBy(T, UnityEngine.Object, Int32, Single)
+  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_AddBy__0_UnityEngine_Object_System_Int32_System_Single_
+  commentId: M:Nitro.RevertableVar`1.AddBy(`0,UnityEngine.Object,System.Int32,System.Single)
+  fullName: Nitro.RevertableVar<T>.AddBy(T, UnityEngine.Object, System.Int32, System.Single)
+  fullName.vb: Nitro.RevertableVar(Of T).AddBy(T, UnityEngine.Object, System.Int32, System.Single)
+  nameWithType: RevertableVar<T>.AddBy(T, UnityEngine.Object, Int32, Single)
+  nameWithType.vb: RevertableVar(Of T).AddBy(T, UnityEngine.Object, Int32, Single)
 - uid: Nitro.RevertableVar`1.AddBy*
   name: AddBy
   href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_AddBy_
@@ -1232,22 +1550,22 @@ references:
   fullName.vb: Nitro.RevertableVar(Of T).BaseValue
   nameWithType: RevertableVar<T>.BaseValue
   nameWithType.vb: RevertableVar(Of T).BaseValue
-- uid: Nitro.RevertableVar`1.DivideBy(`0,System.Int32)
-  name: DivideBy(T, Int32)
-  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_DivideBy__0_System_Int32_
-  commentId: M:Nitro.RevertableVar`1.DivideBy(`0,System.Int32)
-  fullName: Nitro.RevertableVar<T>.DivideBy(T, System.Int32)
-  fullName.vb: Nitro.RevertableVar(Of T).DivideBy(T, System.Int32)
-  nameWithType: RevertableVar<T>.DivideBy(T, Int32)
-  nameWithType.vb: RevertableVar(Of T).DivideBy(T, Int32)
-- uid: Nitro.RevertableVar`1.DivideBy(`0,System.Int32,System.Single)
-  name: DivideBy(T, Int32, Single)
-  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_DivideBy__0_System_Int32_System_Single_
-  commentId: M:Nitro.RevertableVar`1.DivideBy(`0,System.Int32,System.Single)
-  fullName: Nitro.RevertableVar<T>.DivideBy(T, System.Int32, System.Single)
-  fullName.vb: Nitro.RevertableVar(Of T).DivideBy(T, System.Int32, System.Single)
-  nameWithType: RevertableVar<T>.DivideBy(T, Int32, Single)
-  nameWithType.vb: RevertableVar(Of T).DivideBy(T, Int32, Single)
+- uid: Nitro.RevertableVar`1.DivideBy(`0,UnityEngine.Object,System.Int32)
+  name: DivideBy(T, UnityEngine.Object, Int32)
+  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_DivideBy__0_UnityEngine_Object_System_Int32_
+  commentId: M:Nitro.RevertableVar`1.DivideBy(`0,UnityEngine.Object,System.Int32)
+  fullName: Nitro.RevertableVar<T>.DivideBy(T, UnityEngine.Object, System.Int32)
+  fullName.vb: Nitro.RevertableVar(Of T).DivideBy(T, UnityEngine.Object, System.Int32)
+  nameWithType: RevertableVar<T>.DivideBy(T, UnityEngine.Object, Int32)
+  nameWithType.vb: RevertableVar(Of T).DivideBy(T, UnityEngine.Object, Int32)
+- uid: Nitro.RevertableVar`1.DivideBy(`0,UnityEngine.Object,System.Int32,System.Single)
+  name: DivideBy(T, UnityEngine.Object, Int32, Single)
+  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_DivideBy__0_UnityEngine_Object_System_Int32_System_Single_
+  commentId: M:Nitro.RevertableVar`1.DivideBy(`0,UnityEngine.Object,System.Int32,System.Single)
+  fullName: Nitro.RevertableVar<T>.DivideBy(T, UnityEngine.Object, System.Int32, System.Single)
+  fullName.vb: Nitro.RevertableVar(Of T).DivideBy(T, UnityEngine.Object, System.Int32, System.Single)
+  nameWithType: RevertableVar<T>.DivideBy(T, UnityEngine.Object, Int32, Single)
+  nameWithType.vb: RevertableVar(Of T).DivideBy(T, UnityEngine.Object, Int32, Single)
 - uid: Nitro.RevertableVar`1.DivideBy*
   name: DivideBy
   href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_DivideBy_
@@ -1308,22 +1626,22 @@ references:
   fullName.vb: Nitro.RevertableVar(Of T).ModifiersApplied
   nameWithType: RevertableVar<T>.ModifiersApplied
   nameWithType.vb: RevertableVar(Of T).ModifiersApplied
-- uid: Nitro.RevertableVar`1.MultiplyBy(`0,System.Int32)
-  name: MultiplyBy(T, Int32)
-  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_MultiplyBy__0_System_Int32_
-  commentId: M:Nitro.RevertableVar`1.MultiplyBy(`0,System.Int32)
-  fullName: Nitro.RevertableVar<T>.MultiplyBy(T, System.Int32)
-  fullName.vb: Nitro.RevertableVar(Of T).MultiplyBy(T, System.Int32)
-  nameWithType: RevertableVar<T>.MultiplyBy(T, Int32)
-  nameWithType.vb: RevertableVar(Of T).MultiplyBy(T, Int32)
-- uid: Nitro.RevertableVar`1.MultiplyBy(`0,System.Int32,System.Single)
-  name: MultiplyBy(T, Int32, Single)
-  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_MultiplyBy__0_System_Int32_System_Single_
-  commentId: M:Nitro.RevertableVar`1.MultiplyBy(`0,System.Int32,System.Single)
-  fullName: Nitro.RevertableVar<T>.MultiplyBy(T, System.Int32, System.Single)
-  fullName.vb: Nitro.RevertableVar(Of T).MultiplyBy(T, System.Int32, System.Single)
-  nameWithType: RevertableVar<T>.MultiplyBy(T, Int32, Single)
-  nameWithType.vb: RevertableVar(Of T).MultiplyBy(T, Int32, Single)
+- uid: Nitro.RevertableVar`1.MultiplyBy(`0,UnityEngine.Object,System.Int32)
+  name: MultiplyBy(T, UnityEngine.Object, Int32)
+  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_MultiplyBy__0_UnityEngine_Object_System_Int32_
+  commentId: M:Nitro.RevertableVar`1.MultiplyBy(`0,UnityEngine.Object,System.Int32)
+  fullName: Nitro.RevertableVar<T>.MultiplyBy(T, UnityEngine.Object, System.Int32)
+  fullName.vb: Nitro.RevertableVar(Of T).MultiplyBy(T, UnityEngine.Object, System.Int32)
+  nameWithType: RevertableVar<T>.MultiplyBy(T, UnityEngine.Object, Int32)
+  nameWithType.vb: RevertableVar(Of T).MultiplyBy(T, UnityEngine.Object, Int32)
+- uid: Nitro.RevertableVar`1.MultiplyBy(`0,UnityEngine.Object,System.Int32,System.Single)
+  name: MultiplyBy(T, UnityEngine.Object, Int32, Single)
+  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_MultiplyBy__0_UnityEngine_Object_System_Int32_System_Single_
+  commentId: M:Nitro.RevertableVar`1.MultiplyBy(`0,UnityEngine.Object,System.Int32,System.Single)
+  fullName: Nitro.RevertableVar<T>.MultiplyBy(T, UnityEngine.Object, System.Int32, System.Single)
+  fullName.vb: Nitro.RevertableVar(Of T).MultiplyBy(T, UnityEngine.Object, System.Int32, System.Single)
+  nameWithType: RevertableVar<T>.MultiplyBy(T, UnityEngine.Object, Int32, Single)
+  nameWithType.vb: RevertableVar(Of T).MultiplyBy(T, UnityEngine.Object, Int32, Single)
 - uid: Nitro.RevertableVar`1.MultiplyBy*
   name: MultiplyBy
   href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_MultiplyBy_
@@ -1509,22 +1827,22 @@ references:
   fullName.vb: Nitro.RevertableVar(Of T).Revert
   nameWithType: RevertableVar<T>.Revert
   nameWithType.vb: RevertableVar(Of T).Revert
-- uid: Nitro.RevertableVar`1.Set(`0,System.Int32)
-  name: Set(T, Int32)
-  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_Set__0_System_Int32_
-  commentId: M:Nitro.RevertableVar`1.Set(`0,System.Int32)
-  fullName: Nitro.RevertableVar<T>.Set(T, System.Int32)
-  fullName.vb: Nitro.RevertableVar(Of T).Set(T, System.Int32)
-  nameWithType: RevertableVar<T>.Set(T, Int32)
-  nameWithType.vb: RevertableVar(Of T).Set(T, Int32)
-- uid: Nitro.RevertableVar`1.Set(`0,System.Int32,System.Single)
-  name: Set(T, Int32, Single)
-  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_Set__0_System_Int32_System_Single_
-  commentId: M:Nitro.RevertableVar`1.Set(`0,System.Int32,System.Single)
-  fullName: Nitro.RevertableVar<T>.Set(T, System.Int32, System.Single)
-  fullName.vb: Nitro.RevertableVar(Of T).Set(T, System.Int32, System.Single)
-  nameWithType: RevertableVar<T>.Set(T, Int32, Single)
-  nameWithType.vb: RevertableVar(Of T).Set(T, Int32, Single)
+- uid: Nitro.RevertableVar`1.Set(`0,UnityEngine.Object,System.Int32)
+  name: Set(T, UnityEngine.Object, Int32)
+  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_Set__0_UnityEngine_Object_System_Int32_
+  commentId: M:Nitro.RevertableVar`1.Set(`0,UnityEngine.Object,System.Int32)
+  fullName: Nitro.RevertableVar<T>.Set(T, UnityEngine.Object, System.Int32)
+  fullName.vb: Nitro.RevertableVar(Of T).Set(T, UnityEngine.Object, System.Int32)
+  nameWithType: RevertableVar<T>.Set(T, UnityEngine.Object, Int32)
+  nameWithType.vb: RevertableVar(Of T).Set(T, UnityEngine.Object, Int32)
+- uid: Nitro.RevertableVar`1.Set(`0,UnityEngine.Object,System.Int32,System.Single)
+  name: Set(T, UnityEngine.Object, Int32, Single)
+  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_Set__0_UnityEngine_Object_System_Int32_System_Single_
+  commentId: M:Nitro.RevertableVar`1.Set(`0,UnityEngine.Object,System.Int32,System.Single)
+  fullName: Nitro.RevertableVar<T>.Set(T, UnityEngine.Object, System.Int32, System.Single)
+  fullName.vb: Nitro.RevertableVar(Of T).Set(T, UnityEngine.Object, System.Int32, System.Single)
+  nameWithType: RevertableVar<T>.Set(T, UnityEngine.Object, Int32, Single)
+  nameWithType.vb: RevertableVar(Of T).Set(T, UnityEngine.Object, Int32, Single)
 - uid: Nitro.RevertableVar`1.Set*
   name: Set
   href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_Set_
@@ -1534,22 +1852,22 @@ references:
   fullName.vb: Nitro.RevertableVar(Of T).Set
   nameWithType: RevertableVar<T>.Set
   nameWithType.vb: RevertableVar(Of T).Set
-- uid: Nitro.RevertableVar`1.SubtractBy(`0,System.Int32)
-  name: SubtractBy(T, Int32)
-  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_SubtractBy__0_System_Int32_
-  commentId: M:Nitro.RevertableVar`1.SubtractBy(`0,System.Int32)
-  fullName: Nitro.RevertableVar<T>.SubtractBy(T, System.Int32)
-  fullName.vb: Nitro.RevertableVar(Of T).SubtractBy(T, System.Int32)
-  nameWithType: RevertableVar<T>.SubtractBy(T, Int32)
-  nameWithType.vb: RevertableVar(Of T).SubtractBy(T, Int32)
-- uid: Nitro.RevertableVar`1.SubtractBy(`0,System.Int32,System.Single)
-  name: SubtractBy(T, Int32, Single)
-  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_SubtractBy__0_System_Int32_System_Single_
-  commentId: M:Nitro.RevertableVar`1.SubtractBy(`0,System.Int32,System.Single)
-  fullName: Nitro.RevertableVar<T>.SubtractBy(T, System.Int32, System.Single)
-  fullName.vb: Nitro.RevertableVar(Of T).SubtractBy(T, System.Int32, System.Single)
-  nameWithType: RevertableVar<T>.SubtractBy(T, Int32, Single)
-  nameWithType.vb: RevertableVar(Of T).SubtractBy(T, Int32, Single)
+- uid: Nitro.RevertableVar`1.SubtractBy(`0,UnityEngine.Object,System.Int32)
+  name: SubtractBy(T, UnityEngine.Object, Int32)
+  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_SubtractBy__0_UnityEngine_Object_System_Int32_
+  commentId: M:Nitro.RevertableVar`1.SubtractBy(`0,UnityEngine.Object,System.Int32)
+  fullName: Nitro.RevertableVar<T>.SubtractBy(T, UnityEngine.Object, System.Int32)
+  fullName.vb: Nitro.RevertableVar(Of T).SubtractBy(T, UnityEngine.Object, System.Int32)
+  nameWithType: RevertableVar<T>.SubtractBy(T, UnityEngine.Object, Int32)
+  nameWithType.vb: RevertableVar(Of T).SubtractBy(T, UnityEngine.Object, Int32)
+- uid: Nitro.RevertableVar`1.SubtractBy(`0,UnityEngine.Object,System.Int32,System.Single)
+  name: SubtractBy(T, UnityEngine.Object, Int32, Single)
+  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_SubtractBy__0_UnityEngine_Object_System_Int32_System_Single_
+  commentId: M:Nitro.RevertableVar`1.SubtractBy(`0,UnityEngine.Object,System.Int32,System.Single)
+  fullName: Nitro.RevertableVar<T>.SubtractBy(T, UnityEngine.Object, System.Int32, System.Single)
+  fullName.vb: Nitro.RevertableVar(Of T).SubtractBy(T, UnityEngine.Object, System.Int32, System.Single)
+  nameWithType: RevertableVar<T>.SubtractBy(T, UnityEngine.Object, Int32, Single)
+  nameWithType.vb: RevertableVar(Of T).SubtractBy(T, UnityEngine.Object, Int32, Single)
 - uid: Nitro.RevertableVar`1.SubtractBy*
   name: SubtractBy
   href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_SubtractBy_

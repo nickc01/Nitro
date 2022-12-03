@@ -21,8 +21,12 @@
         "globalMetadata": {
             "_appTitle": "Nitro Documentation",
             "_appFooter": "Nitro Documentation",
-            "_enableSearch": true
+            "_appLogoPath": "resources/logo.png",
+			"_appFaviconPath": "resources/favicon.png",
+			"_enableSearch": true,
+			"_enableNewTab": true
         },
+		"template": ["default", "templates/singulinkfx"],
         "content": [
             {
                 "files": [

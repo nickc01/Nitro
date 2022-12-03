@@ -36,34 +36,6 @@ public class ElectricPowerup : CombinablePowerup
 		return instance;
 	}
 
-	//The main action of the electric powerup
-	/*public override void DoMainAction(AuxPowerups AuxillaryPowerups)
-	{
-		IsFirst = false;
-		StartCoroutine(MainRoutine());
-
-		IEnumerator MainRoutine()
-		{
-			cloudInstance = CreateCloud();
-			cloudInstance.DoMainAction();
-
-			for (float i = 0; i < LifeTime + StrikeTime; i += Time.deltaTime)
-			{
-				cloudInstance.transform.position = transform.TransformPoint(CloudOffset);
-				yield return null;
-			}
-			DoneUsingPowerup(); 
-		}
-	}
-
-	//The auxiliary action of the electric powerup
-	public override void DoAuxillaryAction(CombinablePowerup sourcePowerup, Vector3 position)
-	{
-		IsFirst = true;
-		cloudInstance = CreateCloud();
-		cloudInstance.DoSingleStrike(position);
-	}*/
-
 	Action<Vector3, Quaternion> RunNextPowerup;
 
     public override void Execute(CombinablePowerup previous, Vector3 position, Quaternion rotation, Action<Vector3, Quaternion> runNextPowerup)
@@ -102,7 +74,6 @@ public class ElectricPowerup : CombinablePowerup
 
 		StartCoroutine(Routine());
 
-		//If this is the first powerup in the chain
     }
 
     //This is called when the cloud object strikes an object. This is used to execute the auxiliary powerups where the lightining struck
@@ -111,12 +82,6 @@ public class ElectricPowerup : CombinablePowerup
 		if (IsFirst)
 		{
 			RunNextPowerup(hitObject.transform.position, hitObject.transform.rotation);
-            //AuxillaryPowerups.Execute(this, hitObject.transform.position);
         }
 	}
-
-	/*public override void DoneUsingPowerup()
-	{
-		base.DoneUsingPowerup();
-	}*/
 }

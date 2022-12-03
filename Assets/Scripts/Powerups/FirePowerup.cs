@@ -32,61 +32,6 @@ public class FirePowerup : CombinablePowerup
 	FireParticles FireParticles;
 	public float auxillaryTerminalVelocityMultiplier = 0.5f;
 
-	//The main action of the fire powerup
-	/*public override void DoMainAction(AuxPowerups AuxillaryPowerups)
-	{
-		var spawnPosition = transform.TransformPoint(transform.localPosition + spawnOffset);
-		fireballInstance = GameObject.Instantiate(FireballPrefab, spawnPosition, Collector.transform.rotation);
-
-		Rigidbody fireballBody = fireballInstance.GetComponent<Rigidbody>();
-
-		fireballBody.velocity = Collector.transform.forward * fireballVelocity;
-
-		DoneUsingPowerupAfter(lifeTime);
-
-		StartCoroutine(Routine());
-
-		IEnumerator Routine()
-		{
-			while (true)
-			{
-				yield return new WaitForSeconds(auxillaryExecutionRate);
-				AuxillaryPowerups.Execute(this, fireballInstance.transform.position);
-			}
-		}
-	}
-	
-	//The auxiliary action of the fire powerup
-	public override void DoAuxillaryAction(CombinablePowerup sourcePowerup, Vector3 position)
-	{
-		var particleInstance = GameObject.Instantiate(FireParticles, position, Quaternion.identity);
-		particleInstance.SourcePowerup = this;
-
-		var particleSystems = particleInstance.GetComponentsInChildren<ParticleSystem>();
-
-		foreach (var particle in particleSystems)
-		{
-			var shape = particle.shape;
-			shape.radius = particleSize;
-		}
-
-		particleInstance.StartCoroutine(AuxillaryRoutine());
-
-
-		IEnumerator AuxillaryRoutine()
-		{
-			yield return new WaitForSeconds(auxillaryLifeTime);
-
-			foreach (var particle in particleSystems)
-			{
-				particle.Stop(false, ParticleSystemStopBehavior.StopEmitting);
-			}
-
-			particleInstance.GetComponent<Collider>().enabled = false;
-			particleInstance.Stop();
-		}
-	}*/
-
 	void DoFireball(Vector3 position, Quaternion rotation, Action<Vector3,Quaternion> runNextPowerup)
 	{
         var spawnPosition = transform.TransformPoint(transform.localPosition + spawnOffset);
@@ -145,15 +90,21 @@ public class FirePowerup : CombinablePowerup
         }
     }
 
+
     public override void Execute(CombinablePowerup previous, Vector3 position, Quaternion rotation, Action<Vector3, Quaternion> runNextPowerup)
     {
+        //If this is the first powerup in the chain
 		if (previous == null)
 		{
+            //Spawn a fireball
 			DoFireball(position, rotation, runNextPowerup);
         }
+        //If this powerup isn't the first in the powerup chain
 		else
 		{
+            //Spawn a circular pit of flames
 			DoFirepit(position);
+            //Trigger the next powerup in the chain to run
 			runNextPowerup(position, rotation);
         }
     }

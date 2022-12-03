@@ -17,31 +17,31 @@ namespace Nitro
     /// With the execute function, you will be able to know the previous powerup in the chain, the position and rotation of where the powerup is affecting, and a delegate called runNextPowerup, which when called, will execute the next powerup in the chain. You can use this delegate to control where and when the next powerups in the chain are executed"/>
     /// </summary>
     public abstract class CombinablePowerup : Powerup
-	{
-		/// <summary>
-		/// A comparer used for sorting combinable powerups by priority
-		/// </summary>
-		public class Comparer : IComparer<CombinablePowerup>
-		{
-			Comparer<int> intComparer = Comparer<int>.Default;
-			public int Compare(CombinablePowerup x, CombinablePowerup y)
-			{
-				if (x.priority == y.priority)
-				{
-					return intComparer.Compare(y.GetInstanceID(), x.GetInstanceID());
-				}
-				else
-				{
-					return intComparer.Compare(y.priority, x.priority);
-				}
-			}
-		}
+    {
+        /// <summary>
+        /// A comparer used for sorting combinable powerups by priority
+        /// </summary>
+        public class Comparer : IComparer<CombinablePowerup>
+        {
+            Comparer<int> intComparer = Comparer<int>.Default;
+            public int Compare(CombinablePowerup x, CombinablePowerup y)
+            {
+                if (x.priority == y.priority)
+                {
+                    return intComparer.Compare(y.GetInstanceID(), x.GetInstanceID());
+                }
+                else
+                {
+                    return intComparer.Compare(y.priority, x.priority);
+                }
+            }
+        }
 
-		[SerializeField]
-		[Tooltip(@"The priority of the powerup, which determines whether or not this powerup will get executed before others
+        [SerializeField]
+        [Tooltip(@"The priority of the powerup, which determines whether or not this powerup will get executed before others
 
 For example, if you have a fire powerup that has a higher priority than a water powerup, then the fire effect will be executed before the water effect.")]
-		protected int priority;
+        protected int priority;
 
         /// <summary>
         /// The priority of the powerup, which determines whether or not this powerup will get executed before others
@@ -51,7 +51,7 @@ For example, if you have a fire powerup that has a higher priority than a water 
 		public int Priority => priority;
 
         [NonSerialized]
-		private CombinablePowerup[] _powerups;
+        private CombinablePowerup[] _powerups;
         [NonSerialized]
         private bool[] _completedPowerups;
         [NonSerialized]
@@ -62,7 +62,72 @@ For example, if you have a fire powerup that has a higher priority than a water 
         /// <summary>
         /// Gets a list of all the powerups in the chain
         /// </summary>
-        protected ReadOnlyMemory<CombinablePowerup> GetPowerupChain() => _powerups != null ? ReadOnlyMemory<CombinablePowerup>.Empty : new ReadOnlyMemory<CombinablePowerup>(_powerups);
+        protected ReadOnlySpan<CombinablePowerup> GetPowerupChain() => _powerups != null ? ReadOnlySpan<CombinablePowerup>.Empty : new ReadOnlySpan<CombinablePowerup>(_powerups);
+
+        /// <summary>
+        /// Checks if a certain powerup is within the powerup chain
+        /// </summary>
+        /// <typeparam name="T">The type of powerup to check for</typeparam>
+        /// <returns>Returns true if the powerup type is within the chain</returns>
+        protected bool HasPowerupInChain<T>() => HasPowerupInChain(typeof(T));
+
+        /// <summary>
+        /// Checks if a certain powerup is within the powerup chain
+        /// </summary>
+        /// <typeparam name="T">The type of powerup to check for</typeparam>
+        /// <param name="powerup">The resulting powerup</param>
+        /// <returns>Returns true if the powerup type is within the chain</returns>
+        protected bool HasPowerupInChain<T>(out T powerup)
+        {
+            CombinablePowerup resultPowerup;
+            var result = HasPowerupInChain(typeof(T), out resultPowerup);
+            if (resultPowerup != null)
+            {
+                powerup = (T)(object)resultPowerup;
+            }
+            else
+            {
+                powerup = default;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Checks if a certain powerup is within the powerup chain
+        /// </summary>
+        /// <param name="powerupType">The type of powerup to check for</param>
+        /// <returns>Returns true if the powerup type is within the chain</returns>
+        protected bool HasPowerupInChain(Type powerupType)
+        {
+            foreach (var p in GetPowerupChain())
+            {
+                if (powerupType.IsAssignableFrom(p.GetType()))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Checks if a certain powerup is within the powerup chain
+        /// </summary>
+        /// <param name="powerupType">The type of powerup to check for</param>
+        /// <param name="powerup">The resulting powerup</param>
+        /// <returns>Returns true if the powerup type is within the chain</returns>
+        protected bool HasPowerupInChain(Type powerupType, out CombinablePowerup powerup)
+        {
+            foreach (var p in GetPowerupChain())
+            {
+                if (powerupType.IsAssignableFrom(p.GetType()))
+                {
+                    powerup = p;
+                    return true;
+                }
+            }
+            powerup = null;
+            return false;
+        }
 
         /// <summary>
         /// Retrieves the index of the current powerup within the powerup chain.

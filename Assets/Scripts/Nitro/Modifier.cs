@@ -33,6 +33,12 @@ namespace Nitro
         /// <inheritdoc/>
         IRevertableVar IModifier.SourceVariable => SourceVar;
 
+        /// <inheritdoc/>
+        public UnityEngine.Object BoundObject { get; internal set; }
+
+        /// <inheritdoc/>
+        public bool HasBoundObject { get; internal set; }
+
         internal float TimeActive;
 
         internal ulong ID;
@@ -48,16 +54,16 @@ namespace Nitro
                 {
                     if (x.TimeAdded == y.TimeAdded)
                     {
-                        return idComparer.Compare(x.ID, y.ID);
+                        return idComparer.Compare(y.ID, x.ID);
                     }
                     else
                     {
-                        return floatComparer.Compare(x.TimeAdded, y.TimeAdded);
+                        return floatComparer.Compare(y.TimeAdded, x.TimeAdded);
                     }
                 }
                 else
                 {
-                    return numberComparer.Compare(x.Priority, y.Priority);
+                    return numberComparer.Compare(y.Priority, x.Priority);
                 }
             }
         }

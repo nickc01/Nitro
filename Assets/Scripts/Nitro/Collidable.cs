@@ -13,7 +13,7 @@ namespace Nitro
         /// <summary>
         /// Returns a list of all the collided objects
         /// </summary>
-        public IEnumerable<Collider> CollidedBodies => collisions;
+        public IEnumerable<Collider> Collisions => collisions;
 
         /// <summary>
         /// Called when an object collides with this object.

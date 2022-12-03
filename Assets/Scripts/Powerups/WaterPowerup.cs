@@ -21,20 +21,6 @@ public class WaterPowerup : CombinablePowerup
 	[FormerlySerializedAs("auxillaryPuddleSize")]
 	float smallPuddleSize = 0.5f;
 
-	//The auxiliary action of the water powerup
-	/*public override void DoAuxillaryAction(CombinablePowerup sourcePowerup, Vector3 position)
-	{
-		SpawnPuddle(smallPuddleSize, position);
-	}
-
-	//The main action of the water powerup
-	public override void DoMainAction(AuxPowerups AuxillaryPowerups)
-	{
-		SpawnPuddle(largePuddleSize, transform.position);
-		AuxillaryPowerups.Execute(this, transform.position);
-		DoneUsingPowerup();
-	}*/
-
 	//Spawns a puddle with the specified size and at the specified position
 	public void SpawnPuddle(float size, Vector3 position)
 	{
@@ -45,16 +31,21 @@ public class WaterPowerup : CombinablePowerup
 
     public override void Execute(CombinablePowerup previous, Vector3 position, Quaternion rotation, Action<Vector3, Quaternion> runNextPowerup)
     {
+		//If this powerup is the first in the powerup chain
 		if (previous == null)
 		{
+			//Spawn a large puddle
             SpawnPuddle(largePuddleSize, position);
-			//AuxillaryPowerups.Execute(this, transform.position);
         }
 		else
 		{
+			//Spawn a small puddle
             SpawnPuddle(smallPuddleSize, position);
         }
+		//Trigger the next powerup in the powerup chain. You can tell it to execute at a certain position and rotation
 		runNextPowerup(position, rotation);
+
+		//Signal that this powerup is done with its execution
         DoneUsingPowerup();
     }
 }

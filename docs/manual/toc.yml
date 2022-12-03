@@ -1,4 +1,8 @@
-- name: Coniunctis nec qui
-  href: coniunctis.md
-- name: Etiam nantemque exul
-  href: etiam.md
+- name: Quick Start
+  href: quickstart.md
+- name: Collidables & Hazards
+  href: collidables_and_hazards.md
+- name: Revertable Variables
+  href: revertable_variables.md
+- name: Combinable Powerups
+  href: combinable_powerups.md
