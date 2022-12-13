@@ -75,7 +75,7 @@
             }
         },
         "xref": [
-            "https://nickc01.github.io/Nitro/xrefmap.yml"
+            "https://nickc01.github.io/Nitro/docs/xrefmap.yml"
         ],
         "xrefService": [
             "https://xref.docs.microsoft.com/query?uid={uid}"

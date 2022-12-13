@@ -1,5 +1,7 @@
 # Nitro
 
+![logo](https://user-images.githubusercontent.com/12601671/207251841-73b29f80-1568-426f-9f46-ce212922da58.png)
+
 Nitro is a powerup system that makes it easy to implement different kinds of powerups for your game.
 
 It not only includes the ability to build regular powerups and combinable powerups, but it also provides several tools and components to make it easier to integrate powerups into your game system, such as:
