@@ -44,6 +44,15 @@ if (!onMobile) {
     });
 
     checkVideos();
+
+    for (var i = 0; i < contentVideos.length; i++) {
+        var video = contentVideos[i];
+        video.autoplay = true;
+        video.controls = false;
+    }
+
+    backgroundVideo.autoplay = true;
+
 }
 else {
     for (var i = 0; i < contentVideos.length; i++) {
