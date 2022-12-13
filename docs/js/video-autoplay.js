@@ -1,3 +1,6 @@
+
+var onMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
@@ -31,12 +34,23 @@ function checkVideos() {
     }
 }
 
-window.addEventListener("scroll", () => {
-    checkVideos();
-});
+if (!onMobile) {
+    window.addEventListener("scroll", () => {
+        checkVideos();
+    });
 
-window.addEventListener("resize", () => {
-    checkVideos();
-});
+    window.addEventListener("resize", () => {
+        checkVideos();
+    });
 
-checkVideos();
+    checkVideos();
+}
+else {
+    for (var i = 0; i < contentVideos.length; i++) {
+        var video = contentVideos[i];
+        video.autoplay = false;
+        video.controls = true;
+    }
+
+    backgroundVideo.autoplay = false;
+}

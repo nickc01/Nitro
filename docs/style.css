@@ -112,12 +112,13 @@ h1 {
         text-align: center;
         max-height: 1.75rem;
         text-decoration: none;
-        font-size: 1.25rem;
+        /*font-size: 1.25rem;*/
+        font-size: min(1.25rem, calc(10vw - 1rem));
         padding-left: 1rem;
         padding-right: 1rem;
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
-        margin: 2rem;
+        margin: 1rem;
         border-radius: 0.8rem;
         opacity: 1;
         color: var(--text-color);
@@ -184,7 +185,7 @@ h2 {
         height: auto;
         background-size: 400% 400%;
         text-align: justify;
-        border-radius: 2rem;
+        border-radius: min(2rem, 6vw);
         padding: 1rem;
         margin: 1rem;
         margin-top: 2rem;
@@ -209,7 +210,7 @@ h2 {
 
 .container:not(.secondary-container) {
     background-color: var(--code-bg-color);
-    width: 20rem;
+    max-width: 20rem;
     margin-top: 5rem;
 }
 
@@ -219,13 +220,15 @@ h2 {
     top: -4.5rem;
     left: 0;
     width: 100%;
-    font-size: 1.75rem;
+    /*font-size: 1.75rem;*/
+    font-size: min(1.75rem,calc(10vw));
 }
 
 .section > .container > h3, li {
     color: var(--code-color);
     font-family: spaceGrotesk;
-    font-size: 1.125rem;
+    /*font-size: 1.125rem;*/
+    font-size: min(1.25rem, calc(4vw));
     font-style: normal;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -249,7 +252,8 @@ h2 {
 }
 
 .video-container {
-    border-radius: 1.5rem;
+    /*border-radius: 1.5rem;*/
+    border-radius: min(1.5rem, 7vw);
     background-color: black;
     position: relative;
     overflow: hidden;
@@ -333,7 +337,7 @@ h2 {
 
 .hljs {
     color: var(--code-color);
-    font-size: 1rem;
+    font-size: min(1rem, calc(3vw));
 }
 
     .hljs::-webkit-scrollbar {
@@ -353,16 +357,16 @@ h2 {
     font-family: Open Sans;
 }*/
 
-section {
+/*section {
     width: 100%;
     display: inline-block;
     background: #333;
     height: 50vh;
     text-align: center;
-    font-size: 22px;
+    font-size: 3.66666rem;
     font-weight: 700;
     text-decoration: underline;
-}
+}*/
 
 #brand-logo {
     max-width: 4rem;
@@ -372,12 +376,12 @@ section {
 
 .footer-distributed {
     background: var(--code-bg-color);
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0.0625rem 0.0625rem 0 rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
     width: 100%;
     text-align: left;
-    font: bold 16px sans-serif;
-    padding: 55px 50px;
+    font: bold 1rem sans-serif;
+    padding: 3.4375rem 3.125rem;
     position: relative;
 }
 
@@ -400,7 +404,8 @@ section {
         color: #ffffff;
         /*font: normal 3rem 'Open Sans', cursive;*/
         font-family: spaceGrotesk-SemiBold;
-        font-size: 2rem;
+        /*font-size: 2rem;*/
+        font-size: min(2rem, 5vw);
         margin: 0;
     }
 
@@ -412,7 +417,7 @@ section {
 
     .footer-distributed .footer-links {
         color: #ffffff;
-        margin: 20px 0 12px;
+        margin: 1.25rem 0 0.75rem;
         padding: 0;
     }
 
@@ -426,7 +431,7 @@ section {
 
     .footer-distributed .footer-company-name {
         color: #ffffff;
-        font-size: 14px;
+        font-size: 0.875rem;
         font-weight: normal;
         margin: 0;
     }
@@ -440,19 +445,19 @@ section {
         .footer-distributed .footer-center i {
             background-color: #33383b;
             color: #ffffff;
-            font-size: 25px;
-            width: 38px;
-            height: 38px;
+            font-size: 1.5625rem;
+            width: 2.375rem;
+            height: 2.375rem;
             border-radius: 50%;
             text-align: center;
-            line-height: 42px;
-            margin: 10px 15px;
+            line-height: 2.625rem;
+            margin: 0.625rem 0.9375rem;
             vertical-align: middle;
         }
 
             .footer-distributed .footer-center i.fa-envelope {
-                font-size: 17px;
-                line-height: 38px;
+                font-size: 1.0625rem;
+                line-height: 2.375rem;
             }
 
         .footer-distributed .footer-center p {
@@ -466,7 +471,7 @@ section {
             .footer-distributed .footer-center p span {
                 display: block;
                 font-weight: normal;
-                font-size: 14px;
+                font-size: 0.875rem;
                 line-height: 2;
             }
 
@@ -479,11 +484,11 @@ section {
     .footer-distributed .footer-links a:before {
         content: "|";
         font-weight: 300;
-        font-size: 20px;
+        font-size: 1.25rem;
         left: 0;
         color: #fff;
         display: inline-block;
-        padding-right: 5px;
+        padding-right: 0.3125rem;
     }
 
     .footer-distributed .footer-links .link-1:before {
@@ -497,9 +502,9 @@ section {
     }
 
     .footer-distributed .footer-company-about {
-        line-height: 20px;
+        line-height: 1.25rem;
         color: #92999f;
-        font-size: 13px;
+        font-size: 0.8125rem;
         font-weight: normal;
         margin-left: auto;
         margin-right: 0;
@@ -508,30 +513,31 @@ section {
         .footer-distributed .footer-company-about span {
             display: block;
             color: #ffffff;
-            font-size: 2rem;
+            /*font-size: 2rem;*/
+            font-size: min(2rem, 5vw);
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
             white-space: nowrap;
         }
 
     .footer-distributed .footer-icons {
-        margin-top: 25px;
+        margin-top: 1.5625rem;
         margin-left: auto;
         margin-right: 0;
     }
 
         .footer-distributed .footer-icons a {
             display: inline-block;
-            width: 35px;
-            height: 35px;
+            width: 2.1875rem;
+            height: 2.1875rem;
             cursor: pointer;
-            border-radius: 2px;
-            font-size: 20px;
+            border-radius: 0.125rem;
+            font-size: 1.25rem;
             color: #ffffff;
             text-align: center;
-            line-height: 35px;
-            margin-right: 3px;
-            margin-bottom: 5px;
+            line-height: 2.1875rem;
+            margin-right: 0.1875rem;
+            margin-bottom: 0.3125rem;
         }
 
 .footer-icons > a > img {
@@ -556,10 +562,13 @@ section {
         white-space:nowrap;
     }
 
+#combinable_powerup_label {
+    font-size: min(1.75rem,calc(6vw));
+}
 /* If you don't want the footer to be responsive, remove these media queries */
-@media (max-width: 880px) {
+@media (max-width: 55rem) {
     .footer-distributed {
-        font: bold 14px sans-serif;
+        font: bold 0.875rem sans-serif;
     }
 
         .footer-distributed .footer-left,
@@ -567,11 +576,40 @@ section {
         .footer-distributed .footer-right {
             display: block;
             width: 100%;
-            margin-bottom: 40px;
+            margin-bottom: 2.5rem;
             text-align: center;
         }
 
             .footer-distributed .footer-center i {
                 margin-left: 0;
             }
+}
+
+@media (max-width: 43.75rem) {
+    .secondary-container {
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .secondary-container > .powerup-video {
+        width: 100%;
+        height: auto;
+        margin: 1rem;
+        padding: 0;
+    }
+
+        .secondary-container > .powerup-video > .content-video {
+            width: 100%;
+            height: 100%;
+        }
+
+
+    #powerup-video-2 {
+        margin-left: 1rem;
+    }
+
+    #powerup-video-1 {
+        margin-right: 1rem;
+    }
 }
