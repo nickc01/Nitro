@@ -55,11 +55,13 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     align-items: center;
     justify-content: space-evenly;
     font-family: spaceGrotesk-SemiBold;
+    position: relative;
+    overflow: hidden;
 }
 
 h1 {
@@ -72,10 +74,10 @@ h1 {
 
 #video-area {
     position: absolute;
-    top: 0vw;
-    left: 0vh;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: -100;
     background-color: black;
     overflow: hidden;
@@ -95,6 +97,7 @@ h1 {
 .highlight-text-area {
     background-color: #4f4f4f99;
     padding: 3rem;
+    margin: 2rem;
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
