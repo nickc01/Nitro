@@ -3,9 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
-
 
 namespace Nitro
 {
@@ -16,23 +15,46 @@ namespace Nitro
     /// 
     /// With the execute function, you will be able to know the previous powerup in the chain, the position and rotation of where the powerup is affecting, and a delegate called runNextPowerup, which when called, will execute the next powerup in the chain. You can use this delegate to control where and when the next powerups in the chain are executed"/>
     /// </summary>
-    public abstract class CombinablePowerup : Powerup
+    public abstract class CombinablePowerup : Powerup, ICombinablePowerup
     {
+        class CombinablePowerupInformation
+        {
+            /*
+             p._powerups = _powerups;
+             p._completedPowerups = _completedPowerups;
+             p._index = i;
+             p._lambdaCache = _lambdaCache;
+             */
+            public ICombinablePowerup[] powerups;
+            public bool[] completedPowerups;
+            public int index;
+            public Dictionary<int, Action<Vector3, Quaternion>> lambdaCache;
+        }
+
+        static ConditionalWeakTable<ICombinablePowerup, CombinablePowerupInformation> powerupInformation = new ConditionalWeakTable<ICombinablePowerup, CombinablePowerupInformation>();
+
         /// <summary>
         /// A comparer used for sorting combinable powerups by priority
         /// </summary>
-        public class Comparer : IComparer<CombinablePowerup>
+        public class Comparer : IComparer<ICombinablePowerup>
         {
             Comparer<int> intComparer = Comparer<int>.Default;
-            public int Compare(CombinablePowerup x, CombinablePowerup y)
+            public int Compare(ICombinablePowerup x, ICombinablePowerup y)
             {
-                if (x.priority == y.priority)
+                if (x.Priority == y.Priority)
                 {
-                    return intComparer.Compare(y.GetInstanceID(), x.GetInstanceID());
+                    if (x is Component xComponent && y is Component yComponent)
+                    {
+                        return intComparer.Compare(yComponent.GetInstanceID(), xComponent.GetInstanceID());
+                    }
+                    else
+                    {
+                        return 1;
+                    }
                 }
                 else
                 {
-                    return intComparer.Compare(y.priority, x.priority);
+                    return intComparer.Compare(y.Priority, x.Priority);
                 }
             }
         }
@@ -50,19 +72,19 @@ For example, if you have a fire powerup that has a higher priority than a water 
         /// </summary>
 		public int Priority => priority;
 
-        [NonSerialized]
-        private CombinablePowerup[] _powerups;
+        /*[NonSerialized]
+        private ICombinablePowerup[] _powerups;
         [NonSerialized]
         private bool[] _completedPowerups;
         [NonSerialized]
         private int _index;
         [NonSerialized]
-        private Dictionary<int, Action<Vector3, Quaternion>> _lambdaCache;
+        private Dictionary<int, Action<Vector3, Quaternion>> _lambdaCache;*/
 
         /// <summary>
         /// Gets a list of all the powerups in the chain
         /// </summary>
-        protected ReadOnlySpan<CombinablePowerup> GetPowerupChain() => _powerups != null ? ReadOnlySpan<CombinablePowerup>.Empty : new ReadOnlySpan<CombinablePowerup>(_powerups);
+        protected ReadOnlySpan<ICombinablePowerup> GetPowerupChain() => powerupInformation.GetOrCreateValue(this).powerups != null ? ReadOnlySpan<ICombinablePowerup>.Empty : new ReadOnlySpan<ICombinablePowerup>(powerupInformation.GetOrCreateValue(this).powerups);
 
         /// <summary>
         /// Checks if a certain powerup is within the powerup chain
@@ -79,7 +101,7 @@ For example, if you have a fire powerup that has a higher priority than a water 
         /// <returns>Returns true if the powerup type is within the chain</returns>
         protected bool HasPowerupInChain<T>(out T powerup)
         {
-            CombinablePowerup resultPowerup;
+            ICombinablePowerup resultPowerup;
             var result = HasPowerupInChain(typeof(T), out resultPowerup);
             if (resultPowerup != null)
             {
@@ -115,7 +137,7 @@ For example, if you have a fire powerup that has a higher priority than a water 
         /// <param name="powerupType">The type of powerup to check for</param>
         /// <param name="powerup">The resulting powerup</param>
         /// <returns>Returns true if the powerup type is within the chain</returns>
-        protected bool HasPowerupInChain(Type powerupType, out CombinablePowerup powerup)
+        protected bool HasPowerupInChain(Type powerupType, out ICombinablePowerup powerup)
         {
             foreach (var p in GetPowerupChain())
             {
@@ -133,27 +155,35 @@ For example, if you have a fire powerup that has a higher priority than a water 
         /// Retrieves the index of the current powerup within the powerup chain.
         /// </summary>
         /// <returns></returns>
-        protected int GetPowerupIndex() => _index;
+        protected int GetPowerupIndex() => powerupInformation.GetOrCreateValue(this).index;
 
-		/// <inheritdoc/>
-		public override sealed void DoAction()
+        /// <inheritdoc/>
+        public override sealed void DoAction()
 		{
-			_powerups = (Collector as MultiplePowerupCollector).HeldPowerups.ToArray();
-			_completedPowerups = new bool[_powerups.Length];
-            _lambdaCache = new Dictionary<int, Action<Vector3, Quaternion>>();
+            var selfInfo = powerupInformation.GetOrCreateValue(this);
 
-            for (int i = 0; i < _powerups.Length; i++)
+            Debug.Log("Self Info = " + selfInfo);
+            Debug.Log("Collector = " + Collector);
+
+            selfInfo.powerups = (Collector as IMultiplePowerupCollector).CollectedPowerups.ToArray();
+            selfInfo.completedPowerups = new bool[selfInfo.powerups.Length];
+            selfInfo.lambdaCache = new Dictionary<int, Action<Vector3, Quaternion>>();
+
+            for (int i = 0; i < selfInfo.powerups.Length; i++)
             {
-                var p = _powerups[i];
-                p._powerups = _powerups;
-                p._completedPowerups = _completedPowerups;
-                p._index = i;
-                p._lambdaCache = _lambdaCache;
+                var p = selfInfo.powerups[i];
+
+                var info = powerupInformation.GetOrCreateValue(p);
+
+                info.powerups = selfInfo.powerups;
+                info.completedPowerups = selfInfo.completedPowerups;
+                info.index = i;
+                info.lambdaCache = selfInfo.lambdaCache;
             }
 
 			var runNextPowerup = GetCallToNextPowerup(null, 0);
 
-			runNextPowerup(Collector.transform.position, Collector.transform.rotation);
+			runNextPowerup(transform.position, transform.rotation);
         }
 
         /// <summary>
@@ -163,7 +193,7 @@ For example, if you have a fire powerup that has a higher priority than a water 
         /// <param name="position">The position of the collector the powerup is from</param>
         /// <param name="rotation">The rotation of the collector the powerup is from</param>
         /// <param name="runNextPowerup">A delegate used to execute the next powerup in the chain. Be sure to call this to make sure all the powerups in the chain get executed</param>
-		public abstract void Execute(CombinablePowerup previous, Vector3 position, Quaternion rotation, Action<Vector3, Quaternion> runNextPowerup);
+		public abstract void Execute(ICombinablePowerup previous, Vector3 position, Quaternion rotation, Action<Vector3, Quaternion> runNextPowerup);
 
         /// <summary>
         /// Creates a delegate to the next powerup in the chain.
@@ -172,18 +202,20 @@ For example, if you have a fire powerup that has a higher priority than a water 
         /// <returns>Returns a delgate that executes the next powerup in the chain</returns>
         public Action<Vector3, Quaternion> GetCallToNextPowerup(int currentIndex)
         {
-            CombinablePowerup previous = null;
-            if (currentIndex > 0 && currentIndex <= _powerups.Length)
+            var selfInfo = powerupInformation.GetOrCreateValue(this);
+            ICombinablePowerup previous = null;
+            if (currentIndex > 0 && currentIndex <= selfInfo.powerups.Length)
             {
-                previous = _powerups[currentIndex - 1];
+                previous = selfInfo.powerups[currentIndex - 1];
             }
 
             return GetCallToNextPowerup(previous, currentIndex);
         }
 
-        private Action<Vector3, Quaternion> GetCallToNextPowerup(CombinablePowerup previous, int currentIndex)
+        private Action<Vector3, Quaternion> GetCallToNextPowerup(ICombinablePowerup previous, int currentIndex)
         {
-            if (_lambdaCache.TryGetValue(currentIndex, out var result))
+            var selfInfo = powerupInformation.GetOrCreateValue(this);
+            if (selfInfo.lambdaCache.TryGetValue(currentIndex, out var result))
             {
                 return result;
             }
@@ -191,13 +223,13 @@ For example, if you have a fire powerup that has a higher priority than a water 
             {
                 Action<Vector3, Quaternion> func = (pos, rot) =>
                 {
-                    if (currentIndex < _powerups.Length)
+                    if (currentIndex < selfInfo.powerups.Length)
                     {
-                        var currentPowerup = _powerups[currentIndex];
+                        var currentPowerup = selfInfo.powerups[currentIndex];
                         currentPowerup.Execute(previous, pos, rot, GetCallToNextPowerup(currentPowerup, currentIndex + 1));
                     }
                 };
-                _lambdaCache.Add(currentIndex, func);
+                selfInfo.lambdaCache.Add(currentIndex, func);
                 return func;
             }
         }
@@ -205,7 +237,8 @@ For example, if you have a fire powerup that has a higher priority than a water 
         /// <inheritdoc/>
         public override sealed void DoneUsingPowerup()
 		{
-            if (_completedPowerups == null)
+            var selfInfo = powerupInformation.GetOrCreateValue(this);
+            if (selfInfo.completedPowerups == null)
             {
                 base.DoneUsingPowerup();
                 return;
@@ -213,29 +246,30 @@ For example, if you have a fire powerup that has a higher priority than a water 
             else
             {
             }
-            for (int i = 0; i < _powerups.Length; i++)
+            for (int i = 0; i < selfInfo.powerups.Length; i++)
             {
-                if (_powerups[i] == this)
+                if (System.Object.Equals(selfInfo.powerups[i],this))
                 {
-                    if (_completedPowerups[i] == false)
+                    if (selfInfo.completedPowerups[i] == false)
                     {
-                        _completedPowerups[i] = true;
-                        if (_completedPowerups.All(b => b == true))
+                        selfInfo.completedPowerups[i] = true;
+                        if (selfInfo.completedPowerups.All(b => b == true))
                         {
-                            foreach (var p in _powerups)
+                            foreach (var p in selfInfo.powerups)
                             {
-                                if (p == this)
+                                if (System.Object.Equals(p,this))
                                 {
                                     continue;
                                 }
-                                p._completedPowerups = null;
-                                p._powerups = null;
-                                p._lambdaCache = null;
+                                var info = powerupInformation.GetOrCreateValue(p);
+                                info.completedPowerups = null;
+                                info.powerups = null;
+                                info.lambdaCache = null;
                                 p.DoneUsingPowerup();
                             }
-                            _completedPowerups = null;
-                            _powerups = null;
-                            _lambdaCache = null;
+                            selfInfo.completedPowerups = null;
+                            selfInfo.powerups = null;
+                            selfInfo.lambdaCache = null;
                             DoneUsingPowerup();
                         }
                     }

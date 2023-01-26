@@ -1,4 +1,5 @@
-﻿using Nitro;
+﻿using Mirror;
+using Nitro;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,16 +31,24 @@ public class FirePowerup : CombinablePowerup
 	float particleSize = 5f;
 	[SerializeField]
 	FireParticles FireParticles;
-	public float auxillaryTerminalVelocityMultiplier = 0.5f;
+	public float dragMultiplier = 5f;
 
+    [SerializeField]
+    float forwardAmount = 0.25f;
+
+    [Server]
 	void DoFireball(Vector3 position, Quaternion rotation, Action<Vector3,Quaternion> runNextPowerup)
 	{
         var spawnPosition = transform.TransformPoint(transform.localPosition + spawnOffset);
-        fireballInstance = GameObject.Instantiate(FireballPrefab, spawnPosition, rotation);
+        fireballInstance = GameObject.Instantiate(FireballPrefab, spawnPosition + (transform.forward * forwardAmount) + new Vector3(0f,0.025f,0f), rotation);
 
         Rigidbody fireballBody = fireballInstance.GetComponent<Rigidbody>();
 
-        fireballBody.velocity = Collector.transform.forward * fireballVelocity;
+        fireballBody.velocity = (Collector as Component).transform.forward * fireballVelocity;
+
+        NetworkServer.Spawn(fireballInstance, (Collector as Component).gameObject);
+
+        Debug.Log("Fireball Instance = " + fireballInstance + " = " + GetInstanceID());
 
         StartCoroutine(Routine());
 
@@ -48,17 +57,23 @@ public class FirePowerup : CombinablePowerup
 			for (float t = 0f; t < lifeTime; t += auxillaryExecutionRate)
 			{
                 yield return new WaitForSeconds(auxillaryExecutionRate);
+                if (fireballInstance == null)
+                {
+                    break;
+                }
                 runNextPowerup(fireballInstance.transform.position, rotation);
             }
 
             if (fireballInstance != null)
             {
-                Destroy(fireballInstance.gameObject);
+                //Destroy(fireballInstance.gameObject);
+                NetworkServer.Destroy(fireballInstance);
             }
 			DoneUsingPowerup();
         }
     }
 
+    [Server]
 	void DoFirepit(Vector3 position)
 	{
         var particleInstance = GameObject.Instantiate(FireParticles, position, Quaternion.identity);
@@ -72,26 +87,11 @@ public class FirePowerup : CombinablePowerup
             shape.radius = particleSize;
         }
 
-        particleInstance.StartCoroutine(Routine());
-
-
-        IEnumerator Routine()
-        {
-			DoneUsingPowerupAfter(auxillaryLifeTime);
-            yield return new WaitForSeconds(auxillaryLifeTime);
-
-            foreach (var particle in particleSystems)
-            {
-                particle.Stop(false, ParticleSystemStopBehavior.StopEmitting);
-            }
-
-            particleInstance.GetComponent<Collider>().enabled = false;
-            //particleInstance.Stop();
-        }
+        NetworkServer.Spawn(particleInstance.gameObject, (Collector as Component).gameObject);
     }
 
 
-    public override void Execute(CombinablePowerup previous, Vector3 position, Quaternion rotation, Action<Vector3, Quaternion> runNextPowerup)
+    public override void Execute(ICombinablePowerup previous, Vector3 position, Quaternion rotation, Action<Vector3, Quaternion> runNextPowerup)
     {
         //If this is the first powerup in the chain
 		if (previous == null)
@@ -106,6 +106,8 @@ public class FirePowerup : CombinablePowerup
 			DoFirepit(position);
             //Trigger the next powerup in the chain to run
 			runNextPowerup(position, rotation);
+
+            DoneUsingPowerup();
         }
     }
 }

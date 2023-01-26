@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: fb6b565e1cf95e25c970ffca7d292b99
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Manager: {instanceID: 0}
+  - outOfBoundsTransition: {fileID: 2622264574823504295, guid: 023f6682b6d58c24080067c3ab642e70, type: 3}
+  - model: {instanceID: 0}
+  - rollCage: {instanceID: 0}
+  - frontLeftWheel: {instanceID: 0}
+  - frontRightWheel: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

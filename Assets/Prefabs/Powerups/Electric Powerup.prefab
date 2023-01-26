@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8522341169077743402}
   m_RootOrder: 0
@@ -51,6 +52,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -111,6 +113,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.14, y: 1.13, z: 30.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8522341167900792391}
   m_Father: {fileID: 0}
@@ -191,7 +194,7 @@ MonoBehaviour:
   hideObjectOnCollect: 1
   priority: 5
   CloudPrefab: {fileID: -6712593949426341218, guid: c30d2697bcba7724c9f2b4a3b35e2980, type: 3}
-  CloudOffset: {x: 0, y: 6.7, z: 0}
+  CloudOffset: {x: 0, y: 67, z: 0}
   BoltPrefab: {fileID: 1896540172721349946, guid: abba2f44bf72a054fb44728b915c06cc, type: 3}
   MinWaitTime: 1
   MaxWaitTime: 2

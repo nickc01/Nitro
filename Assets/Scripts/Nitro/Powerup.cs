@@ -4,15 +4,16 @@ using UnityEngine;
 
 namespace Nitro
 {
-	/// <summary>
-	/// The base class for all powerups
-	/// </summary>
-	public abstract class Powerup : MonoBehaviour
+
+    /// <summary>
+    /// The base class for all powerups
+    /// </summary>
+    public abstract class Powerup : MonoBehaviour, IPowerup
 	{
 		/// <summary>
 		/// The collector that collected the powerup
 		/// </summary>
-		public Collector Collector { get; private set; }
+		public ICollector Collector { get; private set; }
 
 		[SerializeField]
 		[Tooltip("If set to true, all colliders and renderers on the powerup will be disabled when collected")]
@@ -30,9 +31,11 @@ namespace Nitro
 		/// Called when the powerup has been collected
 		/// </summary>
 		/// <param name="collector">The collector that has collected the powerup</param>
-		public virtual void OnCollect(Collector collector)
+		public virtual void OnCollect(ICollector collector)
 		{
 			Collector = collector;
+			Debug.Log("Powerup = " + name);
+			Debug.Log("Collector = " + Collector);
 			if (hideObjectOnCollect)
 			{
 				foreach (var collider in GetComponentsInChildren<Collider>())
@@ -50,7 +53,10 @@ namespace Nitro
 					renderer.enabled = false;
 				}
 			}
-			transform.SetParent(collector.transform);
+			if (collector is Component component)
+			{
+                transform.SetParent(component.transform);
+            }
 			transform.localRotation = Quaternion.identity;
 			transform.localPosition = default;
 		}

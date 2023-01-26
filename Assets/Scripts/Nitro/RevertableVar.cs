@@ -114,6 +114,10 @@ namespace Nitro
             }
         }
 
+        public delegate void OnValueUpdatedDelegate(T oldValue, T newValue);
+
+        public event OnValueUpdatedDelegate OnValueUpdated;
+
         /// <summary>
         /// How many modifiers are currently being applied to this revertible variable
         /// </summary>
@@ -319,7 +323,9 @@ namespace Nitro
                         break;
                 }
             }
+            var oldValue = value;
             value = newValue;
+            OnValueUpdated?.Invoke(oldValue, value);
         }
 
         /// <summary>
@@ -373,6 +379,11 @@ namespace Nitro
         public override string ToString()
         {
             return Value.ToString();
+        }
+
+        IEnumerable<IModifier> IRevertableVar.GetModifiers()
+        {
+            return modifiers;
         }
     }
 }

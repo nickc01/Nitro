@@ -1,4 +1,5 @@
-﻿using Nitro;
+﻿using Mirror;
+using Nitro;
 using UnityEngine;
 
 public class PowerupExecuter : MonoBehaviour

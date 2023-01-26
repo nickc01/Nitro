@@ -24,5 +24,11 @@ namespace Nitro
         /// The type of the value being held by the revertible variable
         /// </summary>
         Type ValueType { get; }
+
+        /// <summary>
+        /// Gets a list of all the added modifiers to this revertable variable
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<IModifier> GetModifiers();
     }
 }

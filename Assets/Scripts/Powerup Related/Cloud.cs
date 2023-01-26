@@ -1,20 +1,54 @@
-﻿using Nitro;
+﻿using Assets;
+using Mirror;
+using Nitro;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Cloud : MonoBehaviour
+public class Cloud : NetworkBehaviour
 {
-	List<Rigidbody> Targets = new List<Rigidbody>();
+	//List<Rigidbody> Targets = new List<Rigidbody>();
 
 	[HideInInspector]
 	public ElectricPowerup SourcePowerup;
-	[HideInInspector]
-	public Collector SourceCollector;
 
-	public IEnumerator DoMultipleStrikes()
+	[SyncVar]
+	public NetworkIdentity SourceCollector;
+
+    //[SyncVar]
+	//public CarController SourceCar;
+
+    public override void OnStartServer()
+    {
+        StartCoroutine(PositionRoutine());
+    }
+
+    public override void OnStartClient()
+    {
+		if (!NetworkServer.active)
+		{
+			SourcePowerup = GameSettings.Instance.PossiblePowerups.First(p => p is ElectricPowerup) as ElectricPowerup;
+			StartCoroutine(PositionRoutine());
+		}
+    }
+
+	IEnumerator PositionRoutine()
 	{
+		while (true)
+		{
+			if (SourceCollector != null)
+			{
+                transform.position = SourceCollector.transform.TransformPoint(SourcePowerup.CloudOffset);
+                transform.rotation = Quaternion.identity;
+            }
+            yield return null;
+		}
+	}
+
+    public IEnumerator DoMultipleStrikes()
+	{
+		//Debug.Log("Starting Multiple Strikes");
 		float waitCounter = 0f;
 		float waitAmount = Random.Range(SourcePowerup.MinWaitTime, SourcePowerup.MaxWaitTime);
 		for (float i = 0; i < SourcePowerup.LifeTime; i += Time.deltaTime)
@@ -46,21 +80,37 @@ public class Cloud : MonoBehaviour
 	{
 		yield return new WaitForFixedUpdate();
 		yield return null;
-		if (Targets.Count == 0)
+
+
+		var players = PlayerManager.Players.ToList();
+
+		if (players.Count <= 1)
 		{
 			yield break;
 		}
+		/*if (Targets.Count == 0)
+		{
+			yield break;
+		}*/
 
-		var sourceBody = SourceCollector.GetComponentInChildren<Rigidbody>();
+        //var sourceBody = SourceCollector.GetComponent<CarController>().RollCage.GetComponentInChildren<Rigidbody>();
 
-		var selectableTargets = new List<Rigidbody>(Targets.Where(t => t != sourceBody));
+		var selectableTargets = new List<CarController>(players.Where(t => t.CarController.gameObject != SourceCollector.gameObject).Select(p => p.CarController));
+
+		Debug.Log("Selectable Targets = " + selectableTargets.Count);
 
 		if (selectableTargets.Count == 0)
 		{
 			yield break;
 		}
 
-		var selectedTarget = selectableTargets[Random.Range(0,selectableTargets.Count)];
+		//var selectedTarget = selectableTargets[Random.Range(0, selectableTargets.Count)].RollCage;
+		var selectedTarget = selectableTargets.OrderBy(t => Vector3.Distance(t.RollCage.transform.position, transform.position)).First().RollCage;
+
+		if (Vector3.Distance(selectedTarget.transform.position,transform.position) > SourcePowerup.MaxDistance)
+		{
+			yield break;
+        }
 
 		var bolt = GameObject.Instantiate(SourcePowerup.BoltPrefab, Vector3.zero, Quaternion.identity);
 
@@ -72,22 +122,33 @@ public class Cloud : MonoBehaviour
 		bolt.transform.localScale = new Vector3(distance / 16f, distance, 1f);
 		bolt.transform.LookAt(selectedTarget.transform.position);
 		bolt.transform.rotation *= Quaternion.Euler(90f, 0f, 0f);
+		NetworkServer.Spawn(bolt, SourceCollector.gameObject);
 
 		var distanceVector = (new Vector3(selectedTarget.transform.position.x, source.y, selectedTarget.transform.position.z) - source);
-		selectedTarget.velocity = (Vector3.up * SourcePowerup.ExplosionForce) + (distanceVector).normalized * SourcePowerup.ExplosionRadius;
+        //selectedTarget.velocity = (Vector3.up * SourcePowerup.ExplosionForce) + (distanceVector).normalized * SourcePowerup.ExplosionRadius;
 
-		Destroy(bolt, SourcePowerup.StrikeTime);
+        selectedTarget.Car.AddForce((Vector3.up * SourcePowerup.ExplosionForce) + (distanceVector).normalized * SourcePowerup.ExplosionRadius, ForceMode.VelocityChange);
 
-		SourcePowerup.OnStrike(selectedTarget);
+        //Destroy(bolt, SourcePowerup.StrikeTime);
+        //NetworkServer.Destroy();
+        StartCoroutine(DestroyAfterTime(SourcePowerup.StrikeTime, bolt));
+
+		SourcePowerup.OnStrike(selectedTarget.RB);
 
 		yield return new WaitForSeconds(SourcePowerup.StrikeTime);
 
 		yield break;
 	}
 
-	private void OnCollisionEnter(Collision collision)
+	IEnumerator DestroyAfterTime(float time, GameObject obj)
 	{
-		if (((1 << collision.gameObject.layer) & SourcePowerup.collisionMask.value) != 0 && !Targets.Contains(collision.rigidbody))
+		yield return new WaitForSeconds(time);
+		NetworkServer.Destroy(obj);
+	}
+
+	/*private void OnCollisionEnter(Collision collision)
+	{
+		if (!Targets.Contains(collision.rigidbody) && NetworkServer.active && collision.gameObject.GetComponent<RollCage>() != null)
 		{
 			Targets.Add(collision.rigidbody);
 		}
@@ -100,7 +161,7 @@ public class Cloud : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (((1 << other.gameObject.layer) & SourcePowerup.collisionMask.value) != 0 && !Targets.Contains(other.attachedRigidbody))
+		if (!Targets.Contains(other.attachedRigidbody) && NetworkServer.active && other.gameObject.GetComponent<RollCage>() != null)
 		{
 			Targets.Add(other.attachedRigidbody);
 		}
@@ -109,7 +170,7 @@ public class Cloud : MonoBehaviour
 	private void OnTriggerExit(Collider other)
 	{
 		Targets.Remove(other.attachedRigidbody);
-	}
+	}*/
 
 	/*static Transform GetTopParent(Transform transform)
 	{

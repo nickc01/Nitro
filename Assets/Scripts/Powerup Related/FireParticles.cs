@@ -1,30 +1,78 @@
-﻿using Nitro;
+﻿using Mirror;
+using Nitro;
+using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class FireParticles : Collidable
+[RequireComponent(typeof(Collidable))]
+public class FireParticles : NetworkBehaviour
 {
     [HideInInspector]
     public FirePowerup SourcePowerup;
     private ModifierCollection modifiers = new ModifierCollection();
 
-    private void OnParticleSystemStopped()
+    [SerializeField]
+    float lifeTime;
+
+    public override void OnStartServer()
     {
-        Destroy(gameObject);
+        var collidable = GetComponent<Collidable>();
+        collidable.OnCollideStart += OnCollideStart;
+        collidable.OnCollideStop += OnCollideStop;
+
+        StartCoroutine(MainRoutine());
     }
 
-    protected override void OnCollideStart(Collider collider)
+    public override void OnStartClient()
     {
-        if (collider.attachedRigidbody.TryGetComponent<Player>(out Player player))
+        if (!NetworkServer.active)
         {
-            modifiers.Add(player.Movement.TerminalVelocity.MultiplyBy(SourcePowerup.auxillaryTerminalVelocityMultiplier));
+            StartCoroutine(MainRoutine());
         }
     }
 
-    protected override void OnCollideStop(Collider collider, bool destroyed)
+    private void OnCollideStop(Collider collider, bool destroyed)
     {
-        if (!destroyed && collider.attachedRigidbody.TryGetComponent<Player>(out Player player))
+        if (NetworkServer.active && !destroyed && collider.attachedRigidbody.TryGetComponent<RollCage>(out RollCage player))
         {
-            modifiers.RevertAllFor(player.Movement.TerminalVelocity);
+            modifiers.RevertAllFor(player.Car.Manager.CarDrag);
+        }
+    }
+
+    private void OnCollideStart(Collider collider)
+    {
+        if (NetworkServer.active && collider.attachedRigidbody.TryGetComponent<RollCage>(out RollCage player))
+        {
+            modifiers.Add(player.Car.Manager.CarDrag.MultiplyBy(SourcePowerup.dragMultiplier));
+        }
+    }
+
+    private void OnParticleSystemStopped()
+    {
+        if (NetworkServer.active)
+        {
+            NetworkServer.Destroy(gameObject);
+        }
+    }
+
+    public IEnumerator MainRoutine()
+    {
+        yield return new WaitForSeconds(lifeTime);
+
+        var particleSystems = GetComponentsInChildren<ParticleSystem>();
+
+        foreach (var particle in particleSystems)
+        {
+            particle.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+        }
+
+        GetComponent<Collider>().enabled = false;
+        //particleInstance.Stop();
+
+        yield return new WaitForSeconds(2f);
+        if (NetworkServer.active)
+        {
+            NetworkServer.Destroy(gameObject);
         }
     }
 }

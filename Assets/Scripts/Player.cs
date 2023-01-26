@@ -34,9 +34,9 @@ public class Player : MonoBehaviour
 		collector.PowerupCollectEvent.AddListener(OnPowerupCollect);
 	}
 
-	static void OnPowerupCollect(Powerup powerup)
+	static void OnPowerupCollect(IPowerup powerup)
 	{
-		var colorizer = powerup.GetComponent<Colorizer>();
+		var colorizer = (powerup as Component).GetComponent<Colorizer>();
 		if (colorizer != null)
 		{
 			PowerupColorDisplay.AddColor(colorizer.Color);
@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
 		{
 			if (collector.CollectorEnabled)
 			{
-				if (collector.HeldPowerups.Count > 0)
+				if (collector.CollectedPowerups.Count() > 0)
 				{
 					PowerupColorDisplay.Clear();
 				}

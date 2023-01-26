@@ -19,12 +19,12 @@ TagManager:
   - Player
   - Effect
   - Car Part
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground Detector
+  - Terrain
+  - Finish Line
+  - Powerup Collector
+  - Hazard
+  - Obstacle
   - 
   - 
   - 

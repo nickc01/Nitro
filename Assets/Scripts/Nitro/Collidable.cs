@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Nitro
@@ -6,7 +7,7 @@ namespace Nitro
     /// <summary>
     /// A component that makes it easier to keep track of objects that have collided with an object.
     /// </summary>
-    public abstract class Collidable : MonoBehaviour
+    public sealed class Collidable : MonoBehaviour
     {
         private HashSet<Collider> collisions = new HashSet<Collider>();
 
@@ -15,7 +16,7 @@ namespace Nitro
         /// </summary>
         public IEnumerable<Collider> Collisions => collisions;
 
-        /// <summary>
+        /*/// <summary>
         /// Called when an object collides with this object.
         /// </summary>
         /// <param name="body">The rigidbody on the collided object</param>
@@ -25,81 +26,84 @@ namespace Nitro
         /// Called when an object is no longer colliding with this object.
         /// </summary>
         /// <param name="body">The rigidbody on the collided object</param>
-        protected abstract void OnCollideStop(Collider collider, bool destroyed);
+        protected abstract void OnCollideStop(Collider collider, bool destroyed);*/
+
+        public event Action<Collider> OnCollideStart;
+        public event Action<Collider, bool> OnCollideStop;
 
 
-        protected virtual void OnTriggerEnter(Collider other)
+        void OnTriggerEnter(Collider other)
         {
             if (collisions.Add(other) && enabled)
             {
-                OnCollideStart(other);
+                OnCollideStart?.Invoke(other);
             }
         }
 
-        protected virtual void OnTriggerExit(Collider other)
+        void OnTriggerExit(Collider other)
         {
             if (collisions.Remove(other) && enabled)
             {
-                OnCollideStop(other, false);
+                OnCollideStop?.Invoke(other, false);
             }
         }
 
-        protected virtual void OnCollisionEnter(Collision collision)
+        void OnCollisionEnter(Collision collision)
         {
             if (collisions.Add(collision.collider) && enabled)
             {
-                OnCollideStart(collision.collider);
+                OnCollideStart?.Invoke(collision.collider);
             }
         }
 
-        protected virtual void OnCollisionExit(Collision collision)
+        void OnCollisionExit(Collision collision)
         {
             if (collisions.Remove(collision.collider) && enabled)
             {
-                OnCollideStop(collision.collider, false);
+                OnCollideStop?.Invoke(collision.collider, false);
             }
         }
 
-        protected virtual void LateUpdate()
+        void LateUpdate()
         {
             foreach (Collider collider in collisions)
             {
                 if (collider == null)
                 {
-                    OnCollideStop(collider, true);
+                    OnCollideStop?.Invoke(collider, true);
                 }
             }
             collisions.RemoveWhere(c => c == null);
         }
 
-        protected virtual void OnDisable()
+        void OnDisable()
         {
             foreach (Collider collider in collisions)
             {
-                OnCollideStop(collider, collider == null);
+                OnCollideStop?.Invoke(collider, collider == null);
             }
             collisions.RemoveWhere(c => c == null);
         }
 
-        protected virtual void OnEnable()
+        void OnEnable()
         {
             foreach (Collider collider in collisions)
             {
                 if (collider != null)
                 {
-                    OnCollideStart(collider);
+                    OnCollideStart?.Invoke(collider);
                 }
             }
             collisions.RemoveWhere(c => c == null);
         }
 
-        protected virtual void OnDestroy()
+        void OnDestroy()
         {
             if (enabled)
             {
                 foreach (Collider collider in collisions)
                 {
-                    OnCollideStop(collider, collider == null);
+                    OnCollideStop?.Invoke(collider, collider == null);
                 }
                 collisions.RemoveWhere(c => c == null);
             }

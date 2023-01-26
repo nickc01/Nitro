@@ -1,4 +1,5 @@
-﻿using Nitro;
+﻿using Mirror;
+using Nitro;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -27,9 +28,11 @@ public class WaterPowerup : CombinablePowerup
 		var puddle = GameObject.Instantiate(PuddlePrefab, position, Quaternion.identity);
 
 		puddle.transform.localScale = new Vector3(size,puddle.transform.localScale.y,size);
+
+		NetworkServer.Spawn(puddle, (Collector as Component).gameObject);
 	}
 
-    public override void Execute(CombinablePowerup previous, Vector3 position, Quaternion rotation, Action<Vector3, Quaternion> runNextPowerup)
+    public override void Execute(ICombinablePowerup previous, Vector3 position, Quaternion rotation, Action<Vector3, Quaternion> runNextPowerup)
     {
 		//If this powerup is the first in the powerup chain
 		if (previous == null)

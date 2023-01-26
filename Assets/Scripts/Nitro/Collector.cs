@@ -3,10 +3,11 @@ using UnityEngine.Events;
 
 namespace Nitro
 {
+
     /// <summary>
     /// Used for collecting powerups
     /// </summary>
-    public abstract class Collector : MonoBehaviour
+    public abstract class Collector : MonoBehaviour, ICollector
     {
         [SerializeField]
         [Tooltip("If this is set to true, the collector will be able to collect powerups")]
@@ -31,13 +32,13 @@ namespace Nitro
         /// </summary>
         /// <param name="powerup">The powerup to test if it can be collected</param>
         /// <returns>Returns whether or not the powerup can be picked up</returns>
-        public abstract bool CanCollectPowerup(Powerup powerup);
+        public abstract bool CanCollectPowerup(IPowerup powerup);
 
         /// <summary>
         /// A function that is triggered when a powerup is collected
         /// </summary>
         /// <param name="powerup">The powerup that has been collected</param>
-        protected abstract void OnCollect(Powerup powerup);
+        protected abstract void OnCollect(IPowerup powerup);
 
         /// <summary>
         /// Executes the powerup(s) that the collector has collected
@@ -47,14 +48,14 @@ namespace Nitro
         /// <summary>
         /// An event that is triggered when a powerup is collected
         /// </summary>
-        public UnityEvent<Powerup> PowerupCollectEvent;
+        public UnityEvent<IPowerup> PowerupCollectEvent;
 
         /// <summary>
         /// Collects a powerup
         /// </summary>
         /// <param name="powerup">The powerup to collect</param>
-        /// <returns>Returns whether the collector was able to pick up the <see cref="Powerup"/></returns>
-        public bool CollectPowerup(Powerup powerup)
+        /// <returns>Returns whether the collector was able to pick up the <see cref="IPowerup"/></returns>
+        public bool CollectPowerup(IPowerup powerup)
         {
             if (!collectorEnabled)
             {
@@ -74,7 +75,7 @@ namespace Nitro
         {
             if (collectOnContact)
             {
-                Powerup powerup = other.GetComponent<Powerup>();
+                var powerup = other.GetComponent<IPowerup>();
                 if (powerup != null)
                 {
                     CollectPowerup(powerup);
@@ -86,7 +87,7 @@ namespace Nitro
         {
             if (collectOnContact)
             {
-                Powerup powerup = collision.GetComponent<Powerup>();
+                var powerup = collision.GetComponent<IPowerup>();
                 if (powerup != null)
                 {
                     CollectPowerup(powerup);
@@ -98,7 +99,7 @@ namespace Nitro
         {
             if (collectOnContact)
             {
-                Powerup powerup = collision.gameObject.GetComponent<Powerup>();
+                var powerup = collision.gameObject.GetComponent<IPowerup>();
                 if (powerup != null)
                 {
                     CollectPowerup(powerup);
@@ -110,7 +111,7 @@ namespace Nitro
         {
             if (collectOnContact)
             {
-                Powerup powerup = collision.gameObject.GetComponent<Powerup>();
+                var powerup = collision.gameObject.GetComponent<IPowerup>();
                 if (powerup != null)
                 {
                     CollectPowerup(powerup);

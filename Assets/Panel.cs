@@ -28,7 +28,17 @@ public class Panel : MonoBehaviour
 
     static Canvas _canvas;
 
-    public static Canvas Canvas => _canvas ??= GameObject.FindObjectOfType<Canvas>();
+    public static Canvas Canvas
+    {
+        get
+        {
+            if (_canvas == null)
+            {
+                _canvas = GameObject.FindObjectOfType<Canvas>();
+            }
+            return _canvas;
+        }
+    }
 
     static AnimationCurve PanelCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
@@ -103,12 +113,6 @@ public class Panel : MonoBehaviour
         SetButtonsState(to, false);
 
         GetInAndOutLocations(slideDirection, out var fromPos, out var toPos);
-
-        Debug.Log("FROM POS = " + fromPos);
-        Debug.Log("TO POS = " + toPos);
-
-        Debug.Log("FROM PANEL = " + from);
-        Debug.Log("TO PANEL = " + to);
 
         for (float t = 0; t < time; t += Time.deltaTime)
         {

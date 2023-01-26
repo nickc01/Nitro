@@ -1,4 +1,5 @@
-﻿using Nitro;
+﻿using Mirror;
+using Nitro;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,17 +29,24 @@ public class ElectricPowerup : CombinablePowerup
 
 	bool IsFirst = false;
 
+	public float MaxDistance = 3f;
+
+	[Server]
 	Cloud CreateCloud()
 	{
-		var instance = GameObject.Instantiate(CloudPrefab, transform.position, Quaternion.identity);
+		var instance = GameObject.Instantiate(CloudPrefab);
 		instance.SourcePowerup = this;
-		instance.SourceCollector = Collector;
+		//instance.SourceCar = (Collector as Component).GetComponent<CarController>();
+		instance.SourceCollector = (Collector as Component).GetComponent<NetworkIdentity>();
+		instance.transform.localPosition = CloudOffset;
+
+		NetworkServer.Spawn(instance.gameObject, (Collector as Component).gameObject);
 		return instance;
 	}
 
 	Action<Vector3, Quaternion> RunNextPowerup;
 
-    public override void Execute(CombinablePowerup previous, Vector3 position, Quaternion rotation, Action<Vector3, Quaternion> runNextPowerup)
+    public override void Execute(ICombinablePowerup previous, Vector3 position, Quaternion rotation, Action<Vector3, Quaternion> runNextPowerup)
     {
         RunNextPowerup = runNextPowerup;
         IsFirst = previous == null;
@@ -49,13 +57,14 @@ public class ElectricPowerup : CombinablePowerup
             if (IsFirst)
             {
                 cloudInstance = CreateCloud();
-				var strikeRoutine = StartCoroutine(cloudInstance.DoMultipleStrikes());
+				var strikeRoutine = cloudInstance.StartCoroutine(cloudInstance.DoMultipleStrikes());
 
-                for (float i = 0; i < LifeTime + StrikeTime; i += Time.deltaTime)
+                /*for (float i = 0; i < LifeTime + StrikeTime; i += Time.deltaTime)
                 {
-                    cloudInstance.transform.position = transform.TransformPoint(CloudOffset);
+					//cloudInstance.transform.position = transform.TransformPoint(CloudOffset);
+					cloudInstance.transform.rotation = Quaternion.identity;
                     yield return null;
-                }
+                }*/
 
 				yield return strikeRoutine;
             }
@@ -67,7 +76,8 @@ public class ElectricPowerup : CombinablePowerup
 
             if (cloudInstance != null)
             {
-                Destroy(cloudInstance.gameObject);
+				NetworkServer.Destroy(cloudInstance.gameObject);
+                //Destroy(cloudInstance.gameObject);
             }
             DoneUsingPowerup();
         }

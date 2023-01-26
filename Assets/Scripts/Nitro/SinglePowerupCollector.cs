@@ -16,10 +16,10 @@ namespace Nitro
 		/// <summary>
 		/// The currently collected powerup
 		/// </summary>
-		public Powerup CurrentPowerup { get; private set; }
+		public IPowerup CurrentPowerup { get; private set; }
 
 		/// <inheritdoc/>
-		public override bool CanCollectPowerup(Powerup powerup)
+		public override bool CanCollectPowerup(IPowerup powerup)
 		{
 			return CurrentPowerup == null;
 		}
@@ -35,7 +35,7 @@ namespace Nitro
 		}
 
 		/// <inheritdoc/>
-		protected override void OnCollect(Powerup powerup)
+		protected override void OnCollect(IPowerup powerup)
 		{
 			CurrentPowerup = powerup;
 		}
