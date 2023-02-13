@@ -34,8 +34,6 @@ namespace Nitro
 		public virtual void OnCollect(ICollector collector)
 		{
 			Collector = collector;
-			Debug.Log("Powerup = " + name);
-			Debug.Log("Collector = " + Collector);
 			if (hideObjectOnCollect)
 			{
 				foreach (var collider in GetComponentsInChildren<Collider>())

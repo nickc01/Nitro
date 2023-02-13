@@ -2,96 +2,97 @@
 using Nitro;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
+// ElectricPowerup is a class that inherits from CombinablePowerup
 public class ElectricPowerup : CombinablePowerup
 {
-	[SerializeField]
-	Cloud CloudPrefab;
+    [SerializeField]
+    private Cloud CloudPrefab;
 
-	public Vector3 CloudOffset;
-	public GameObject BoltPrefab;
+    // Variable for the offset of the cloud prefab
+    public Vector3 CloudOffset;
+    // Variable for the bolt prefab
+    public GameObject BoltPrefab;
 
+    // Variables for the wait time between strikes, lifetime of the powerup, strike time, explosion force, and explosion radius
+    public float MinWaitTime;
+    public float MaxWaitTime;
+    public float LifeTime = 10f;
+    public float StrikeTime = 0.1f;
+    public float ExplosionForce;
+    public float ExplosionRadius;
 
-	public float MinWaitTime;
-	public float MaxWaitTime;
-	public float LifeTime = 10f;
-	public float StrikeTime = 0.1f;
+    // Flag to check if this is the first powerup in the chain
+    private bool isFirstPowerup = false;
+    // Reference to the instantiated cloud
+    private Cloud cloudInstance;
+    // Action to run the next powerup
+    private Action<Vector3, Quaternion> RunNextPowerup;
 
-	public float ExplosionForce;
-	public float ExplosionRadius;
+    [Server]
+    private Cloud CreateCloud()
+    {
+        //Instantiating a new Cloud object, assign it to instance variable
+        Cloud instance = GameObject.Instantiate(CloudPrefab);
+        //Assign this ElectricPowerup as the source powerup for the cloud instance
+        instance.SourcePowerup = this;
+        //Assign the collector as the source collector for the cloud instance
+        instance.SourceCollector = Collector.GetGameObject().GetComponent<NetworkIdentity>();
+        //Set the local position of the cloud instance to the CloudOffset
+        instance.transform.localPosition = CloudOffset;
 
-	Cloud cloudInstance;
-
-	public LayerMask collisionMask;
-
-	bool IsFirst = false;
-
-	public float MaxDistance = 3f;
-
-	[Server]
-	Cloud CreateCloud()
-	{
-		var instance = GameObject.Instantiate(CloudPrefab);
-		instance.SourcePowerup = this;
-		//instance.SourceCar = (Collector as Component).GetComponent<CarController>();
-		instance.SourceCollector = (Collector as Component).GetComponent<NetworkIdentity>();
-		instance.transform.localPosition = CloudOffset;
-
-		NetworkServer.Spawn(instance.gameObject, (Collector as Component).gameObject);
-		return instance;
-	}
-
-	Action<Vector3, Quaternion> RunNextPowerup;
+        //Spawn the cloud instance on the network, with the collector as the parent object
+        NetworkServer.Spawn(instance.gameObject, Collector.GetGameObject().gameObject);
+        //Return the created cloud instance
+        return instance;
+    }
 
     public override void Execute(ICombinablePowerup previous, Vector3 position, Quaternion rotation, Action<Vector3, Quaternion> runNextPowerup)
     {
+        //Assign the runNextPowerup action to the RunNextPowerup variable
         RunNextPowerup = runNextPowerup;
-        IsFirst = previous == null;
+        //Check if this is the first powerup
+        isFirstPowerup = previous == null;
 
-
-		IEnumerator Routine()
-		{
-            if (IsFirst)
+        //Routine function to be called using StartCoroutine
+        IEnumerator Routine()
+        {
+            if (isFirstPowerup)
             {
+                //If this is the first powerup, create a cloud, start the multiple strikes coroutine, and wait for it to finish
                 cloudInstance = CreateCloud();
-				var strikeRoutine = cloudInstance.StartCoroutine(cloudInstance.DoMultipleStrikes());
+                Coroutine strikeRoutine = cloudInstance.StartCoroutine(cloudInstance.DoMultipleStrikes());
 
-                /*for (float i = 0; i < LifeTime + StrikeTime; i += Time.deltaTime)
-                {
-					//cloudInstance.transform.position = transform.TransformPoint(CloudOffset);
-					cloudInstance.transform.rotation = Quaternion.identity;
-                    yield return null;
-                }*/
-
-				yield return strikeRoutine;
+                yield return strikeRoutine;
             }
             else
             {
+                //If this is not the first powerup, create a cloud and perform a single strike at the given position
                 cloudInstance = CreateCloud();
-				yield return cloudInstance.DoSingleStrike(position);
+                yield return cloudInstance.DoSingleStrike(position);
             }
 
+            //if cloudInstance is not null, destroy it on the network
             if (cloudInstance != null)
             {
-				NetworkServer.Destroy(cloudInstance.gameObject);
-                //Destroy(cloudInstance.gameObject);
+                NetworkServer.Destroy(cloudInstance.gameObject);
             }
+
             DoneUsingPowerup();
         }
 
-		StartCoroutine(Routine());
-
+        //Start the Routine() coroutine
+        StartCoroutine(Routine());
     }
 
     //This is called when the cloud object strikes an object. This is used to execute the auxiliary powerups where the lightining struck
     public void OnStrike(Rigidbody hitObject)
-	{
-		if (IsFirst)
-		{
-			RunNextPowerup(hitObject.transform.position, hitObject.transform.rotation);
+    {
+        if (isFirstPowerup)
+        {
+            RunNextPowerup(hitObject.transform.position, hitObject.transform.rotation);
         }
-	}
+    }
 }

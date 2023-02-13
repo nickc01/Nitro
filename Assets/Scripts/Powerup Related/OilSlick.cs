@@ -30,11 +30,11 @@ public class OilSlick : NetworkBehaviour
     private void OnCollideStart(Collider collider)
     {
         //If the collider is a player object
-        if (collider.attachedRigidbody.TryGetComponent<Player>(out var player))
+        if (collider.attachedRigidbody.TryGetComponent<RollCage>(out var rc))
         {
             //Modify the player's terminal velocity, and store the modifier in the ModifierCollection
-            //       The modifier is also tied to the player's collider ↓↓↓↓↓↓↓↓ so it can be easily reverted later
-            modifiers.Add(player.Movement.TerminalVelocity.DivideBy(8f), collider);
+            //The modifier is also tied to the player's collider ↓↓↓↓↓↓ so it can be easily reverted later
+            modifiers.Add(rc.Car.Manager.CarDrag.MultiplyBy(2f),collider);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Nitro;
+﻿/*using Nitro;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -66,4 +66,4 @@ public class Player : MonoBehaviour
 			Application.Quit();
 		}
 	}
-}
+}*/

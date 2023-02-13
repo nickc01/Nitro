@@ -30,5 +30,11 @@ namespace Nitro
         /// </summary>
         /// <returns></returns>
         IEnumerable<IModifier> GetModifiers();
+
+        /// <summary>
+        /// Reverts a modifier
+        /// </summary>
+        /// <param name="modifier">The modifier to revert</param>
+        void Revert(IModifier modifier);
     }
 }

@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0222e4a15526094eb1faeb6a59227df, type: 3}
   m_Name: Car Collection
   m_EditorClassIdentifier: 
-  Selections:
-  - Car: {fileID: 1281025808636853670, guid: 11b292791d2168bdc9cbaa9bdcf9c4bc, type: 3}
-    Screenshot: {fileID: 21300000, guid: 6f0698f472d05f348abd036f4107cff1, type: 3}
-  - Car: {fileID: 1281025808636853670, guid: 11b292791d2168bdc9cbaa9bdcf9c4bc, type: 3}
-    Screenshot: {fileID: 21300000, guid: 6f0698f472d05f348abd036f4107cff1, type: 3}
-  - Car: {fileID: 1281025808636853670, guid: 11b292791d2168bdc9cbaa9bdcf9c4bc, type: 3}
-    Screenshot: {fileID: 21300000, guid: 6f0698f472d05f348abd036f4107cff1, type: 3}
-  - Car: {fileID: 1281025808636853670, guid: 11b292791d2168bdc9cbaa9bdcf9c4bc, type: 3}
-    Screenshot: {fileID: 21300000, guid: 6f0698f472d05f348abd036f4107cff1, type: 3}
-  - Car: {fileID: 1281025808636853670, guid: 11b292791d2168bdc9cbaa9bdcf9c4bc, type: 3}
-    Screenshot: {fileID: 21300000, guid: 6f0698f472d05f348abd036f4107cff1, type: 3}
+  PossibleCars:
+  - Car: {fileID: 5682043115865955079, guid: 3049a41bfbc83d141852e2dd7081aefd, type: 3}
+    Screenshot: {fileID: 21300000, guid: d2e15cc10c6755044a3bace6f8d26d9b, type: 3}
+  - Car: {fileID: 8335979036745297413, guid: b67d60fd4e5bb41419b840f4949d12c5, type: 3}
+    Screenshot: {fileID: 21300000, guid: ba3b792dac47c494a80b08d5f5cc1c7b, type: 3}
+  - Car: {fileID: 8886578552031240314, guid: 50a09b22917c9a847a8518328bd2d5f2, type: 3}
+    Screenshot: {fileID: 21300000, guid: d2f47c5a827fde94190c311b456d9e72, type: 3}
+  - Car: {fileID: 4803034078297037427, guid: 06cf3cd7ebf96b7499768fd1c4d2a340, type: 3}
+    Screenshot: {fileID: 21300000, guid: 5e813dd5cd0b4d644a79bd404dee6492, type: 3}
+  - Car: {fileID: 376786650025448432, guid: 09c269c50d561044db2c8e493a4e3bdb, type: 3}
+    Screenshot: {fileID: 21300000, guid: be931a90039153940a0f57379118a09f, type: 3}
+  - Car: {fileID: 4474335088605683786, guid: db2fd69754923cb4bafe23da411b1e9c, type: 3}
+    Screenshot: {fileID: 21300000, guid: 426ed9821a19a984d9841049261ceb0f, type: 3}
+  - Car: {fileID: 1482894694978890908, guid: a9d63b82f9029c84f982f8c2b2c47d08, type: 3}
+    Screenshot: {fileID: 21300000, guid: 46e68ac672dd5c947877c7ad627a83c1, type: 3}

@@ -303,7 +303,11 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   SourcePowerup: {fileID: 0}
-  CollectorIdentity: {fileID: 0}
+  SourceCollector: {fileID: 0}
+  strikeRadius: 2
+  strikeMask:
+    serializedVersion: 2
+    m_Bits: 135168
 --- !u!114 &2140815506213562091
 MonoBehaviour:
   m_ObjectHideFlags: 0

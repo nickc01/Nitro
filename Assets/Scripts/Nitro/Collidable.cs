@@ -16,18 +16,6 @@ namespace Nitro
         /// </summary>
         public IEnumerable<Collider> Collisions => collisions;
 
-        /*/// <summary>
-        /// Called when an object collides with this object.
-        /// </summary>
-        /// <param name="body">The rigidbody on the collided object</param>
-        protected abstract void OnCollideStart(Collider collider);
-
-        /// <summary>
-        /// Called when an object is no longer colliding with this object.
-        /// </summary>
-        /// <param name="body">The rigidbody on the collided object</param>
-        protected abstract void OnCollideStop(Collider collider, bool destroyed);*/
-
         public event Action<Collider> OnCollideStart;
         public event Action<Collider, bool> OnCollideStop;
 

@@ -5,8 +5,6 @@ using UnityEngine;
 
 namespace Nitro
 {
-
-
     /// <summary>
     /// A collector that can collect multiple powerups
     /// </summary>

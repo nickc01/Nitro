@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &178377285320840844
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6092358386573288359, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+      propertyPath: sceneId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6092358386573288359, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+      propertyPath: _assetId
+      value: 859507499
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202992221130225796, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+      propertyPath: m_Name
+      value: Police Car Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202992221130225799, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202992221130225799, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202992221130225799, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202992221130225799, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.621
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202992221130225799, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202992221130225799, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202992221130225799, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202992221130225799, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202992221130225799, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202992221130225799, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202992221130225799, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879646595079103116, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8528789151332935170, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3509700815316063638}
+  m_SourcePrefab: {fileID: 100100000, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+--- !u!4 &8369343669755162766 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8528789151332935170, guid: 41679d60f5a09864db791bf202f6ca2f, type: 3}
+  m_PrefabInstance: {fileID: 178377285320840844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3980706216714007165
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 8369343669755162766}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a4f76b0f61783724da4cf9410f51f911, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4f76b0f61783724da4cf9410f51f911, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4f76b0f61783724da4cf9410f51f911, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.608
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4f76b0f61783724da4cf9410f51f911, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.065
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4f76b0f61783724da4cf9410f51f911, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70335275
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4f76b0f61783724da4cf9410f51f911, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4f76b0f61783724da4cf9410f51f911, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.71084094
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4f76b0f61783724da4cf9410f51f911, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4f76b0f61783724da4cf9410f51f911, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4f76b0f61783724da4cf9410f51f911, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90.607
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a4f76b0f61783724da4cf9410f51f911, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a4f76b0f61783724da4cf9410f51f911, type: 3}
+      propertyPath: m_Name
+      value: Police Car White (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4f76b0f61783724da4cf9410f51f911, type: 3}
+--- !u!4 &3509700815316063638 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a4f76b0f61783724da4cf9410f51f911, type: 3}
+  m_PrefabInstance: {fileID: 3980706216714007165}
+  m_PrefabAsset: {fileID: 0}

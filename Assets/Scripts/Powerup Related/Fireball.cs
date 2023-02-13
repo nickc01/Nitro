@@ -5,40 +5,27 @@ using UnityEngine;
 
 public class Fireball : NetworkBehaviour
 {
-    bool started = false;
-
-    Vector3 direction;
-    Rigidbody rb;
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    public override void OnStartServer()
-    {
-        started = true;
-    }
-
-
     private void OnCollisionEnter(Collision collision)
 	{
-        if (started)
+        if (NetworkServer.active)
         {
             var otherRB = collision.rigidbody;
 
-            if (otherRB != null && otherRB.TryGetComponent<RollCage>(out var rc))
+            if (otherRB != null)
             {
-                Debug.Log("EXPLOSION TRIGGERED");
-                rc.Car.AddForce((transform.forward * 50) + (Vector3.up * 100), ForceMode.Force);
-                //otherRB.AddExplosionForce(10, transform.position, 1f);
+                var force = (transform.forward * 50) + (Vector3.up * 100);
+                if (otherRB.TryGetComponent<RollCage>(out var rc))
+                {
+                    rc.Car.AddForce(force, ForceMode.Force);
+                }
+                else
+                {
+                    otherRB.AddForce(force, ForceMode.Force);
+                }
             }
 
             NetworkServer.Destroy(gameObject);
         }
-		Debug.Log("Fireball Collision = " + collision.gameObject);
-		//collision.rigidbody?.AddExplosionForce(10, transform.position, 1f);
-		//Destroy(gameObject);
 	}
 }
 

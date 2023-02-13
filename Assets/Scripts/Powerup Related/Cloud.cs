@@ -4,186 +4,173 @@ using Nitro;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Cloud : NetworkBehaviour
 {
-	//List<Rigidbody> Targets = new List<Rigidbody>();
+    [HideInInspector]
+    public ElectricPowerup SourcePowerup;
 
-	[HideInInspector]
-	public ElectricPowerup SourcePowerup;
+    [SyncVar] 
+    [HideInInspector]
+    public NetworkIdentity SourceCollector;
 
-	[SyncVar]
-	public NetworkIdentity SourceCollector;
+    [SerializeField]
+    float strikeRadius;
 
-    //[SyncVar]
-	//public CarController SourceCar;
+    [SerializeField]
+    LayerMask strikeMask;
 
     public override void OnStartServer()
     {
         StartCoroutine(PositionRoutine());
     }
 
-    public override void OnStartClient()
+    //Method that is called when the object is selected and the gizmos are visible
+    private void OnDrawGizmosSelected()
     {
-		if (!NetworkServer.active)
-		{
-			SourcePowerup = GameSettings.Instance.PossiblePowerups.First(p => p is ElectricPowerup) as ElectricPowerup;
-			StartCoroutine(PositionRoutine());
-		}
+        Gizmos.color = Color.yellow; //set the color of the gizmos to yellow
+        Gizmos.DrawWireSphere(transform.position, strikeRadius); //draw a wire sphere at the object's position with the specified radius
     }
 
-	IEnumerator PositionRoutine()
-	{
-		while (true)
-		{
-			if (SourceCollector != null)
-			{
-                transform.position = SourceCollector.transform.TransformPoint(SourcePowerup.CloudOffset);
-                transform.rotation = Quaternion.identity;
+    public override void OnStartClient()
+    {
+        if (!NetworkServer.active)
+        {
+            SourcePowerup = GameSettings.Instance.PossiblePowerups.First(p => p is ElectricPowerup) as ElectricPowerup; //set the SourcePowerup to the first ElectricPowerup in the PossiblePowerups list
+            StartCoroutine(PositionRoutine());
+        }
+    }
+
+    //coroutine for positioning the object
+    IEnumerator PositionRoutine()
+    {
+        while (true) //loop forever
+        {
+            if (SourceCollector != null) //if the SourceCollector is not null
+            {
+                transform.position = SourceCollector.transform.TransformPoint(SourcePowerup.CloudOffset); //set the position of the object to the SourceCollector's position plus the CloudOffset of the SourcePowerup
+                transform.rotation = Quaternion.identity; //set the rotation of the object to identity
             }
             yield return null;
-		}
-	}
+        }
+    }
 
     public IEnumerator DoMultipleStrikes()
-	{
-		//Debug.Log("Starting Multiple Strikes");
-		float waitCounter = 0f;
-		float waitAmount = Random.Range(SourcePowerup.MinWaitTime, SourcePowerup.MaxWaitTime);
-		for (float i = 0; i < SourcePowerup.LifeTime; i += Time.deltaTime)
-		{
-			waitCounter += Time.deltaTime;
-			if (waitCounter >= waitAmount)
-			{
-				waitCounter -= waitAmount;
-				waitAmount = Random.Range(SourcePowerup.MinWaitTime, SourcePowerup.MaxWaitTime);
-				StartCoroutine(StrikeRoutine(transform.position));
-			}
+    {
+        // Initialize the wait counter to 0
+        float waitCounter = 0f;
+        // Randomly generate a wait amount between the minimum and maximum wait time
+        float waitAmount = UnityEngine.Random.Range(SourcePowerup.MinWaitTime, SourcePowerup.MaxWaitTime);
+        // Loop for the duration of the powerup's life time
+        for (float i = 0; i < SourcePowerup.LifeTime; i += Time.deltaTime)
+        {
+            // Increase the wait counter by the delta time
+            waitCounter += Time.deltaTime;
+            // If the wait counter is greater than or equal to the wait amount
+            if (waitCounter >= waitAmount)
+            {
+                // Subtract the wait amount from the wait counter
+                waitCounter -= waitAmount;
+                // Generate a new random wait amount
+                waitAmount = UnityEngine.Random.Range(SourcePowerup.MinWaitTime, SourcePowerup.MaxWaitTime);
+                // Start the strike routine using the current transform position
+                StartCoroutine(StrikeRoutine(transform.position));
+            }
 
-			yield return null;
-		}
 
-		yield return new WaitForSeconds(SourcePowerup.StrikeTime);
-	}
+            yield return null;
+        }
 
-	public IEnumerator DoSingleStrike(Vector3 source)
-	{
+        // Wait for the strike time before ending the coroutine
+        yield return new WaitForSeconds(SourcePowerup.StrikeTime);
+    }
+
+    public IEnumerator DoSingleStrike(Vector3 source)
+    {
+        // Disable all renderers on children game objects
         foreach (var renderer in GetComponentsInChildren<Renderer>())
         {
             renderer.enabled = false;
         }
-		yield return StrikeRoutine(source);
+        // Start the strike routine using the given source position
+        yield return StrikeRoutine(source);
     }
 
-	IEnumerator StrikeRoutine(Vector3 source)
-	{
-		yield return new WaitForFixedUpdate();
-		yield return null;
+    IEnumerator StrikeRoutine(Vector3 source)
+    {
+        yield return new WaitForFixedUpdate();
+        yield return null;
 
-
-		var players = PlayerManager.Players.ToList();
-
-		if (players.Count <= 1)
-		{
-			yield break;
-		}
-		/*if (Targets.Count == 0)
-		{
-			yield break;
-		}*/
-
-        //var sourceBody = SourceCollector.GetComponent<CarController>().RollCage.GetComponentInChildren<Rigidbody>();
-
-		var selectableTargets = new List<CarController>(players.Where(t => t.CarController.gameObject != SourceCollector.gameObject).Select(p => p.CarController));
-
-		Debug.Log("Selectable Targets = " + selectableTargets.Count);
-
-		if (selectableTargets.Count == 0)
-		{
-			yield break;
-		}
-
-		//var selectedTarget = selectableTargets[Random.Range(0, selectableTargets.Count)].RollCage;
-		var selectedTarget = selectableTargets.OrderBy(t => Vector3.Distance(t.RollCage.transform.position, transform.position)).First().RollCage;
-
-		if (Vector3.Distance(selectedTarget.transform.position,transform.position) > SourcePowerup.MaxDistance)
-		{
-			yield break;
+        // Get all objects within a certain radius, with a certain mask, and store them in the variable "hits"
+        var hits = Physics.SphereCastAll(transform.position, strikeRadius, Vector3.down, 100f, strikeMask);
+        // If there are no hits, the function ends
+        if (hits.Length == 0)
+        {
+            yield break;
         }
 
-		var bolt = GameObject.Instantiate(SourcePowerup.BoltPrefab, Vector3.zero, Quaternion.identity);
+        // Filter the hits to only include objects that have a rigidbody and are not the source collector's roll cage
+        // and store the selected objects in "selectableTargets"
+        var selectableTargets = hits.Where(h => h.rigidbody != null && h.collider.GetComponent<RollCage>() != SourceCollector.GetComponent<CarController>().RollCage).Select(h => h.rigidbody).ToList();
+        // If there are no selectable targets, the function ends
+        if (selectableTargets.Count == 0)
+        {
+            yield break;
+        }
 
-		var distance = Vector3.Distance(source, selectedTarget.transform.position);
+        // Select the closest selectable target
+        var selectedTarget = selectableTargets.OrderBy(t => Vector3.Distance(t.transform.position, transform.position)).First();
 
-		var midpoint = Vector3.Lerp(source, selectedTarget.transform.position, 0.5f);
+        // Spawn a lightning bolt between the source and the target
+        SpawnLightningBolt(source, selectedTarget.transform.position);
 
-		bolt.transform.position = midpoint;
-		bolt.transform.localScale = new Vector3(distance / 16f, distance, 1f);
-		bolt.transform.LookAt(selectedTarget.transform.position);
-		bolt.transform.rotation *= Quaternion.Euler(90f, 0f, 0f);
-		NetworkServer.Spawn(bolt, SourceCollector.gameObject);
+        // Create a distance vector between the source and the selected target
+        var distanceVector = new Vector3(selectedTarget.transform.position.x, source.y, selectedTarget.transform.position.z) - source;
+        // Calculate the force to apply to the target
+        Vector3 force = (Vector3.up * SourcePowerup.ExplosionForce) + distanceVector.normalized * SourcePowerup.ExplosionRadius;
+        // If the selected target has a roll cage, apply the force to the cage's car
+        if (selectedTarget.TryGetComponent<RollCage>(out var cage))
+        {
+            cage.Car.AddForce(force, ForceMode.VelocityChange);
+        }
+        else
+        {
+            selectedTarget.AddForce(force, ForceMode.VelocityChange);
+        }
 
-		var distanceVector = (new Vector3(selectedTarget.transform.position.x, source.y, selectedTarget.transform.position.z) - source);
-        //selectedTarget.velocity = (Vector3.up * SourcePowerup.ExplosionForce) + (distanceVector).normalized * SourcePowerup.ExplosionRadius;
+        // Call the function OnStrike on the source powerup, passing in the selected target
+        SourcePowerup.OnStrike(selectedTarget);
 
-        selectedTarget.Car.AddForce((Vector3.up * SourcePowerup.ExplosionForce) + (distanceVector).normalized * SourcePowerup.ExplosionRadius, ForceMode.VelocityChange);
+        // Wait for a certain amount of time
+        yield return new WaitForSeconds(SourcePowerup.StrikeTime);
 
-        //Destroy(bolt, SourcePowerup.StrikeTime);
-        //NetworkServer.Destroy();
+        // End the function
+        yield break;
+    }
+
+    [Server]
+	void SpawnLightningBolt(Vector3 source, Vector3 destination)
+	{
+        var bolt = GameObject.Instantiate(SourcePowerup.BoltPrefab, Vector3.zero, Quaternion.identity);
+
+        var distance = Vector3.Distance(source, destination);
+        var midpoint = Vector3.Lerp(source, destination, 0.5f);
+
+        bolt.transform.position = midpoint;
+        bolt.transform.localScale = new Vector3(distance / 16f, distance, 1f);
+        bolt.transform.LookAt(destination);
+        bolt.transform.rotation *= Quaternion.Euler(90f, 0f, 0f);
+        NetworkServer.Spawn(bolt, SourceCollector.gameObject);
+
         StartCoroutine(DestroyAfterTime(SourcePowerup.StrikeTime, bolt));
-
-		SourcePowerup.OnStrike(selectedTarget.RB);
-
-		yield return new WaitForSeconds(SourcePowerup.StrikeTime);
-
-		yield break;
-	}
+    }
 
 	IEnumerator DestroyAfterTime(float time, GameObject obj)
 	{
 		yield return new WaitForSeconds(time);
 		NetworkServer.Destroy(obj);
 	}
-
-	/*private void OnCollisionEnter(Collision collision)
-	{
-		if (!Targets.Contains(collision.rigidbody) && NetworkServer.active && collision.gameObject.GetComponent<RollCage>() != null)
-		{
-			Targets.Add(collision.rigidbody);
-		}
-	}
-
-	private void OnCollisionExit(Collision collision)
-	{
-		Targets.Remove(collision.rigidbody);
-	}
-
-	private void OnTriggerEnter(Collider other)
-	{
-		if (!Targets.Contains(other.attachedRigidbody) && NetworkServer.active && other.gameObject.GetComponent<RollCage>() != null)
-		{
-			Targets.Add(other.attachedRigidbody);
-		}
-	}
-
-	private void OnTriggerExit(Collider other)
-	{
-		Targets.Remove(other.attachedRigidbody);
-	}*/
-
-	/*static Transform GetTopParent(Transform transform)
-	{
-		while (true)
-		{
-			if (transform.parent == null)
-			{
-				return transform;
-			}
-			else
-			{
-				transform = transform.parent;
-			}
-		}
-	}*/
 }

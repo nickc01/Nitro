@@ -10,7 +10,7 @@ namespace Nitro
     /// </summary>
     /// <typeparam name="T">The type of variable the RevertableVar is going to hold</typeparam>
     [Serializable]
-    public class RevertableVar<T> : IRevertableVar
+    public sealed class RevertableVar<T> : IRevertableVar
     {
         private static ulong idCounter;
 
@@ -194,7 +194,7 @@ namespace Nitro
         /// <returns>Returns a reference to the modifier currently applied to this variable. Use <see cref="Modifier{T}.Revert"/> to revert the modification</returns>
         public Modifier<T> MultiplyBy(T value, UnityEngine.Object boundObject, int priority, float timeActive)
         {
-            return ModifyInternal(Modifier<T>.Operation.Multiply, value, boundObject, priority, timeActive);
+            return ModifyInternal(IModifier.Operation.Multiply, value, boundObject, priority, timeActive);
         }
 
         /// <summary>
@@ -207,7 +207,7 @@ namespace Nitro
         /// <returns>Returns a reference to the modifier currently applied to this variable. Use <see cref="Modifier{T}.Revert"/> to revert the modification</returns>
         public Modifier<T> DivideBy(T value, UnityEngine.Object boundObject, int priority, float timeActive)
         {
-            return ModifyInternal(Modifier<T>.Operation.Divide, value, boundObject, priority, timeActive);
+            return ModifyInternal(IModifier.Operation.Divide, value, boundObject, priority, timeActive);
         }
 
         /// <summary>
@@ -220,7 +220,7 @@ namespace Nitro
         /// <returns>Returns a reference to the modifier currently applied to this variable. Use <see cref="Modifier{T}.Revert"/> to revert the modification</returns>
         public Modifier<T> AddBy(T value, UnityEngine.Object boundObject, int priority, float timeActive)
         {
-            return ModifyInternal(Modifier<T>.Operation.Add, value, boundObject, priority, timeActive);
+            return ModifyInternal(IModifier.Operation.Add, value, boundObject, priority, timeActive);
         }
 
         /// <summary>
@@ -233,7 +233,7 @@ namespace Nitro
         /// <returns>Returns a reference to the modifier currently applied to this variable. Use <see cref="Modifier{T}.Revert"/> to revert the modification</returns>
         public Modifier<T> SubtractBy(T value, UnityEngine.Object boundObject, int priority, float timeActive)
         {
-            return ModifyInternal(Modifier<T>.Operation.Subtract, value, boundObject, priority, timeActive);
+            return ModifyInternal(IModifier.Operation.Subtract, value, boundObject, priority, timeActive);
         }
 
         /// <summary>
@@ -246,29 +246,18 @@ namespace Nitro
         /// <returns>Returns a reference to the modifier currently applied to this variable. Use <see cref="Modifier{T}.Revert"/> to revert the modification</returns>
         public Modifier<T> Set(T value, UnityEngine.Object boundObject, int priority, float timeActive)
         {
-            return ModifyInternal(Modifier<T>.Operation.Set, value, boundObject, priority, timeActive);
+            return ModifyInternal(IModifier.Operation.Set, value, boundObject, priority, timeActive);
         }
 
 
-        private Modifier<T> ModifyInternal(Modifier<T>.Operation op, T value, UnityEngine.Object boundObject, int priority, float timeActive)
+        private Modifier<T> ModifyInternal(IModifier.Operation op, T value, UnityEngine.Object boundObject, int priority, float timeActive)
         {
             if (!Application.isPlaying)
             {
                 throw new Exception("Nitro Variables can only be modified during play mode");
             }
 
-            Modifier<T> modifier = new Modifier<T>
-            {
-                SourceVar = this,
-                Op = op,
-                Value = value,
-                Priority = priority,
-                TimeActive = timeActive,
-                TimeAdded = Time.unscaledTime,
-                BoundObject = boundObject,
-                HasBoundObject = boundObject != null,
-                ID = ++idCounter
-            };
+            var modifier = new Modifier<T>(this, op, value, priority, timeActive, boundObject, ++idCounter);
 
             modifiers.Add(modifier);
 
@@ -289,10 +278,14 @@ namespace Nitro
         /// <param name="modifier">The modifier to revert</param>
         public void Revert(Modifier<T> modifier)
         {
-            if (modifier.ID != 0)
+            ((IRevertableVar)this).Revert(modifier);
+        }
+
+        void IRevertableVar.Revert(Nitro.IModifier modifier)
+        {
+            if (modifier is Modifier<T> typeMod && modifiers.Contains(typeMod))
             {
-                modifiers.Remove(modifier);
-                modifier.ID = 0;
+                modifiers.Remove(typeMod);
                 UpdateCurrentValue();
             }
         }
@@ -304,19 +297,19 @@ namespace Nitro
             {
                 switch (mod.Op)
                 {
-                    case Modifier<T>.Operation.Set:
+                    case IModifier.Operation.Set:
                         newValue = mod.Value;
                         break;
-                    case Modifier<T>.Operation.Multiply:
+                    case IModifier.Operation.Multiply:
                         newValue = GenericMath.Mul(newValue, mod.Value);
                         break;
-                    case Modifier<T>.Operation.Divide:
+                    case IModifier.Operation.Divide:
                         newValue = GenericMath.Div(newValue, mod.Value);
                         break;
-                    case Modifier<T>.Operation.Add:
+                    case IModifier.Operation.Add:
                         newValue = GenericMath.Add(newValue, mod.Value);
                         break;
-                    case Modifier<T>.Operation.Subtract:
+                    case IModifier.Operation.Subtract:
                         newValue = GenericMath.Sub(newValue, mod.Value);
                         break;
                     default:

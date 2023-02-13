@@ -1,5 +1,4 @@
-﻿using Assets;
-using Mirror;
+﻿using Mirror;
 using Nitro;
 using System.Collections;
 using UnityEngine;
@@ -19,19 +18,12 @@ public class Puddle : NetworkBehaviour
     private float puddleLifeTime = 5f;
 
     [SerializeField]
-    LayerMask mask;
+    private LayerMask mask;
 
-    /*private void Awake()
-    {
-        if (NetworkServer.active)
-        {
-            
-        }
-    }*/
 
     private void Awake()
     {
-        foreach (var renderer in GetComponentsInChildren<Renderer>())
+        foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
         {
             renderer.enabled = false;
         }
@@ -39,16 +31,14 @@ public class Puddle : NetworkBehaviour
 
     public override void OnStartServer()
     {
-        var collidable = GetComponent<Collidable>();
+        Collidable collidable = GetComponent<Collidable>();
         collidable.OnCollideStart += OnCollideStart;
         collidable.OnCollideStop += OnCollideStop;
 
-        transform.position += new Vector3(0f,0.1f,0f);
+        transform.position += new Vector3(0f, 0.1f, 0f);
 
-        Debug.DrawLine(transform.position, transform.position + (Vector3.down * 0.125f), Color.red, 10f);
         if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit info, 0.125f, mask))
         {
-            //transform.position = info.point + spawnOffset;
             transform.position = info.point;
             transform.up = info.normal;
             transform.localPosition += spawnOffset;
@@ -58,24 +48,23 @@ public class Puddle : NetworkBehaviour
             transform.position -= new Vector3(0f, 0.1f, 0f);
         }
 
-        foreach (var renderer in GetComponentsInChildren<Renderer>())
+        foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
         {
             renderer.enabled = true;
         }
 
         StartCoroutine(DestroyAfter(puddleLifeTime, gameObject));
-        //Destroy(gameObject, puddleLifeTime);
     }
 
     public override void OnStartClient()
     {
-        foreach (var renderer in GetComponentsInChildren<Renderer>())
+        foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
         {
             renderer.enabled = true;
         }
     }
 
-    IEnumerator DestroyAfter(float time, GameObject obj)
+    private IEnumerator DestroyAfter(float time, GameObject obj)
     {
         yield return new WaitForSeconds(time);
         NetworkServer.Destroy(obj);

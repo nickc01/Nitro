@@ -19,12 +19,6 @@ namespace Nitro
     {
         class CombinablePowerupInformation
         {
-            /*
-             p._powerups = _powerups;
-             p._completedPowerups = _completedPowerups;
-             p._index = i;
-             p._lambdaCache = _lambdaCache;
-             */
             public ICombinablePowerup[] powerups;
             public bool[] completedPowerups;
             public int index;
@@ -71,15 +65,6 @@ For example, if you have a fire powerup that has a higher priority than a water 
         ///For example, if you have a fire powerup that has a higher priority than a water powerup, then the fire effect will be executed before the water effect.
         /// </summary>
 		public int Priority => priority;
-
-        /*[NonSerialized]
-        private ICombinablePowerup[] _powerups;
-        [NonSerialized]
-        private bool[] _completedPowerups;
-        [NonSerialized]
-        private int _index;
-        [NonSerialized]
-        private Dictionary<int, Action<Vector3, Quaternion>> _lambdaCache;*/
 
         /// <summary>
         /// Gets a list of all the powerups in the chain
@@ -161,9 +146,6 @@ For example, if you have a fire powerup that has a higher priority than a water 
         public override sealed void DoAction()
 		{
             var selfInfo = powerupInformation.GetOrCreateValue(this);
-
-            Debug.Log("Self Info = " + selfInfo);
-            Debug.Log("Collector = " + Collector);
 
             selfInfo.powerups = (Collector as IMultiplePowerupCollector).CollectedPowerups.ToArray();
             selfInfo.completedPowerups = new bool[selfInfo.powerups.Length];

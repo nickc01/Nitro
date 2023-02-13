@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
+using static Nitro.IModifier;
 
 namespace Nitro
 {
@@ -8,40 +10,49 @@ namespace Nitro
     /// <typeparam name="T"></typeparam>
     public sealed class Modifier<T> : IModifier
     {
-        internal enum Operation
+        public Modifier(IRevertableVar sourceVar, Operation op, T value, int priority, float timeActive, UnityEngine.Object boundObject, ulong id)
         {
-            Set,
-            Multiply,
-            Divide,
-            Add,
-            Subtract
+            SourceVariable = sourceVar;
+            Op = op;
+            Value = value;
+            Priority = priority;
+            TimeActive = timeActive;
+            TimeAdded = Time.unscaledTime;
+            BoundObject = boundObject;
+            HasBoundObject = boundObject != null;
+            ID = id;
         }
 
         /// <inheritdoc/>
-        public RevertableVar<T> SourceVar { get; internal set; }
+        public Operation Op { get; private set; }
 
-        internal Operation Op;
-
-        internal T Value;
-
-        /// <inheritdoc/>
-        public int Priority { get; internal set; }
+        /// <summary>
+        /// The right-hand operand of the modifier
+        /// </summary>
+        public T Value { get; private set; }
 
         /// <inheritdoc/>
-        public float TimeAdded { get; internal set; }
+        public int Priority { get; private set; }
 
         /// <inheritdoc/>
-        IRevertableVar IModifier.SourceVariable => SourceVar;
+        public float TimeAdded { get; private set; }
 
         /// <inheritdoc/>
-        public UnityEngine.Object BoundObject { get; internal set; }
+        public IRevertableVar SourceVariable { get; private set; }
 
         /// <inheritdoc/>
-        public bool HasBoundObject { get; internal set; }
+        public UnityEngine.Object BoundObject { get; private set; }
 
-        internal float TimeActive;
+        /// <inheritdoc/>
+        public bool HasBoundObject { get; private set; }
 
-        internal ulong ID;
+        public float TimeActive { get; private set; }
+
+        /// <inheritdoc/>
+        public ulong ID { get; private set; }
+
+        /// <inheritdoc/>
+        object IModifier.Value => Value;
 
         public class Sorter : IComparer<Modifier<T>>
         {
@@ -71,7 +82,7 @@ namespace Nitro
         /// <inheritdoc/>
         public void Revert()
         {
-            SourceVar.Revert(this);
+            SourceVariable.Revert(this);
         }
 
         public void Dispose()
