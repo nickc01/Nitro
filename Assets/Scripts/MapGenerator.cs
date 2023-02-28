@@ -359,6 +359,8 @@ public class MapGenerator : MonoBehaviour
                 ReplaceBlankRoads();
 
                 finishLineInstance = GameObject.Instantiate(finishLine, outputs[outputs.Count - 4], false);
+                finishLineInstance.transform.localPosition = default;
+                finishLineInstance.transform.localRotation = Quaternion.identity;
 
                 CheckPoints = outputs.Select(o => o.Find("Checkpoint")).Where(c => c != null).ToList();
 

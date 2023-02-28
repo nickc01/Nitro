@@ -48,7 +48,8 @@
                 <a class="button" href="https://github.com/nickc01/Nitro" target="_blank" rel="noopener noreferrer">Github</a>
                 <a class="button" href="https://nickc01.github.io/Nitro/docs/" target="_blank" rel="noopener noreferrer">Documentation</a>
                 <a class="button" href="https://github.com/nickc01/Nitro/releases" target="_blank" rel="noopener noreferrer">Download</a>
-                <a class="button" href="https://github.com/nickc01/Nitro/releases/tag/v1.0" target="_blank" rel="noopener noreferrer">Play Demo</a>
+                <a class="button" href="https://uatedu-my.sharepoint.com/:w:/g/personal/nicculle_uat_edu/EbBsel3YF0hAvstycQQuJssBU0I2mLTTKj1A1hYOSk3Ukw?e=fMS5P6" target="_blank" rel="noopener noreferrer">SIP Brief</a>
+                <a class="button" href="https://github.com/nickc01/Nitro/releases" target="_blank" rel="noopener noreferrer">Play Demo</a>
             </div>
         </div>
     </div>
@@ -123,6 +124,57 @@
                     </video>
                 </div>
             </div>
+        </div>
+
+        <div id="section-4" class="section">
+            <div class="container secondary-container horizontal">
+                <h2 id="combinable_powerup_label">Project Updates</h2>
+                <h3>Initial Demo<p>May 15 2021</p>
+                    <ul>
+                        <li>Finished small demo demonstrating the Nitro Library</li>
+                        <li>The Nitro Library can now allow for the easy creation of powerups and combinable powerups</li>
+                        <li>The Nitro Library has the Collidable and Collidable2D components for keeping track of collided objects</li>
+                        <li>The Library has Nitro Variables that can keep track of changes to the variable, and revert them at a later time</li>
+                        <li>A series of Github wiki pages have been made to document how to use the library's features</li>
+                        <li>A Primary/Auxiliary model has been created in order for powerups to be combined</li>
+                    </ul>
+                </h3>
+                <div class="video-container powerup-video" id="powerup-video-2">
+                    <video class="content-video" loop muted disablePictureInPicture>
+                        <source type="video/mp4" src="web-content/videos/puddle_with_fire.m4v">
+                    </video>
+                </div>
+            </div>
+
+            <div class="container secondary-container horizontal">
+                <h3>Small Game Release<p>Feb 13 2023</p>
+                    <ul>
+                        <li>Improved the demo into a small game. The demo now has a main menu, music, sfx, multiplayer, and a procedurally generated road</li>
+                        <li>The demo now utilizes online multiplayer. This is to help further demonstrate the flexibility of the Nitro Library</li>
+                        <li>Reworked the NitroVar class into the RevertableVar class. The class now utilizes a GenericMath class to make it easier to modify the variable</li>
+                        <li>The Collidable and Collidable2D classes are now sealed components for greater flexibility</li>
+                        <li>The Combinable Powerup System no longer uses a Primary/Auxiliary model for combining powerups</li>
+                        <li>A new powerup chain system has been introduced that allows multiple powerups to be combined. The collected powerups are sorted by priority, with the highest priority powerup going first and the lowest priority powerup going last. The first powerup in the chain is given a function delegate that can trigger the next powerup in the chain, and so on until all powerups have been executed. This system is more flexible than the previous Primary/Auxiliary model</li>
+                    </ul>
+                </h3>
+                <div class="video-container powerup-video" id="powerup-video-2">
+                    <video class="content-video" loop muted disablePictureInPicture>
+                        <source type="video/mp4" src="web-content/videos/nitro_powerup_system_2023.mp4">
+                    </video>
+                </div>
+            </div>
+            <!--<div class="container secondary-container">
+                <div class="video-container powerup-video" id="powerup-video-1">
+                    <video class="content-video" loop muted disablePictureInPicture>
+                        <source type="video/mp4" src="web-content/videos/fireball_with_puddles.m4v">
+                    </video>
+                </div>
+                <div class="video-container powerup-video" id="powerup-video-2">
+                    <video class="content-video" loop muted disablePictureInPicture>
+                        <source type="video/mp4" src="web-content/videos/puddle_with_fire.m4v">
+                    </video>
+                </div>
+            </div>-->
         </div>
     </div>
 

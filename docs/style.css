@@ -371,6 +371,15 @@ h2 {
     text-decoration: underline;
 }*/
 
+ul {
+    /*width: 50%;*/
+    max-width: 30rem;
+}
+
+p {
+    color: yellow;
+}
+
 #brand-logo {
     max-width: 4rem;
     filter: brightness(200);
