@@ -5,10 +5,10 @@
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Namespace Nitro
+      <title>Delegate RevertableVar&lt;T&gt;.OnValueUpdatedDelegate
      | Nitro Documentation </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Namespace Nitro
+      <meta name="title" content="Delegate RevertableVar&lt;T&gt;.OnValueUpdatedDelegate
      | Nitro Documentation ">
       <meta name="generator" content="docfx 2.59.4.0">
       
@@ -91,86 +91,41 @@
                           </div>
                         </div>
 
-                    <article class="content wrap" id="_content" data-uid="Nitro">
+                    <article class="content wrap" id="_content" data-uid="Nitro.RevertableVar`1.OnValueUpdatedDelegate">
   
-  <h1 id="Nitro" data-uid="Nitro" class="text-break">Namespace Nitro
+  
+  <h1 id="Nitro_RevertableVar_1_OnValueUpdatedDelegate" data-uid="Nitro.RevertableVar`1.OnValueUpdatedDelegate" class="text-break">Delegate RevertableVar&lt;T&gt;.OnValueUpdatedDelegate
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
-  </h3>
-      <h5><a class="xref" href="Nitro.Collector.html">Collector</a></h5>
-      <section><p>Used for collecting powerups</p>
-</section>
-      <h5><a class="xref" href="Nitro.Collidable.html">Collidable</a></h5>
-      <section><p>A component that makes it easier to keep track of objects that have collided with an object.</p>
-</section>
-      <h5><a class="xref" href="Nitro.Collidable2D.html">Collidable2D</a></h5>
-      <section><p>A component that makes it easier to keep track of objects that have collided with an object.</p>
-</section>
-      <h5><a class="xref" href="Nitro.CombinablePowerup.html">CombinablePowerup</a></h5>
-      <section><p>A powerup that can have its effects combined with other powerups. When several powerups are collected via a <a class="xref" href="Nitro.MultiplePowerupCollector.html">MultiplePowerupCollector</a>, they will form a chain that is sorted based on the <a class="xref" href="Nitro.CombinablePowerup.html#Nitro_CombinablePowerup_Priority">Priority</a> of the powerups.</p>
-<p>The powerups with the highest priority will be executed first, while the ones with the lowest priority will be executed last. When a powerup is executed, it will have it&apos;s <see cref="!:Execute(CombinablePowerup, Vector3, Quaternion, Action&lt;Vector3, Quaternion>)"></see> function called.</p>
-<p>With the execute function, you will be able to know the previous powerup in the chain, the position and rotation of where the powerup is affecting, and a delegate called runNextPowerup, which when called, will execute the next powerup in the chain. You can use this delegate to control where and when the next powerups in the chain are executed&quot;/&gt;</p>
-</section>
-      <h5><a class="xref" href="Nitro.CombinablePowerup.Comparer.html">CombinablePowerup.Comparer</a></h5>
-      <section><p>A comparer used for sorting combinable powerups by priority</p>
-</section>
-      <h5><a class="xref" href="Nitro.Extensions.html">Extensions</a></h5>
-      <section></section>
-      <h5><a class="xref" href="Nitro.GenericMath.html">GenericMath</a></h5>
-      <section><p>Serves as a way of doing basic math operations on generic types.</p>
-</section>
-      <h5><a class="xref" href="Nitro.Modifier-1.html">Modifier&lt;T&gt;</a></h5>
-      <section><p>Represents a modification applied to a <a class="xref" href="Nitro.RevertableVar-1.html">RevertableVar&lt;T&gt;</a></p>
-</section>
-      <h5><a class="xref" href="Nitro.Modifier-1.Sorter.html">Modifier&lt;T&gt;.Sorter</a></h5>
-      <section></section>
-      <h5><a class="xref" href="Nitro.ModifierCollection.html">ModifierCollection</a></h5>
-      <section><p>Represents a collection of modifiers. This can be used to easily group modifiers together and revert them together as well</p>
-</section>
-      <h5><a class="xref" href="Nitro.MultiplePowerupCollector.html">MultiplePowerupCollector</a></h5>
-      <section><p>A collector that can collect multiple powerups</p>
-</section>
-      <h5><a class="xref" href="Nitro.Powerup.html">Powerup</a></h5>
-      <section><p>The base class for all powerups</p>
-</section>
-      <h5><a class="xref" href="Nitro.RevertableVar-1.html">RevertableVar&lt;T&gt;</a></h5>
-      <section><p>A variable that allows you to easily modify it&apos;s value and revert it back to it&apos;s original value</p>
-</section>
-      <h5><a class="xref" href="Nitro.SinglePowerupCollector.html">SinglePowerupCollector</a></h5>
-      <section><p>A simple powerup collector that collects and stores a single powerup</p>
-</section>
-      <h5><a class="xref" href="Nitro.Utilities.html">Utilities</a></h5>
-      <section></section>
-    <h3 id="interfaces">Interfaces
-  </h3>
-      <h5><a class="xref" href="Nitro.ICollector.html">ICollector</a></h5>
-      <section><p>Base interface for all collectors</p>
-</section>
-      <h5><a class="xref" href="Nitro.ICombinablePowerup.html">ICombinablePowerup</a></h5>
-      <section><p>The base class for all combinable powerups</p>
-</section>
-      <h5><a class="xref" href="Nitro.IModifier.html">IModifier</a></h5>
-      <section><p>Base class for all modifiers</p>
-</section>
-      <h5><a class="xref" href="Nitro.IMultiplePowerupCollector.html">IMultiplePowerupCollector</a></h5>
-      <section><p>The base class for a powerup collector that can collect multiple powerups</p>
-</section>
-      <h5><a class="xref" href="Nitro.IPowerup.html">IPowerup</a></h5>
-      <section><p>The base class for all powerups</p>
-</section>
-      <h5><a class="xref" href="Nitro.IRevertableVar.html">IRevertableVar</a></h5>
-      <section></section>
-    <h3 id="enums">Enums
-  </h3>
-      <h5><a class="xref" href="Nitro.IModifier.Operation.html">IModifier.Operation</a></h5>
-      <section></section>
-    <h3 id="delegates">Delegates
-  </h3>
-      <h5><a class="xref" href="Nitro.RevertableVar-1.OnValueUpdatedDelegate.html">RevertableVar&lt;T&gt;.OnValueUpdatedDelegate</a></h5>
-      <section></section>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Nitro.html">Nitro</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="Nitro_RevertableVar_1_OnValueUpdatedDelegate_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public delegate void OnValueUpdatedDelegate(T oldValue, T newValue);</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">oldValue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">newValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
                 </div>
 

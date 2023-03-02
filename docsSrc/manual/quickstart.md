@@ -28,7 +28,7 @@ Now we need a [Collector](xref:Nitro.Collector) that will collect the powerup. T
 
 How the player moves around to collect the powerup is up to you. In this example, a script called "[CarMovement](https://github.com/nickc01/Nitro/blob/master/Assets/Scripts/CarMovement.cs)" is used to move the player around using the arrow keys
 
-**- Step 2 : A way of executing the powerup**
+**- Step 3 : A way of executing the powerup**
 
 The last thing that is needed is a way of executing the powerup. For this example, we will create a new script so that when the "P" key is pressed, the powerup will be executed:
 ```csharp

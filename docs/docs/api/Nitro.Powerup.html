@@ -51,7 +51,7 @@
                           <img src="../resources/logo.png" alt="" class="logomark">
                           <span class="brand-title"></span>
                         </a>  </div>
-
+                    
                       <div class="sidesearch">
                         <form id="search" role="search" class="search">
                             <i class="bi bi-search search-icon"></i>
@@ -105,11 +105,15 @@
     <div class="level1"><span class="xref">Powerup</span></div>
       <div class="level2"><a class="xref" href="Nitro.CombinablePowerup.html">CombinablePowerup</a></div>
   </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Nitro.IPowerup.html">IPowerup</a></div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Nitro.html">Nitro</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
   <h5 id="Nitro_Powerup_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class Powerup : MonoBehaviour</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class Powerup : MonoBehaviour, IPowerup</code></pre>
   </div>
   <h3 id="fields">Fields
   </h3>
@@ -148,7 +152,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Collector Collector { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ICollector Collector { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -160,7 +164,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Nitro.Collector.html">Collector</a></td>
+        <td><a class="xref" href="Nitro.ICollector.html">ICollector</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -251,13 +255,13 @@
   
   
   <a id="Nitro_Powerup_OnCollect_" data-uid="Nitro.Powerup.OnCollect*"></a>
-  <h4 id="Nitro_Powerup_OnCollect_Nitro_Collector_" data-uid="Nitro.Powerup.OnCollect(Nitro.Collector)">OnCollect(Collector)</h4>
+  <h4 id="Nitro_Powerup_OnCollect_Nitro_ICollector_" data-uid="Nitro.Powerup.OnCollect(Nitro.ICollector)">OnCollect(ICollector)</h4>
   <div class="markdown level1 summary"><p>Called when the powerup has been collected</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void OnCollect(Collector collector)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual void OnCollect(ICollector collector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -270,13 +274,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Nitro.Collector.html">Collector</a></td>
+        <td><a class="xref" href="Nitro.ICollector.html">ICollector</a></td>
         <td><span class="parametername">collector</span></td>
         <td><p>The collector that has collected the powerup</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Nitro.IPowerup.html">IPowerup</a>
+  </div>
 </article>
                 </div>
 

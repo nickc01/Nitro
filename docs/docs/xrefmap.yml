@@ -13,12 +13,12 @@ references:
   commentId: T:Nitro.Collector
   fullName: Nitro.Collector
   nameWithType: Collector
-- uid: Nitro.Collector.CanCollectPowerup(Nitro.Powerup)
-  name: CanCollectPowerup(Powerup)
-  href: api/Nitro.Collector.html#Nitro_Collector_CanCollectPowerup_Nitro_Powerup_
-  commentId: M:Nitro.Collector.CanCollectPowerup(Nitro.Powerup)
-  fullName: Nitro.Collector.CanCollectPowerup(Nitro.Powerup)
-  nameWithType: Collector.CanCollectPowerup(Powerup)
+- uid: Nitro.Collector.CanCollectPowerup(Nitro.IPowerup)
+  name: CanCollectPowerup(IPowerup)
+  href: api/Nitro.Collector.html#Nitro_Collector_CanCollectPowerup_Nitro_IPowerup_
+  commentId: M:Nitro.Collector.CanCollectPowerup(Nitro.IPowerup)
+  fullName: Nitro.Collector.CanCollectPowerup(Nitro.IPowerup)
+  nameWithType: Collector.CanCollectPowerup(IPowerup)
 - uid: Nitro.Collector.CanCollectPowerup*
   name: CanCollectPowerup
   href: api/Nitro.Collector.html#Nitro_Collector_CanCollectPowerup_
@@ -52,12 +52,12 @@ references:
   isSpec: "True"
   fullName: Nitro.Collector.CollectorEnabled
   nameWithType: Collector.CollectorEnabled
-- uid: Nitro.Collector.CollectPowerup(Nitro.Powerup)
-  name: CollectPowerup(Powerup)
-  href: api/Nitro.Collector.html#Nitro_Collector_CollectPowerup_Nitro_Powerup_
-  commentId: M:Nitro.Collector.CollectPowerup(Nitro.Powerup)
-  fullName: Nitro.Collector.CollectPowerup(Nitro.Powerup)
-  nameWithType: Collector.CollectPowerup(Powerup)
+- uid: Nitro.Collector.CollectPowerup(Nitro.IPowerup)
+  name: CollectPowerup(IPowerup)
+  href: api/Nitro.Collector.html#Nitro_Collector_CollectPowerup_Nitro_IPowerup_
+  commentId: M:Nitro.Collector.CollectPowerup(Nitro.IPowerup)
+  fullName: Nitro.Collector.CollectPowerup(Nitro.IPowerup)
+  nameWithType: Collector.CollectPowerup(IPowerup)
 - uid: Nitro.Collector.CollectPowerup*
   name: CollectPowerup
   href: api/Nitro.Collector.html#Nitro_Collector_CollectPowerup_
@@ -78,12 +78,12 @@ references:
   isSpec: "True"
   fullName: Nitro.Collector.Execute
   nameWithType: Collector.Execute
-- uid: Nitro.Collector.OnCollect(Nitro.Powerup)
-  name: OnCollect(Powerup)
-  href: api/Nitro.Collector.html#Nitro_Collector_OnCollect_Nitro_Powerup_
-  commentId: M:Nitro.Collector.OnCollect(Nitro.Powerup)
-  fullName: Nitro.Collector.OnCollect(Nitro.Powerup)
-  nameWithType: Collector.OnCollect(Powerup)
+- uid: Nitro.Collector.OnCollect(Nitro.IPowerup)
+  name: OnCollect(IPowerup)
+  href: api/Nitro.Collector.html#Nitro_Collector_OnCollect_Nitro_IPowerup_
+  commentId: M:Nitro.Collector.OnCollect(Nitro.IPowerup)
+  fullName: Nitro.Collector.OnCollect(Nitro.IPowerup)
+  nameWithType: Collector.OnCollect(IPowerup)
 - uid: Nitro.Collector.OnCollect*
   name: OnCollect
   href: api/Nitro.Collector.html#Nitro_Collector_OnCollect_
@@ -168,136 +168,18 @@ references:
   isSpec: "True"
   fullName: Nitro.Collidable.Collisions
   nameWithType: Collidable.Collisions
-- uid: Nitro.Collidable.LateUpdate
-  name: LateUpdate()
-  href: api/Nitro.Collidable.html#Nitro_Collidable_LateUpdate
-  commentId: M:Nitro.Collidable.LateUpdate
-  fullName: Nitro.Collidable.LateUpdate()
-  nameWithType: Collidable.LateUpdate()
-- uid: Nitro.Collidable.LateUpdate*
-  name: LateUpdate
-  href: api/Nitro.Collidable.html#Nitro_Collidable_LateUpdate_
-  commentId: Overload:Nitro.Collidable.LateUpdate
-  isSpec: "True"
-  fullName: Nitro.Collidable.LateUpdate
-  nameWithType: Collidable.LateUpdate
-- uid: Nitro.Collidable.OnCollideStart(Collider)
-  name: OnCollideStart(Collider)
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnCollideStart_Collider_
-  commentId: M:Nitro.Collidable.OnCollideStart(Collider)
-  fullName: Nitro.Collidable.OnCollideStart(Collider)
-  nameWithType: Collidable.OnCollideStart(Collider)
-- uid: Nitro.Collidable.OnCollideStart*
+- uid: Nitro.Collidable.OnCollideStart
   name: OnCollideStart
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnCollideStart_
-  commentId: Overload:Nitro.Collidable.OnCollideStart
-  isSpec: "True"
+  href: api/Nitro.Collidable.html#Nitro_Collidable_OnCollideStart
+  commentId: E:Nitro.Collidable.OnCollideStart
   fullName: Nitro.Collidable.OnCollideStart
   nameWithType: Collidable.OnCollideStart
-- uid: Nitro.Collidable.OnCollideStop(Collider,System.Boolean)
-  name: OnCollideStop(Collider, Boolean)
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnCollideStop_Collider_System_Boolean_
-  commentId: M:Nitro.Collidable.OnCollideStop(Collider,System.Boolean)
-  fullName: Nitro.Collidable.OnCollideStop(Collider, System.Boolean)
-  nameWithType: Collidable.OnCollideStop(Collider, Boolean)
-- uid: Nitro.Collidable.OnCollideStop*
+- uid: Nitro.Collidable.OnCollideStop
   name: OnCollideStop
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnCollideStop_
-  commentId: Overload:Nitro.Collidable.OnCollideStop
-  isSpec: "True"
+  href: api/Nitro.Collidable.html#Nitro_Collidable_OnCollideStop
+  commentId: E:Nitro.Collidable.OnCollideStop
   fullName: Nitro.Collidable.OnCollideStop
   nameWithType: Collidable.OnCollideStop
-- uid: Nitro.Collidable.OnCollisionEnter(Collision)
-  name: OnCollisionEnter(Collision)
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnCollisionEnter_Collision_
-  commentId: M:Nitro.Collidable.OnCollisionEnter(Collision)
-  fullName: Nitro.Collidable.OnCollisionEnter(Collision)
-  nameWithType: Collidable.OnCollisionEnter(Collision)
-- uid: Nitro.Collidable.OnCollisionEnter*
-  name: OnCollisionEnter
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnCollisionEnter_
-  commentId: Overload:Nitro.Collidable.OnCollisionEnter
-  isSpec: "True"
-  fullName: Nitro.Collidable.OnCollisionEnter
-  nameWithType: Collidable.OnCollisionEnter
-- uid: Nitro.Collidable.OnCollisionExit(Collision)
-  name: OnCollisionExit(Collision)
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnCollisionExit_Collision_
-  commentId: M:Nitro.Collidable.OnCollisionExit(Collision)
-  fullName: Nitro.Collidable.OnCollisionExit(Collision)
-  nameWithType: Collidable.OnCollisionExit(Collision)
-- uid: Nitro.Collidable.OnCollisionExit*
-  name: OnCollisionExit
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnCollisionExit_
-  commentId: Overload:Nitro.Collidable.OnCollisionExit
-  isSpec: "True"
-  fullName: Nitro.Collidable.OnCollisionExit
-  nameWithType: Collidable.OnCollisionExit
-- uid: Nitro.Collidable.OnDestroy
-  name: OnDestroy()
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnDestroy
-  commentId: M:Nitro.Collidable.OnDestroy
-  fullName: Nitro.Collidable.OnDestroy()
-  nameWithType: Collidable.OnDestroy()
-- uid: Nitro.Collidable.OnDestroy*
-  name: OnDestroy
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnDestroy_
-  commentId: Overload:Nitro.Collidable.OnDestroy
-  isSpec: "True"
-  fullName: Nitro.Collidable.OnDestroy
-  nameWithType: Collidable.OnDestroy
-- uid: Nitro.Collidable.OnDisable
-  name: OnDisable()
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnDisable
-  commentId: M:Nitro.Collidable.OnDisable
-  fullName: Nitro.Collidable.OnDisable()
-  nameWithType: Collidable.OnDisable()
-- uid: Nitro.Collidable.OnDisable*
-  name: OnDisable
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnDisable_
-  commentId: Overload:Nitro.Collidable.OnDisable
-  isSpec: "True"
-  fullName: Nitro.Collidable.OnDisable
-  nameWithType: Collidable.OnDisable
-- uid: Nitro.Collidable.OnEnable
-  name: OnEnable()
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnEnable
-  commentId: M:Nitro.Collidable.OnEnable
-  fullName: Nitro.Collidable.OnEnable()
-  nameWithType: Collidable.OnEnable()
-- uid: Nitro.Collidable.OnEnable*
-  name: OnEnable
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnEnable_
-  commentId: Overload:Nitro.Collidable.OnEnable
-  isSpec: "True"
-  fullName: Nitro.Collidable.OnEnable
-  nameWithType: Collidable.OnEnable
-- uid: Nitro.Collidable.OnTriggerEnter(Collider)
-  name: OnTriggerEnter(Collider)
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnTriggerEnter_Collider_
-  commentId: M:Nitro.Collidable.OnTriggerEnter(Collider)
-  fullName: Nitro.Collidable.OnTriggerEnter(Collider)
-  nameWithType: Collidable.OnTriggerEnter(Collider)
-- uid: Nitro.Collidable.OnTriggerEnter*
-  name: OnTriggerEnter
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnTriggerEnter_
-  commentId: Overload:Nitro.Collidable.OnTriggerEnter
-  isSpec: "True"
-  fullName: Nitro.Collidable.OnTriggerEnter
-  nameWithType: Collidable.OnTriggerEnter
-- uid: Nitro.Collidable.OnTriggerExit(Collider)
-  name: OnTriggerExit(Collider)
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnTriggerExit_Collider_
-  commentId: M:Nitro.Collidable.OnTriggerExit(Collider)
-  fullName: Nitro.Collidable.OnTriggerExit(Collider)
-  nameWithType: Collidable.OnTriggerExit(Collider)
-- uid: Nitro.Collidable.OnTriggerExit*
-  name: OnTriggerExit
-  href: api/Nitro.Collidable.html#Nitro_Collidable_OnTriggerExit_
-  commentId: Overload:Nitro.Collidable.OnTriggerExit
-  isSpec: "True"
-  fullName: Nitro.Collidable.OnTriggerExit
-  nameWithType: Collidable.OnTriggerExit
 - uid: Nitro.Collidable2D
   name: Collidable2D
   href: api/Nitro.Collidable2D.html
@@ -459,12 +341,12 @@ references:
   commentId: T:Nitro.CombinablePowerup.Comparer
   fullName: Nitro.CombinablePowerup.Comparer
   nameWithType: CombinablePowerup.Comparer
-- uid: Nitro.CombinablePowerup.Comparer.Compare(Nitro.CombinablePowerup,Nitro.CombinablePowerup)
-  name: Compare(CombinablePowerup, CombinablePowerup)
-  href: api/Nitro.CombinablePowerup.Comparer.html#Nitro_CombinablePowerup_Comparer_Compare_Nitro_CombinablePowerup_Nitro_CombinablePowerup_
-  commentId: M:Nitro.CombinablePowerup.Comparer.Compare(Nitro.CombinablePowerup,Nitro.CombinablePowerup)
-  fullName: Nitro.CombinablePowerup.Comparer.Compare(Nitro.CombinablePowerup, Nitro.CombinablePowerup)
-  nameWithType: CombinablePowerup.Comparer.Compare(CombinablePowerup, CombinablePowerup)
+- uid: Nitro.CombinablePowerup.Comparer.Compare(Nitro.ICombinablePowerup,Nitro.ICombinablePowerup)
+  name: Compare(ICombinablePowerup, ICombinablePowerup)
+  href: api/Nitro.CombinablePowerup.Comparer.html#Nitro_CombinablePowerup_Comparer_Compare_Nitro_ICombinablePowerup_Nitro_ICombinablePowerup_
+  commentId: M:Nitro.CombinablePowerup.Comparer.Compare(Nitro.ICombinablePowerup,Nitro.ICombinablePowerup)
+  fullName: Nitro.CombinablePowerup.Comparer.Compare(Nitro.ICombinablePowerup, Nitro.ICombinablePowerup)
+  nameWithType: CombinablePowerup.Comparer.Compare(ICombinablePowerup, ICombinablePowerup)
 - uid: Nitro.CombinablePowerup.Comparer.Compare*
   name: Compare
   href: api/Nitro.CombinablePowerup.Comparer.html#Nitro_CombinablePowerup_Comparer_Compare_
@@ -498,15 +380,15 @@ references:
   isSpec: "True"
   fullName: Nitro.CombinablePowerup.DoneUsingPowerup
   nameWithType: CombinablePowerup.DoneUsingPowerup
-- uid: Nitro.CombinablePowerup.Execute(Nitro.CombinablePowerup,Vector3,Quaternion,Action{Vector3,Quaternion})
-  name: Execute(CombinablePowerup, Vector3, Quaternion, Action<Vector3, Quaternion>)
-  href: api/Nitro.CombinablePowerup.html#Nitro_CombinablePowerup_Execute_Nitro_CombinablePowerup_Vector3_Quaternion_Action_Vector3_Quaternion__
-  commentId: M:Nitro.CombinablePowerup.Execute(Nitro.CombinablePowerup,Vector3,Quaternion,Action{Vector3,Quaternion})
-  name.vb: Execute(CombinablePowerup, Vector3, Quaternion, Action(Of Vector3, Quaternion))
-  fullName: Nitro.CombinablePowerup.Execute(Nitro.CombinablePowerup, Vector3, Quaternion, Action<Vector3, Quaternion>)
-  fullName.vb: Nitro.CombinablePowerup.Execute(Nitro.CombinablePowerup, Vector3, Quaternion, Action(Of Vector3, Quaternion))
-  nameWithType: CombinablePowerup.Execute(CombinablePowerup, Vector3, Quaternion, Action<Vector3, Quaternion>)
-  nameWithType.vb: CombinablePowerup.Execute(CombinablePowerup, Vector3, Quaternion, Action(Of Vector3, Quaternion))
+- uid: Nitro.CombinablePowerup.Execute(Nitro.ICombinablePowerup,Vector3,Quaternion,Action{Vector3,Quaternion})
+  name: Execute(ICombinablePowerup, Vector3, Quaternion, Action<Vector3, Quaternion>)
+  href: api/Nitro.CombinablePowerup.html#Nitro_CombinablePowerup_Execute_Nitro_ICombinablePowerup_Vector3_Quaternion_Action_Vector3_Quaternion__
+  commentId: M:Nitro.CombinablePowerup.Execute(Nitro.ICombinablePowerup,Vector3,Quaternion,Action{Vector3,Quaternion})
+  name.vb: Execute(ICombinablePowerup, Vector3, Quaternion, Action(Of Vector3, Quaternion))
+  fullName: Nitro.CombinablePowerup.Execute(Nitro.ICombinablePowerup, Vector3, Quaternion, Action<Vector3, Quaternion>)
+  fullName.vb: Nitro.CombinablePowerup.Execute(Nitro.ICombinablePowerup, Vector3, Quaternion, Action(Of Vector3, Quaternion))
+  nameWithType: CombinablePowerup.Execute(ICombinablePowerup, Vector3, Quaternion, Action<Vector3, Quaternion>)
+  nameWithType.vb: CombinablePowerup.Execute(ICombinablePowerup, Vector3, Quaternion, Action(Of Vector3, Quaternion))
 - uid: Nitro.CombinablePowerup.Execute*
   name: Execute
   href: api/Nitro.CombinablePowerup.html#Nitro_CombinablePowerup_Execute_
@@ -559,15 +441,15 @@ references:
   commentId: M:Nitro.CombinablePowerup.HasPowerupInChain(Type)
   fullName: Nitro.CombinablePowerup.HasPowerupInChain(Type)
   nameWithType: CombinablePowerup.HasPowerupInChain(Type)
-- uid: Nitro.CombinablePowerup.HasPowerupInChain(Type,Nitro.CombinablePowerup@)
-  name: HasPowerupInChain(Type, out CombinablePowerup)
-  href: api/Nitro.CombinablePowerup.html#Nitro_CombinablePowerup_HasPowerupInChain_Type_Nitro_CombinablePowerup__
-  commentId: M:Nitro.CombinablePowerup.HasPowerupInChain(Type,Nitro.CombinablePowerup@)
-  name.vb: HasPowerupInChain(Type, ByRef CombinablePowerup)
-  fullName: Nitro.CombinablePowerup.HasPowerupInChain(Type, out Nitro.CombinablePowerup)
-  fullName.vb: Nitro.CombinablePowerup.HasPowerupInChain(Type, ByRef Nitro.CombinablePowerup)
-  nameWithType: CombinablePowerup.HasPowerupInChain(Type, out CombinablePowerup)
-  nameWithType.vb: CombinablePowerup.HasPowerupInChain(Type, ByRef CombinablePowerup)
+- uid: Nitro.CombinablePowerup.HasPowerupInChain(Type,Nitro.ICombinablePowerup@)
+  name: HasPowerupInChain(Type, out ICombinablePowerup)
+  href: api/Nitro.CombinablePowerup.html#Nitro_CombinablePowerup_HasPowerupInChain_Type_Nitro_ICombinablePowerup__
+  commentId: M:Nitro.CombinablePowerup.HasPowerupInChain(Type,Nitro.ICombinablePowerup@)
+  name.vb: HasPowerupInChain(Type, ByRef ICombinablePowerup)
+  fullName: Nitro.CombinablePowerup.HasPowerupInChain(Type, out Nitro.ICombinablePowerup)
+  fullName.vb: Nitro.CombinablePowerup.HasPowerupInChain(Type, ByRef Nitro.ICombinablePowerup)
+  nameWithType: CombinablePowerup.HasPowerupInChain(Type, out ICombinablePowerup)
+  nameWithType.vb: CombinablePowerup.HasPowerupInChain(Type, ByRef ICombinablePowerup)
 - uid: Nitro.CombinablePowerup.HasPowerupInChain*
   name: HasPowerupInChain
   href: api/Nitro.CombinablePowerup.html#Nitro_CombinablePowerup_HasPowerupInChain_
@@ -612,6 +494,38 @@ references:
   isSpec: "True"
   fullName: Nitro.CombinablePowerup.Priority
   nameWithType: CombinablePowerup.Priority
+- uid: Nitro.Extensions
+  name: Extensions
+  href: api/Nitro.Extensions.html
+  commentId: T:Nitro.Extensions
+  fullName: Nitro.Extensions
+  nameWithType: Extensions
+- uid: Nitro.Extensions.GetGameObject(Nitro.ICollector)
+  name: GetGameObject(ICollector)
+  href: api/Nitro.Extensions.html#Nitro_Extensions_GetGameObject_Nitro_ICollector_
+  commentId: M:Nitro.Extensions.GetGameObject(Nitro.ICollector)
+  fullName: Nitro.Extensions.GetGameObject(Nitro.ICollector)
+  nameWithType: Extensions.GetGameObject(ICollector)
+- uid: Nitro.Extensions.GetGameObject*
+  name: GetGameObject
+  href: api/Nitro.Extensions.html#Nitro_Extensions_GetGameObject_
+  commentId: Overload:Nitro.Extensions.GetGameObject
+  isSpec: "True"
+  fullName: Nitro.Extensions.GetGameObject
+  nameWithType: Extensions.GetGameObject
+- uid: Nitro.Extensions.GetTransform(Nitro.ICollector)
+  name: GetTransform(ICollector)
+  href: api/Nitro.Extensions.html#Nitro_Extensions_GetTransform_Nitro_ICollector_
+  commentId: M:Nitro.Extensions.GetTransform(Nitro.ICollector)
+  fullName: Nitro.Extensions.GetTransform(Nitro.ICollector)
+  nameWithType: Extensions.GetTransform(ICollector)
+- uid: Nitro.Extensions.GetTransform*
+  name: GetTransform
+  href: api/Nitro.Extensions.html#Nitro_Extensions_GetTransform_
+  commentId: Overload:Nitro.Extensions.GetTransform
+  isSpec: "True"
+  fullName: Nitro.Extensions.GetTransform
+  nameWithType: Extensions.GetTransform
 - uid: Nitro.GenericMath
   name: GenericMath
   href: api/Nitro.GenericMath.html
@@ -746,6 +660,86 @@ references:
   fullName.vb: Nitro.GenericMath.Sub(Of T)(T, T)
   nameWithType: GenericMath.Sub<T>(T, T)
   nameWithType.vb: GenericMath.Sub(Of T)(T, T)
+- uid: Nitro.ICollector
+  name: ICollector
+  href: api/Nitro.ICollector.html
+  commentId: T:Nitro.ICollector
+  fullName: Nitro.ICollector
+  nameWithType: ICollector
+- uid: Nitro.ICollector.CanCollectPowerup(Nitro.IPowerup)
+  name: CanCollectPowerup(IPowerup)
+  href: api/Nitro.ICollector.html#Nitro_ICollector_CanCollectPowerup_Nitro_IPowerup_
+  commentId: M:Nitro.ICollector.CanCollectPowerup(Nitro.IPowerup)
+  fullName: Nitro.ICollector.CanCollectPowerup(Nitro.IPowerup)
+  nameWithType: ICollector.CanCollectPowerup(IPowerup)
+- uid: Nitro.ICollector.CanCollectPowerup*
+  name: CanCollectPowerup
+  href: api/Nitro.ICollector.html#Nitro_ICollector_CanCollectPowerup_
+  commentId: Overload:Nitro.ICollector.CanCollectPowerup
+  isSpec: "True"
+  fullName: Nitro.ICollector.CanCollectPowerup
+  nameWithType: ICollector.CanCollectPowerup
+- uid: Nitro.ICollector.CollectPowerup(Nitro.IPowerup)
+  name: CollectPowerup(IPowerup)
+  href: api/Nitro.ICollector.html#Nitro_ICollector_CollectPowerup_Nitro_IPowerup_
+  commentId: M:Nitro.ICollector.CollectPowerup(Nitro.IPowerup)
+  fullName: Nitro.ICollector.CollectPowerup(Nitro.IPowerup)
+  nameWithType: ICollector.CollectPowerup(IPowerup)
+- uid: Nitro.ICollector.CollectPowerup*
+  name: CollectPowerup
+  href: api/Nitro.ICollector.html#Nitro_ICollector_CollectPowerup_
+  commentId: Overload:Nitro.ICollector.CollectPowerup
+  isSpec: "True"
+  fullName: Nitro.ICollector.CollectPowerup
+  nameWithType: ICollector.CollectPowerup
+- uid: Nitro.ICollector.Execute
+  name: Execute()
+  href: api/Nitro.ICollector.html#Nitro_ICollector_Execute
+  commentId: M:Nitro.ICollector.Execute
+  fullName: Nitro.ICollector.Execute()
+  nameWithType: ICollector.Execute()
+- uid: Nitro.ICollector.Execute*
+  name: Execute
+  href: api/Nitro.ICollector.html#Nitro_ICollector_Execute_
+  commentId: Overload:Nitro.ICollector.Execute
+  isSpec: "True"
+  fullName: Nitro.ICollector.Execute
+  nameWithType: ICollector.Execute
+- uid: Nitro.ICombinablePowerup
+  name: ICombinablePowerup
+  href: api/Nitro.ICombinablePowerup.html
+  commentId: T:Nitro.ICombinablePowerup
+  fullName: Nitro.ICombinablePowerup
+  nameWithType: ICombinablePowerup
+- uid: Nitro.ICombinablePowerup.Execute(Nitro.ICombinablePowerup,Vector3,Quaternion,Action{Vector3,Quaternion})
+  name: Execute(ICombinablePowerup, Vector3, Quaternion, Action<Vector3, Quaternion>)
+  href: api/Nitro.ICombinablePowerup.html#Nitro_ICombinablePowerup_Execute_Nitro_ICombinablePowerup_Vector3_Quaternion_Action_Vector3_Quaternion__
+  commentId: M:Nitro.ICombinablePowerup.Execute(Nitro.ICombinablePowerup,Vector3,Quaternion,Action{Vector3,Quaternion})
+  name.vb: Execute(ICombinablePowerup, Vector3, Quaternion, Action(Of Vector3, Quaternion))
+  fullName: Nitro.ICombinablePowerup.Execute(Nitro.ICombinablePowerup, Vector3, Quaternion, Action<Vector3, Quaternion>)
+  fullName.vb: Nitro.ICombinablePowerup.Execute(Nitro.ICombinablePowerup, Vector3, Quaternion, Action(Of Vector3, Quaternion))
+  nameWithType: ICombinablePowerup.Execute(ICombinablePowerup, Vector3, Quaternion, Action<Vector3, Quaternion>)
+  nameWithType.vb: ICombinablePowerup.Execute(ICombinablePowerup, Vector3, Quaternion, Action(Of Vector3, Quaternion))
+- uid: Nitro.ICombinablePowerup.Execute*
+  name: Execute
+  href: api/Nitro.ICombinablePowerup.html#Nitro_ICombinablePowerup_Execute_
+  commentId: Overload:Nitro.ICombinablePowerup.Execute
+  isSpec: "True"
+  fullName: Nitro.ICombinablePowerup.Execute
+  nameWithType: ICombinablePowerup.Execute
+- uid: Nitro.ICombinablePowerup.Priority
+  name: Priority
+  href: api/Nitro.ICombinablePowerup.html#Nitro_ICombinablePowerup_Priority
+  commentId: P:Nitro.ICombinablePowerup.Priority
+  fullName: Nitro.ICombinablePowerup.Priority
+  nameWithType: ICombinablePowerup.Priority
+- uid: Nitro.ICombinablePowerup.Priority*
+  name: Priority
+  href: api/Nitro.ICombinablePowerup.html#Nitro_ICombinablePowerup_Priority_
+  commentId: Overload:Nitro.ICombinablePowerup.Priority
+  isSpec: "True"
+  fullName: Nitro.ICombinablePowerup.Priority
+  nameWithType: ICombinablePowerup.Priority
 - uid: Nitro.IModifier
   name: IModifier
   href: api/Nitro.IModifier.html
@@ -778,6 +772,68 @@ references:
   isSpec: "True"
   fullName: Nitro.IModifier.HasBoundObject
   nameWithType: IModifier.HasBoundObject
+- uid: Nitro.IModifier.ID
+  name: ID
+  href: api/Nitro.IModifier.html#Nitro_IModifier_ID
+  commentId: P:Nitro.IModifier.ID
+  fullName: Nitro.IModifier.ID
+  nameWithType: IModifier.ID
+- uid: Nitro.IModifier.ID*
+  name: ID
+  href: api/Nitro.IModifier.html#Nitro_IModifier_ID_
+  commentId: Overload:Nitro.IModifier.ID
+  isSpec: "True"
+  fullName: Nitro.IModifier.ID
+  nameWithType: IModifier.ID
+- uid: Nitro.IModifier.Op
+  name: Op
+  href: api/Nitro.IModifier.html#Nitro_IModifier_Op
+  commentId: P:Nitro.IModifier.Op
+  fullName: Nitro.IModifier.Op
+  nameWithType: IModifier.Op
+- uid: Nitro.IModifier.Op*
+  name: Op
+  href: api/Nitro.IModifier.html#Nitro_IModifier_Op_
+  commentId: Overload:Nitro.IModifier.Op
+  isSpec: "True"
+  fullName: Nitro.IModifier.Op
+  nameWithType: IModifier.Op
+- uid: Nitro.IModifier.Operation
+  name: IModifier.Operation
+  href: api/Nitro.IModifier.Operation.html
+  commentId: T:Nitro.IModifier.Operation
+  fullName: Nitro.IModifier.Operation
+  nameWithType: IModifier.Operation
+- uid: Nitro.IModifier.Operation.Add
+  name: Add
+  href: api/Nitro.IModifier.Operation.html#Nitro_IModifier_Operation_Add
+  commentId: F:Nitro.IModifier.Operation.Add
+  fullName: Nitro.IModifier.Operation.Add
+  nameWithType: IModifier.Operation.Add
+- uid: Nitro.IModifier.Operation.Divide
+  name: Divide
+  href: api/Nitro.IModifier.Operation.html#Nitro_IModifier_Operation_Divide
+  commentId: F:Nitro.IModifier.Operation.Divide
+  fullName: Nitro.IModifier.Operation.Divide
+  nameWithType: IModifier.Operation.Divide
+- uid: Nitro.IModifier.Operation.Multiply
+  name: Multiply
+  href: api/Nitro.IModifier.Operation.html#Nitro_IModifier_Operation_Multiply
+  commentId: F:Nitro.IModifier.Operation.Multiply
+  fullName: Nitro.IModifier.Operation.Multiply
+  nameWithType: IModifier.Operation.Multiply
+- uid: Nitro.IModifier.Operation.Set
+  name: Set
+  href: api/Nitro.IModifier.Operation.html#Nitro_IModifier_Operation_Set
+  commentId: F:Nitro.IModifier.Operation.Set
+  fullName: Nitro.IModifier.Operation.Set
+  nameWithType: IModifier.Operation.Set
+- uid: Nitro.IModifier.Operation.Subtract
+  name: Subtract
+  href: api/Nitro.IModifier.Operation.html#Nitro_IModifier_Operation_Subtract
+  commentId: F:Nitro.IModifier.Operation.Subtract
+  fullName: Nitro.IModifier.Operation.Subtract
+  nameWithType: IModifier.Operation.Subtract
 - uid: Nitro.IModifier.Priority
   name: Priority
   href: api/Nitro.IModifier.html#Nitro_IModifier_Priority
@@ -830,6 +886,109 @@ references:
   isSpec: "True"
   fullName: Nitro.IModifier.TimeAdded
   nameWithType: IModifier.TimeAdded
+- uid: Nitro.IModifier.Value
+  name: Value
+  href: api/Nitro.IModifier.html#Nitro_IModifier_Value
+  commentId: P:Nitro.IModifier.Value
+  fullName: Nitro.IModifier.Value
+  nameWithType: IModifier.Value
+- uid: Nitro.IModifier.Value*
+  name: Value
+  href: api/Nitro.IModifier.html#Nitro_IModifier_Value_
+  commentId: Overload:Nitro.IModifier.Value
+  isSpec: "True"
+  fullName: Nitro.IModifier.Value
+  nameWithType: IModifier.Value
+- uid: Nitro.IMultiplePowerupCollector
+  name: IMultiplePowerupCollector
+  href: api/Nitro.IMultiplePowerupCollector.html
+  commentId: T:Nitro.IMultiplePowerupCollector
+  fullName: Nitro.IMultiplePowerupCollector
+  nameWithType: IMultiplePowerupCollector
+- uid: Nitro.IMultiplePowerupCollector.CollectedPowerups
+  name: CollectedPowerups
+  href: api/Nitro.IMultiplePowerupCollector.html#Nitro_IMultiplePowerupCollector_CollectedPowerups
+  commentId: P:Nitro.IMultiplePowerupCollector.CollectedPowerups
+  fullName: Nitro.IMultiplePowerupCollector.CollectedPowerups
+  nameWithType: IMultiplePowerupCollector.CollectedPowerups
+- uid: Nitro.IMultiplePowerupCollector.CollectedPowerups*
+  name: CollectedPowerups
+  href: api/Nitro.IMultiplePowerupCollector.html#Nitro_IMultiplePowerupCollector_CollectedPowerups_
+  commentId: Overload:Nitro.IMultiplePowerupCollector.CollectedPowerups
+  isSpec: "True"
+  fullName: Nitro.IMultiplePowerupCollector.CollectedPowerups
+  nameWithType: IMultiplePowerupCollector.CollectedPowerups
+- uid: Nitro.IMultiplePowerupCollector.MaxPowerupsHeld
+  name: MaxPowerupsHeld
+  href: api/Nitro.IMultiplePowerupCollector.html#Nitro_IMultiplePowerupCollector_MaxPowerupsHeld
+  commentId: P:Nitro.IMultiplePowerupCollector.MaxPowerupsHeld
+  fullName: Nitro.IMultiplePowerupCollector.MaxPowerupsHeld
+  nameWithType: IMultiplePowerupCollector.MaxPowerupsHeld
+- uid: Nitro.IMultiplePowerupCollector.MaxPowerupsHeld*
+  name: MaxPowerupsHeld
+  href: api/Nitro.IMultiplePowerupCollector.html#Nitro_IMultiplePowerupCollector_MaxPowerupsHeld_
+  commentId: Overload:Nitro.IMultiplePowerupCollector.MaxPowerupsHeld
+  isSpec: "True"
+  fullName: Nitro.IMultiplePowerupCollector.MaxPowerupsHeld
+  nameWithType: IMultiplePowerupCollector.MaxPowerupsHeld
+- uid: Nitro.IPowerup
+  name: IPowerup
+  href: api/Nitro.IPowerup.html
+  commentId: T:Nitro.IPowerup
+  fullName: Nitro.IPowerup
+  nameWithType: IPowerup
+- uid: Nitro.IPowerup.Collector
+  name: Collector
+  href: api/Nitro.IPowerup.html#Nitro_IPowerup_Collector
+  commentId: P:Nitro.IPowerup.Collector
+  fullName: Nitro.IPowerup.Collector
+  nameWithType: IPowerup.Collector
+- uid: Nitro.IPowerup.Collector*
+  name: Collector
+  href: api/Nitro.IPowerup.html#Nitro_IPowerup_Collector_
+  commentId: Overload:Nitro.IPowerup.Collector
+  isSpec: "True"
+  fullName: Nitro.IPowerup.Collector
+  nameWithType: IPowerup.Collector
+- uid: Nitro.IPowerup.DoAction
+  name: DoAction()
+  href: api/Nitro.IPowerup.html#Nitro_IPowerup_DoAction
+  commentId: M:Nitro.IPowerup.DoAction
+  fullName: Nitro.IPowerup.DoAction()
+  nameWithType: IPowerup.DoAction()
+- uid: Nitro.IPowerup.DoAction*
+  name: DoAction
+  href: api/Nitro.IPowerup.html#Nitro_IPowerup_DoAction_
+  commentId: Overload:Nitro.IPowerup.DoAction
+  isSpec: "True"
+  fullName: Nitro.IPowerup.DoAction
+  nameWithType: IPowerup.DoAction
+- uid: Nitro.IPowerup.DoneUsingPowerup
+  name: DoneUsingPowerup()
+  href: api/Nitro.IPowerup.html#Nitro_IPowerup_DoneUsingPowerup
+  commentId: M:Nitro.IPowerup.DoneUsingPowerup
+  fullName: Nitro.IPowerup.DoneUsingPowerup()
+  nameWithType: IPowerup.DoneUsingPowerup()
+- uid: Nitro.IPowerup.DoneUsingPowerup*
+  name: DoneUsingPowerup
+  href: api/Nitro.IPowerup.html#Nitro_IPowerup_DoneUsingPowerup_
+  commentId: Overload:Nitro.IPowerup.DoneUsingPowerup
+  isSpec: "True"
+  fullName: Nitro.IPowerup.DoneUsingPowerup
+  nameWithType: IPowerup.DoneUsingPowerup
+- uid: Nitro.IPowerup.OnCollect(Nitro.ICollector)
+  name: OnCollect(ICollector)
+  href: api/Nitro.IPowerup.html#Nitro_IPowerup_OnCollect_Nitro_ICollector_
+  commentId: M:Nitro.IPowerup.OnCollect(Nitro.ICollector)
+  fullName: Nitro.IPowerup.OnCollect(Nitro.ICollector)
+  nameWithType: IPowerup.OnCollect(ICollector)
+- uid: Nitro.IPowerup.OnCollect*
+  name: OnCollect
+  href: api/Nitro.IPowerup.html#Nitro_IPowerup_OnCollect_
+  commentId: Overload:Nitro.IPowerup.OnCollect
+  isSpec: "True"
+  fullName: Nitro.IPowerup.OnCollect
+  nameWithType: IPowerup.OnCollect
 - uid: Nitro.IRevertableVar
   name: IRevertableVar
   href: api/Nitro.IRevertableVar.html
@@ -849,6 +1008,19 @@ references:
   isSpec: "True"
   fullName: Nitro.IRevertableVar.BaseValue
   nameWithType: IRevertableVar.BaseValue
+- uid: Nitro.IRevertableVar.GetModifiers
+  name: GetModifiers()
+  href: api/Nitro.IRevertableVar.html#Nitro_IRevertableVar_GetModifiers
+  commentId: M:Nitro.IRevertableVar.GetModifiers
+  fullName: Nitro.IRevertableVar.GetModifiers()
+  nameWithType: IRevertableVar.GetModifiers()
+- uid: Nitro.IRevertableVar.GetModifiers*
+  name: GetModifiers
+  href: api/Nitro.IRevertableVar.html#Nitro_IRevertableVar_GetModifiers_
+  commentId: Overload:Nitro.IRevertableVar.GetModifiers
+  isSpec: "True"
+  fullName: Nitro.IRevertableVar.GetModifiers
+  nameWithType: IRevertableVar.GetModifiers
 - uid: Nitro.IRevertableVar.ModifiersApplied
   name: ModifiersApplied
   href: api/Nitro.IRevertableVar.html#Nitro_IRevertableVar_ModifiersApplied
@@ -862,6 +1034,19 @@ references:
   isSpec: "True"
   fullName: Nitro.IRevertableVar.ModifiersApplied
   nameWithType: IRevertableVar.ModifiersApplied
+- uid: Nitro.IRevertableVar.Revert(Nitro.IModifier)
+  name: Revert(IModifier)
+  href: api/Nitro.IRevertableVar.html#Nitro_IRevertableVar_Revert_Nitro_IModifier_
+  commentId: M:Nitro.IRevertableVar.Revert(Nitro.IModifier)
+  fullName: Nitro.IRevertableVar.Revert(Nitro.IModifier)
+  nameWithType: IRevertableVar.Revert(IModifier)
+- uid: Nitro.IRevertableVar.Revert*
+  name: Revert
+  href: api/Nitro.IRevertableVar.html#Nitro_IRevertableVar_Revert_
+  commentId: Overload:Nitro.IRevertableVar.Revert
+  isSpec: "True"
+  fullName: Nitro.IRevertableVar.Revert
+  nameWithType: IRevertableVar.Revert
 - uid: Nitro.IRevertableVar.Value
   name: Value
   href: api/Nitro.IRevertableVar.html#Nitro_IRevertableVar_Value
@@ -888,6 +1073,34 @@ references:
   isSpec: "True"
   fullName: Nitro.IRevertableVar.ValueType
   nameWithType: IRevertableVar.ValueType
+- uid: Nitro.Mirror
+  name: Nitro.Mirror
+  href: api/Nitro.Mirror.html
+  commentId: N:Nitro.Mirror
+  fullName: Nitro.Mirror
+  nameWithType: Nitro.Mirror
+- uid: Nitro.Mirror.RevertableVarReaderWriter
+  name: RevertableVarReaderWriter
+  href: api/Nitro.Mirror.RevertableVarReaderWriter.html
+  commentId: T:Nitro.Mirror.RevertableVarReaderWriter
+  fullName: Nitro.Mirror.RevertableVarReaderWriter
+  nameWithType: RevertableVarReaderWriter
+- uid: Nitro.Mirror.RevertableVarReaderWriter.SyncTest*
+  name: SyncTest
+  href: api/Nitro.Mirror.RevertableVarReaderWriter.html#Nitro_Mirror_RevertableVarReaderWriter_SyncTest_
+  commentId: Overload:Nitro.Mirror.RevertableVarReaderWriter.SyncTest
+  isSpec: "True"
+  fullName: Nitro.Mirror.RevertableVarReaderWriter.SyncTest
+  nameWithType: RevertableVarReaderWriter.SyncTest
+- uid: Nitro.Mirror.RevertableVarReaderWriter.SyncTest``1(Nitro.RevertableVar{``0},System.String,System.String,System.Int32)
+  name: SyncTest<T>(RevertableVar<T>, String, String, Int32)
+  href: api/Nitro.Mirror.RevertableVarReaderWriter.html#Nitro_Mirror_RevertableVarReaderWriter_SyncTest__1_Nitro_RevertableVar___0__System_String_System_String_System_Int32_
+  commentId: M:Nitro.Mirror.RevertableVarReaderWriter.SyncTest``1(Nitro.RevertableVar{``0},System.String,System.String,System.Int32)
+  name.vb: SyncTest(Of T)(RevertableVar(Of T), String, String, Int32)
+  fullName: Nitro.Mirror.RevertableVarReaderWriter.SyncTest<T>(Nitro.RevertableVar<T>, System.String, System.String, System.Int32)
+  fullName.vb: Nitro.Mirror.RevertableVarReaderWriter.SyncTest(Of T)(Nitro.RevertableVar(Of T), System.String, System.String, System.Int32)
+  nameWithType: RevertableVarReaderWriter.SyncTest<T>(RevertableVar<T>, String, String, Int32)
+  nameWithType.vb: RevertableVarReaderWriter.SyncTest(Of T)(RevertableVar(Of T), String, String, Int32)
 - uid: Nitro.Modifier`1
   name: Modifier<T>
   href: api/Nitro.Modifier-1.html
@@ -897,6 +1110,23 @@ references:
   fullName.vb: Nitro.Modifier(Of T)
   nameWithType: Modifier<T>
   nameWithType.vb: Modifier(Of T)
+- uid: Nitro.Modifier`1.#ctor(Nitro.IRevertableVar,Operation,`0,System.Int32,System.Single,UnityEngine.Object,System.UInt64)
+  name: Modifier(IRevertableVar, Operation, T, Int32, Single, UnityEngine.Object, UInt64)
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1__ctor_Nitro_IRevertableVar_Operation__0_System_Int32_System_Single_UnityEngine_Object_System_UInt64_
+  commentId: M:Nitro.Modifier`1.#ctor(Nitro.IRevertableVar,Operation,`0,System.Int32,System.Single,UnityEngine.Object,System.UInt64)
+  fullName: Nitro.Modifier<T>.Modifier(Nitro.IRevertableVar, Operation, T, System.Int32, System.Single, UnityEngine.Object, System.UInt64)
+  fullName.vb: Nitro.Modifier(Of T).Modifier(Nitro.IRevertableVar, Operation, T, System.Int32, System.Single, UnityEngine.Object, System.UInt64)
+  nameWithType: Modifier<T>.Modifier(IRevertableVar, Operation, T, Int32, Single, UnityEngine.Object, UInt64)
+  nameWithType.vb: Modifier(Of T).Modifier(IRevertableVar, Operation, T, Int32, Single, UnityEngine.Object, UInt64)
+- uid: Nitro.Modifier`1.#ctor*
+  name: Modifier
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1__ctor_
+  commentId: Overload:Nitro.Modifier`1.#ctor
+  isSpec: "True"
+  fullName: Nitro.Modifier<T>.Modifier
+  fullName.vb: Nitro.Modifier(Of T).Modifier
+  nameWithType: Modifier<T>.Modifier
+  nameWithType.vb: Modifier(Of T).Modifier
 - uid: Nitro.Modifier`1.BoundObject
   name: BoundObject
   href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_BoundObject
@@ -948,25 +1178,59 @@ references:
   fullName.vb: Nitro.Modifier(Of T).HasBoundObject
   nameWithType: Modifier<T>.HasBoundObject
   nameWithType.vb: Modifier(Of T).HasBoundObject
-- uid: Nitro.Modifier`1.Nitro#IModifier#SourceVariable
-  name: IModifier.SourceVariable
-  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_Nitro_IModifier_SourceVariable
-  commentId: P:Nitro.Modifier`1.Nitro#IModifier#SourceVariable
-  name.vb: Nitro.IModifier.SourceVariable
-  fullName: Nitro.Modifier<T>.Nitro.IModifier.SourceVariable
-  fullName.vb: Nitro.Modifier(Of T).Nitro.IModifier.SourceVariable
-  nameWithType: Modifier<T>.IModifier.SourceVariable
-  nameWithType.vb: Modifier(Of T).Nitro.IModifier.SourceVariable
-- uid: Nitro.Modifier`1.Nitro#IModifier#SourceVariable*
-  name: IModifier.SourceVariable
-  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_Nitro_IModifier_SourceVariable_
-  commentId: Overload:Nitro.Modifier`1.Nitro#IModifier#SourceVariable
+- uid: Nitro.Modifier`1.ID
+  name: ID
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_ID
+  commentId: P:Nitro.Modifier`1.ID
+  fullName: Nitro.Modifier<T>.ID
+  fullName.vb: Nitro.Modifier(Of T).ID
+  nameWithType: Modifier<T>.ID
+  nameWithType.vb: Modifier(Of T).ID
+- uid: Nitro.Modifier`1.ID*
+  name: ID
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_ID_
+  commentId: Overload:Nitro.Modifier`1.ID
   isSpec: "True"
-  name.vb: Nitro.IModifier.SourceVariable
-  fullName: Nitro.Modifier<T>.Nitro.IModifier.SourceVariable
-  fullName.vb: Nitro.Modifier(Of T).Nitro.IModifier.SourceVariable
-  nameWithType: Modifier<T>.IModifier.SourceVariable
-  nameWithType.vb: Modifier(Of T).Nitro.IModifier.SourceVariable
+  fullName: Nitro.Modifier<T>.ID
+  fullName.vb: Nitro.Modifier(Of T).ID
+  nameWithType: Modifier<T>.ID
+  nameWithType.vb: Modifier(Of T).ID
+- uid: Nitro.Modifier`1.Nitro#IModifier#Value
+  name: IModifier.Value
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_Nitro_IModifier_Value
+  commentId: P:Nitro.Modifier`1.Nitro#IModifier#Value
+  name.vb: Nitro.IModifier.Value
+  fullName: Nitro.Modifier<T>.Nitro.IModifier.Value
+  fullName.vb: Nitro.Modifier(Of T).Nitro.IModifier.Value
+  nameWithType: Modifier<T>.IModifier.Value
+  nameWithType.vb: Modifier(Of T).Nitro.IModifier.Value
+- uid: Nitro.Modifier`1.Nitro#IModifier#Value*
+  name: IModifier.Value
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_Nitro_IModifier_Value_
+  commentId: Overload:Nitro.Modifier`1.Nitro#IModifier#Value
+  isSpec: "True"
+  name.vb: Nitro.IModifier.Value
+  fullName: Nitro.Modifier<T>.Nitro.IModifier.Value
+  fullName.vb: Nitro.Modifier(Of T).Nitro.IModifier.Value
+  nameWithType: Modifier<T>.IModifier.Value
+  nameWithType.vb: Modifier(Of T).Nitro.IModifier.Value
+- uid: Nitro.Modifier`1.Op
+  name: Op
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_Op
+  commentId: P:Nitro.Modifier`1.Op
+  fullName: Nitro.Modifier<T>.Op
+  fullName.vb: Nitro.Modifier(Of T).Op
+  nameWithType: Modifier<T>.Op
+  nameWithType.vb: Modifier(Of T).Op
+- uid: Nitro.Modifier`1.Op*
+  name: Op
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_Op_
+  commentId: Overload:Nitro.Modifier`1.Op
+  isSpec: "True"
+  fullName: Nitro.Modifier<T>.Op
+  fullName.vb: Nitro.Modifier(Of T).Op
+  nameWithType: Modifier<T>.Op
+  nameWithType.vb: Modifier(Of T).Op
 - uid: Nitro.Modifier`1.Priority
   name: Priority
   href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_Priority
@@ -1028,23 +1292,40 @@ references:
   fullName.vb: Nitro.Modifier(Of T).Sorter.Compare
   nameWithType: Modifier<T>.Sorter.Compare
   nameWithType.vb: Modifier(Of T).Sorter.Compare
-- uid: Nitro.Modifier`1.SourceVar
-  name: SourceVar
-  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_SourceVar
-  commentId: P:Nitro.Modifier`1.SourceVar
-  fullName: Nitro.Modifier<T>.SourceVar
-  fullName.vb: Nitro.Modifier(Of T).SourceVar
-  nameWithType: Modifier<T>.SourceVar
-  nameWithType.vb: Modifier(Of T).SourceVar
-- uid: Nitro.Modifier`1.SourceVar*
-  name: SourceVar
-  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_SourceVar_
-  commentId: Overload:Nitro.Modifier`1.SourceVar
+- uid: Nitro.Modifier`1.SourceVariable
+  name: SourceVariable
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_SourceVariable
+  commentId: P:Nitro.Modifier`1.SourceVariable
+  fullName: Nitro.Modifier<T>.SourceVariable
+  fullName.vb: Nitro.Modifier(Of T).SourceVariable
+  nameWithType: Modifier<T>.SourceVariable
+  nameWithType.vb: Modifier(Of T).SourceVariable
+- uid: Nitro.Modifier`1.SourceVariable*
+  name: SourceVariable
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_SourceVariable_
+  commentId: Overload:Nitro.Modifier`1.SourceVariable
   isSpec: "True"
-  fullName: Nitro.Modifier<T>.SourceVar
-  fullName.vb: Nitro.Modifier(Of T).SourceVar
-  nameWithType: Modifier<T>.SourceVar
-  nameWithType.vb: Modifier(Of T).SourceVar
+  fullName: Nitro.Modifier<T>.SourceVariable
+  fullName.vb: Nitro.Modifier(Of T).SourceVariable
+  nameWithType: Modifier<T>.SourceVariable
+  nameWithType.vb: Modifier(Of T).SourceVariable
+- uid: Nitro.Modifier`1.TimeActive
+  name: TimeActive
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_TimeActive
+  commentId: P:Nitro.Modifier`1.TimeActive
+  fullName: Nitro.Modifier<T>.TimeActive
+  fullName.vb: Nitro.Modifier(Of T).TimeActive
+  nameWithType: Modifier<T>.TimeActive
+  nameWithType.vb: Modifier(Of T).TimeActive
+- uid: Nitro.Modifier`1.TimeActive*
+  name: TimeActive
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_TimeActive_
+  commentId: Overload:Nitro.Modifier`1.TimeActive
+  isSpec: "True"
+  fullName: Nitro.Modifier<T>.TimeActive
+  fullName.vb: Nitro.Modifier(Of T).TimeActive
+  nameWithType: Modifier<T>.TimeActive
+  nameWithType.vb: Modifier(Of T).TimeActive
 - uid: Nitro.Modifier`1.TimeAdded
   name: TimeAdded
   href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_TimeAdded
@@ -1062,6 +1343,23 @@ references:
   fullName.vb: Nitro.Modifier(Of T).TimeAdded
   nameWithType: Modifier<T>.TimeAdded
   nameWithType.vb: Modifier(Of T).TimeAdded
+- uid: Nitro.Modifier`1.Value
+  name: Value
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_Value
+  commentId: P:Nitro.Modifier`1.Value
+  fullName: Nitro.Modifier<T>.Value
+  fullName.vb: Nitro.Modifier(Of T).Value
+  nameWithType: Modifier<T>.Value
+  nameWithType.vb: Modifier(Of T).Value
+- uid: Nitro.Modifier`1.Value*
+  name: Value
+  href: api/Nitro.Modifier-1.html#Nitro_Modifier_1_Value_
+  commentId: Overload:Nitro.Modifier`1.Value
+  isSpec: "True"
+  fullName: Nitro.Modifier<T>.Value
+  fullName.vb: Nitro.Modifier(Of T).Value
+  nameWithType: Modifier<T>.Value
+  nameWithType.vb: Modifier(Of T).Value
 - uid: Nitro.ModifierCollection
   name: ModifierCollection
   href: api/Nitro.ModifierCollection.html
@@ -1327,12 +1625,12 @@ references:
   commentId: T:Nitro.MultiplePowerupCollector
   fullName: Nitro.MultiplePowerupCollector
   nameWithType: MultiplePowerupCollector
-- uid: Nitro.MultiplePowerupCollector.CanCollectPowerup(Nitro.Powerup)
-  name: CanCollectPowerup(Powerup)
-  href: api/Nitro.MultiplePowerupCollector.html#Nitro_MultiplePowerupCollector_CanCollectPowerup_Nitro_Powerup_
-  commentId: M:Nitro.MultiplePowerupCollector.CanCollectPowerup(Nitro.Powerup)
-  fullName: Nitro.MultiplePowerupCollector.CanCollectPowerup(Nitro.Powerup)
-  nameWithType: MultiplePowerupCollector.CanCollectPowerup(Powerup)
+- uid: Nitro.MultiplePowerupCollector.CanCollectPowerup(Nitro.IPowerup)
+  name: CanCollectPowerup(IPowerup)
+  href: api/Nitro.MultiplePowerupCollector.html#Nitro_MultiplePowerupCollector_CanCollectPowerup_Nitro_IPowerup_
+  commentId: M:Nitro.MultiplePowerupCollector.CanCollectPowerup(Nitro.IPowerup)
+  fullName: Nitro.MultiplePowerupCollector.CanCollectPowerup(Nitro.IPowerup)
+  nameWithType: MultiplePowerupCollector.CanCollectPowerup(IPowerup)
 - uid: Nitro.MultiplePowerupCollector.CanCollectPowerup*
   name: CanCollectPowerup
   href: api/Nitro.MultiplePowerupCollector.html#Nitro_MultiplePowerupCollector_CanCollectPowerup_
@@ -1340,6 +1638,19 @@ references:
   isSpec: "True"
   fullName: Nitro.MultiplePowerupCollector.CanCollectPowerup
   nameWithType: MultiplePowerupCollector.CanCollectPowerup
+- uid: Nitro.MultiplePowerupCollector.CollectedPowerups
+  name: CollectedPowerups
+  href: api/Nitro.MultiplePowerupCollector.html#Nitro_MultiplePowerupCollector_CollectedPowerups
+  commentId: P:Nitro.MultiplePowerupCollector.CollectedPowerups
+  fullName: Nitro.MultiplePowerupCollector.CollectedPowerups
+  nameWithType: MultiplePowerupCollector.CollectedPowerups
+- uid: Nitro.MultiplePowerupCollector.CollectedPowerups*
+  name: CollectedPowerups
+  href: api/Nitro.MultiplePowerupCollector.html#Nitro_MultiplePowerupCollector_CollectedPowerups_
+  commentId: Overload:Nitro.MultiplePowerupCollector.CollectedPowerups
+  isSpec: "True"
+  fullName: Nitro.MultiplePowerupCollector.CollectedPowerups
+  nameWithType: MultiplePowerupCollector.CollectedPowerups
 - uid: Nitro.MultiplePowerupCollector.DifferingTypesRequired
   name: DifferingTypesRequired
   href: api/Nitro.MultiplePowerupCollector.html#Nitro_MultiplePowerupCollector_DifferingTypesRequired
@@ -1359,24 +1670,31 @@ references:
   isSpec: "True"
   fullName: Nitro.MultiplePowerupCollector.Execute
   nameWithType: MultiplePowerupCollector.Execute
-- uid: Nitro.MultiplePowerupCollector.HeldPowerups
-  name: HeldPowerups
-  href: api/Nitro.MultiplePowerupCollector.html#Nitro_MultiplePowerupCollector_HeldPowerups
-  commentId: F:Nitro.MultiplePowerupCollector.HeldPowerups
-  fullName: Nitro.MultiplePowerupCollector.HeldPowerups
-  nameWithType: MultiplePowerupCollector.HeldPowerups
+- uid: Nitro.MultiplePowerupCollector.maxPowerupsHeld
+  name: maxPowerupsHeld
+  href: api/Nitro.MultiplePowerupCollector.html#Nitro_MultiplePowerupCollector_maxPowerupsHeld
+  commentId: F:Nitro.MultiplePowerupCollector.maxPowerupsHeld
+  fullName: Nitro.MultiplePowerupCollector.maxPowerupsHeld
+  nameWithType: MultiplePowerupCollector.maxPowerupsHeld
 - uid: Nitro.MultiplePowerupCollector.MaxPowerupsHeld
   name: MaxPowerupsHeld
   href: api/Nitro.MultiplePowerupCollector.html#Nitro_MultiplePowerupCollector_MaxPowerupsHeld
-  commentId: F:Nitro.MultiplePowerupCollector.MaxPowerupsHeld
+  commentId: P:Nitro.MultiplePowerupCollector.MaxPowerupsHeld
   fullName: Nitro.MultiplePowerupCollector.MaxPowerupsHeld
   nameWithType: MultiplePowerupCollector.MaxPowerupsHeld
-- uid: Nitro.MultiplePowerupCollector.OnCollect(Nitro.Powerup)
-  name: OnCollect(Powerup)
-  href: api/Nitro.MultiplePowerupCollector.html#Nitro_MultiplePowerupCollector_OnCollect_Nitro_Powerup_
-  commentId: M:Nitro.MultiplePowerupCollector.OnCollect(Nitro.Powerup)
-  fullName: Nitro.MultiplePowerupCollector.OnCollect(Nitro.Powerup)
-  nameWithType: MultiplePowerupCollector.OnCollect(Powerup)
+- uid: Nitro.MultiplePowerupCollector.MaxPowerupsHeld*
+  name: MaxPowerupsHeld
+  href: api/Nitro.MultiplePowerupCollector.html#Nitro_MultiplePowerupCollector_MaxPowerupsHeld_
+  commentId: Overload:Nitro.MultiplePowerupCollector.MaxPowerupsHeld
+  isSpec: "True"
+  fullName: Nitro.MultiplePowerupCollector.MaxPowerupsHeld
+  nameWithType: MultiplePowerupCollector.MaxPowerupsHeld
+- uid: Nitro.MultiplePowerupCollector.OnCollect(Nitro.IPowerup)
+  name: OnCollect(IPowerup)
+  href: api/Nitro.MultiplePowerupCollector.html#Nitro_MultiplePowerupCollector_OnCollect_Nitro_IPowerup_
+  commentId: M:Nitro.MultiplePowerupCollector.OnCollect(Nitro.IPowerup)
+  fullName: Nitro.MultiplePowerupCollector.OnCollect(Nitro.IPowerup)
+  nameWithType: MultiplePowerupCollector.OnCollect(IPowerup)
 - uid: Nitro.MultiplePowerupCollector.OnCollect*
   name: OnCollect
   href: api/Nitro.MultiplePowerupCollector.html#Nitro_MultiplePowerupCollector_OnCollect_
@@ -1461,12 +1779,12 @@ references:
   isSpec: "True"
   fullName: Nitro.Powerup.HideObjectOnCollect
   nameWithType: Powerup.HideObjectOnCollect
-- uid: Nitro.Powerup.OnCollect(Nitro.Collector)
-  name: OnCollect(Collector)
-  href: api/Nitro.Powerup.html#Nitro_Powerup_OnCollect_Nitro_Collector_
-  commentId: M:Nitro.Powerup.OnCollect(Nitro.Collector)
-  fullName: Nitro.Powerup.OnCollect(Nitro.Collector)
-  nameWithType: Powerup.OnCollect(Collector)
+- uid: Nitro.Powerup.OnCollect(Nitro.ICollector)
+  name: OnCollect(ICollector)
+  href: api/Nitro.Powerup.html#Nitro_Powerup_OnCollect_Nitro_ICollector_
+  commentId: M:Nitro.Powerup.OnCollect(Nitro.ICollector)
+  fullName: Nitro.Powerup.OnCollect(Nitro.ICollector)
+  nameWithType: Powerup.OnCollect(ICollector)
 - uid: Nitro.Powerup.OnCollect*
   name: OnCollect
   href: api/Nitro.Powerup.html#Nitro_Powerup_OnCollect_
@@ -1670,6 +1988,25 @@ references:
   fullName.vb: Nitro.RevertableVar(Of T).Nitro.IRevertableVar.BaseValue
   nameWithType: RevertableVar<T>.IRevertableVar.BaseValue
   nameWithType.vb: RevertableVar(Of T).Nitro.IRevertableVar.BaseValue
+- uid: Nitro.RevertableVar`1.Nitro#IRevertableVar#GetModifiers
+  name: IRevertableVar.GetModifiers()
+  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_Nitro_IRevertableVar_GetModifiers
+  commentId: M:Nitro.RevertableVar`1.Nitro#IRevertableVar#GetModifiers
+  name.vb: Nitro.IRevertableVar.GetModifiers()
+  fullName: Nitro.RevertableVar<T>.Nitro.IRevertableVar.GetModifiers()
+  fullName.vb: Nitro.RevertableVar(Of T).Nitro.IRevertableVar.GetModifiers()
+  nameWithType: RevertableVar<T>.IRevertableVar.GetModifiers()
+  nameWithType.vb: RevertableVar(Of T).Nitro.IRevertableVar.GetModifiers()
+- uid: Nitro.RevertableVar`1.Nitro#IRevertableVar#GetModifiers*
+  name: IRevertableVar.GetModifiers
+  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_Nitro_IRevertableVar_GetModifiers_
+  commentId: Overload:Nitro.RevertableVar`1.Nitro#IRevertableVar#GetModifiers
+  isSpec: "True"
+  name.vb: Nitro.IRevertableVar.GetModifiers
+  fullName: Nitro.RevertableVar<T>.Nitro.IRevertableVar.GetModifiers
+  fullName.vb: Nitro.RevertableVar(Of T).Nitro.IRevertableVar.GetModifiers
+  nameWithType: RevertableVar<T>.IRevertableVar.GetModifiers
+  nameWithType.vb: RevertableVar(Of T).Nitro.IRevertableVar.GetModifiers
 - uid: Nitro.RevertableVar`1.Nitro#IRevertableVar#ModifiersApplied
   name: IRevertableVar.ModifiersApplied
   href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_Nitro_IRevertableVar_ModifiersApplied
@@ -1689,6 +2026,25 @@ references:
   fullName.vb: Nitro.RevertableVar(Of T).Nitro.IRevertableVar.ModifiersApplied
   nameWithType: RevertableVar<T>.IRevertableVar.ModifiersApplied
   nameWithType.vb: RevertableVar(Of T).Nitro.IRevertableVar.ModifiersApplied
+- uid: Nitro.RevertableVar`1.Nitro#IRevertableVar#Revert(Nitro.IModifier)
+  name: IRevertableVar.Revert(IModifier)
+  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_Nitro_IRevertableVar_Revert_Nitro_IModifier_
+  commentId: M:Nitro.RevertableVar`1.Nitro#IRevertableVar#Revert(Nitro.IModifier)
+  name.vb: Nitro.IRevertableVar.Revert(IModifier)
+  fullName: Nitro.RevertableVar<T>.Nitro.IRevertableVar.Revert(Nitro.IModifier)
+  fullName.vb: Nitro.RevertableVar(Of T).Nitro.IRevertableVar.Revert(Nitro.IModifier)
+  nameWithType: RevertableVar<T>.IRevertableVar.Revert(IModifier)
+  nameWithType.vb: RevertableVar(Of T).Nitro.IRevertableVar.Revert(IModifier)
+- uid: Nitro.RevertableVar`1.Nitro#IRevertableVar#Revert*
+  name: IRevertableVar.Revert
+  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_Nitro_IRevertableVar_Revert_
+  commentId: Overload:Nitro.RevertableVar`1.Nitro#IRevertableVar#Revert
+  isSpec: "True"
+  name.vb: Nitro.IRevertableVar.Revert
+  fullName: Nitro.RevertableVar<T>.Nitro.IRevertableVar.Revert
+  fullName.vb: Nitro.RevertableVar(Of T).Nitro.IRevertableVar.Revert
+  nameWithType: RevertableVar<T>.IRevertableVar.Revert
+  nameWithType.vb: RevertableVar(Of T).Nitro.IRevertableVar.Revert
 - uid: Nitro.RevertableVar`1.Nitro#IRevertableVar#Value
   name: IRevertableVar.Value
   href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_Nitro_IRevertableVar_Value
@@ -1727,6 +2083,23 @@ references:
   fullName.vb: Nitro.RevertableVar(Of T).Nitro.IRevertableVar.ValueType
   nameWithType: RevertableVar<T>.IRevertableVar.ValueType
   nameWithType.vb: RevertableVar(Of T).Nitro.IRevertableVar.ValueType
+- uid: Nitro.RevertableVar`1.OnValueUpdated
+  name: OnValueUpdated
+  href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_OnValueUpdated
+  commentId: E:Nitro.RevertableVar`1.OnValueUpdated
+  fullName: Nitro.RevertableVar<T>.OnValueUpdated
+  fullName.vb: Nitro.RevertableVar(Of T).OnValueUpdated
+  nameWithType: RevertableVar<T>.OnValueUpdated
+  nameWithType.vb: RevertableVar(Of T).OnValueUpdated
+- uid: Nitro.RevertableVar`1.OnValueUpdatedDelegate
+  name: RevertableVar<T>.OnValueUpdatedDelegate
+  href: api/Nitro.RevertableVar-1.OnValueUpdatedDelegate.html
+  commentId: T:Nitro.RevertableVar`1.OnValueUpdatedDelegate
+  name.vb: RevertableVar(Of T).OnValueUpdatedDelegate
+  fullName: Nitro.RevertableVar<T>.OnValueUpdatedDelegate
+  fullName.vb: Nitro.RevertableVar(Of T).OnValueUpdatedDelegate
+  nameWithType: RevertableVar<T>.OnValueUpdatedDelegate
+  nameWithType.vb: RevertableVar(Of T).OnValueUpdatedDelegate
 - uid: Nitro.RevertableVar`1.op_Equality(Nitro.RevertableVar{`0},`0)
   name: Equality(RevertableVar<T>, T)
   href: api/Nitro.RevertableVar-1.html#Nitro_RevertableVar_1_op_Equality_Nitro_RevertableVar__0___0_
@@ -1917,12 +2290,12 @@ references:
   commentId: T:Nitro.SinglePowerupCollector
   fullName: Nitro.SinglePowerupCollector
   nameWithType: SinglePowerupCollector
-- uid: Nitro.SinglePowerupCollector.CanCollectPowerup(Nitro.Powerup)
-  name: CanCollectPowerup(Powerup)
-  href: api/Nitro.SinglePowerupCollector.html#Nitro_SinglePowerupCollector_CanCollectPowerup_Nitro_Powerup_
-  commentId: M:Nitro.SinglePowerupCollector.CanCollectPowerup(Nitro.Powerup)
-  fullName: Nitro.SinglePowerupCollector.CanCollectPowerup(Nitro.Powerup)
-  nameWithType: SinglePowerupCollector.CanCollectPowerup(Powerup)
+- uid: Nitro.SinglePowerupCollector.CanCollectPowerup(Nitro.IPowerup)
+  name: CanCollectPowerup(IPowerup)
+  href: api/Nitro.SinglePowerupCollector.html#Nitro_SinglePowerupCollector_CanCollectPowerup_Nitro_IPowerup_
+  commentId: M:Nitro.SinglePowerupCollector.CanCollectPowerup(Nitro.IPowerup)
+  fullName: Nitro.SinglePowerupCollector.CanCollectPowerup(Nitro.IPowerup)
+  nameWithType: SinglePowerupCollector.CanCollectPowerup(IPowerup)
 - uid: Nitro.SinglePowerupCollector.CanCollectPowerup*
   name: CanCollectPowerup
   href: api/Nitro.SinglePowerupCollector.html#Nitro_SinglePowerupCollector_CanCollectPowerup_
@@ -1956,12 +2329,12 @@ references:
   isSpec: "True"
   fullName: Nitro.SinglePowerupCollector.Execute
   nameWithType: SinglePowerupCollector.Execute
-- uid: Nitro.SinglePowerupCollector.OnCollect(Nitro.Powerup)
-  name: OnCollect(Powerup)
-  href: api/Nitro.SinglePowerupCollector.html#Nitro_SinglePowerupCollector_OnCollect_Nitro_Powerup_
-  commentId: M:Nitro.SinglePowerupCollector.OnCollect(Nitro.Powerup)
-  fullName: Nitro.SinglePowerupCollector.OnCollect(Nitro.Powerup)
-  nameWithType: SinglePowerupCollector.OnCollect(Powerup)
+- uid: Nitro.SinglePowerupCollector.OnCollect(Nitro.IPowerup)
+  name: OnCollect(IPowerup)
+  href: api/Nitro.SinglePowerupCollector.html#Nitro_SinglePowerupCollector_OnCollect_Nitro_IPowerup_
+  commentId: M:Nitro.SinglePowerupCollector.OnCollect(Nitro.IPowerup)
+  fullName: Nitro.SinglePowerupCollector.OnCollect(Nitro.IPowerup)
+  nameWithType: SinglePowerupCollector.OnCollect(IPowerup)
 - uid: Nitro.SinglePowerupCollector.OnCollect*
   name: OnCollect
   href: api/Nitro.SinglePowerupCollector.html#Nitro_SinglePowerupCollector_OnCollect_
@@ -1982,3 +2355,35 @@ references:
   isSpec: "True"
   fullName: Nitro.SinglePowerupCollector.RemovePowerup
   nameWithType: SinglePowerupCollector.RemovePowerup
+- uid: Nitro.Utilities
+  name: Utilities
+  href: api/Nitro.Utilities.html
+  commentId: T:Nitro.Utilities
+  fullName: Nitro.Utilities
+  nameWithType: Utilities
+- uid: Nitro.Utilities.CalculatePlacement(System.Int32)
+  name: CalculatePlacement(Int32)
+  href: api/Nitro.Utilities.html#Nitro_Utilities_CalculatePlacement_System_Int32_
+  commentId: M:Nitro.Utilities.CalculatePlacement(System.Int32)
+  fullName: Nitro.Utilities.CalculatePlacement(System.Int32)
+  nameWithType: Utilities.CalculatePlacement(Int32)
+- uid: Nitro.Utilities.CalculatePlacement*
+  name: CalculatePlacement
+  href: api/Nitro.Utilities.html#Nitro_Utilities_CalculatePlacement_
+  commentId: Overload:Nitro.Utilities.CalculatePlacement
+  isSpec: "True"
+  fullName: Nitro.Utilities.CalculatePlacement
+  nameWithType: Utilities.CalculatePlacement
+- uid: Nitro.Utilities.Prettify(System.String)
+  name: Prettify(String)
+  href: api/Nitro.Utilities.html#Nitro_Utilities_Prettify_System_String_
+  commentId: M:Nitro.Utilities.Prettify(System.String)
+  fullName: Nitro.Utilities.Prettify(System.String)
+  nameWithType: Utilities.Prettify(String)
+- uid: Nitro.Utilities.Prettify*
+  name: Prettify
+  href: api/Nitro.Utilities.html#Nitro_Utilities_Prettify_
+  commentId: Overload:Nitro.Utilities.Prettify
+  isSpec: "True"
+  fullName: Nitro.Utilities.Prettify
+  nameWithType: Utilities.Prettify

@@ -51,7 +51,7 @@
                           <img src="../resources/logo.png" alt="" class="logomark">
                           <span class="brand-title"></span>
                         </a>  </div>
-
+                    
                       <div class="sidesearch">
                         <form id="search" role="search" class="search">
                             <i class="bi bi-search search-icon"></i>
@@ -129,6 +129,65 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Nitro_Modifier_1__ctor_" data-uid="Nitro.Modifier`1.#ctor*"></a>
+  <h4 id="Nitro_Modifier_1__ctor_Nitro_IRevertableVar_Operation__0_System_Int32_System_Single_UnityEngine_Object_System_UInt64_" data-uid="Nitro.Modifier`1.#ctor(Nitro.IRevertableVar,Operation,`0,System.Int32,System.Single,UnityEngine.Object,System.UInt64)">Modifier(IRevertableVar, Operation, T, Int32, Single, UnityEngine.Object, UInt64)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Modifier(IRevertableVar sourceVar, Operation op, T value, int priority, float timeActive, UnityEngine.Object boundObject, ulong id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.IRevertableVar.html">IRevertableVar</a></td>
+        <td><span class="parametername">sourceVar</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Operation</span></td>
+        <td><span class="parametername">op</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">priority</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td><span class="parametername">timeActive</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">UnityEngine.Object</span></td>
+        <td><span class="parametername">boundObject</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">UInt64</a></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
   </h3>
   
@@ -185,6 +244,57 @@
   </table>
   
   
+  <a id="Nitro_Modifier_1_ID_" data-uid="Nitro.Modifier`1.ID*"></a>
+  <h4 id="Nitro_Modifier_1_ID" data-uid="Nitro.Modifier`1.ID">ID</h4>
+  <div class="markdown level1 summary"><p>A number that uniquely identifies this modifier</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong ID { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">UInt64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_Modifier_1_Op_" data-uid="Nitro.Modifier`1.Op*"></a>
+  <h4 id="Nitro_Modifier_1_Op" data-uid="Nitro.Modifier`1.Op">Op</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Operation Op { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Operation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Nitro_Modifier_1_Priority_" data-uid="Nitro.Modifier`1.Priority*"></a>
   <h4 id="Nitro_Modifier_1_Priority" data-uid="Nitro.Modifier`1.Priority">Priority</h4>
   <div class="markdown level1 summary"><p>The priority of the modifier. The lower the number, the sooner it will be processed before other modifiers</p>
@@ -211,13 +321,14 @@
   </table>
   
   
-  <a id="Nitro_Modifier_1_SourceVar_" data-uid="Nitro.Modifier`1.SourceVar*"></a>
-  <h4 id="Nitro_Modifier_1_SourceVar" data-uid="Nitro.Modifier`1.SourceVar">SourceVar</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Nitro_Modifier_1_SourceVariable_" data-uid="Nitro.Modifier`1.SourceVariable*"></a>
+  <h4 id="Nitro_Modifier_1_SourceVariable" data-uid="Nitro.Modifier`1.SourceVariable">SourceVariable</h4>
+  <div class="markdown level1 summary"><p>The revertable variable that this modifier is a part of</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RevertableVar&lt;T&gt; SourceVar { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IRevertableVar SourceVariable { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -229,7 +340,32 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Nitro.RevertableVar-1.html">RevertableVar</a>&lt;T&gt;</td>
+        <td><a class="xref" href="Nitro.IRevertableVar.html">IRevertableVar</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_Modifier_1_TimeActive_" data-uid="Nitro.Modifier`1.TimeActive*"></a>
+  <h4 id="Nitro_Modifier_1_TimeActive" data-uid="Nitro.Modifier`1.TimeActive">TimeActive</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float TimeActive { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Single</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -256,6 +392,32 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_Modifier_1_Value_" data-uid="Nitro.Modifier`1.Value*"></a>
+  <h4 id="Nitro_Modifier_1_Value" data-uid="Nitro.Modifier`1.Value">Value</h4>
+  <div class="markdown level1 summary"><p>The right-hand operand of the modifier</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Value { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -287,14 +449,14 @@
   </h3>
   
   
-  <a id="Nitro_Modifier_1_Nitro_IModifier_SourceVariable_" data-uid="Nitro.Modifier`1.Nitro#IModifier#SourceVariable*"></a>
-  <h4 id="Nitro_Modifier_1_Nitro_IModifier_SourceVariable" data-uid="Nitro.Modifier`1.Nitro#IModifier#SourceVariable">IModifier.SourceVariable</h4>
-  <div class="markdown level1 summary"><p>The revertable variable that this modifier is a part of</p>
+  <a id="Nitro_Modifier_1_Nitro_IModifier_Value_" data-uid="Nitro.Modifier`1.Nitro#IModifier#Value*"></a>
+  <h4 id="Nitro_Modifier_1_Nitro_IModifier_Value" data-uid="Nitro.Modifier`1.Nitro#IModifier#Value">IModifier.Value</h4>
+  <div class="markdown level1 summary"><p>The right-hand operand of the modifier</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IRevertableVar IModifier.SourceVariable { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">object IModifier.Value { get; }</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -306,7 +468,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Nitro.IRevertableVar.html">IRevertableVar</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
         <td></td>
       </tr>
     </tbody>

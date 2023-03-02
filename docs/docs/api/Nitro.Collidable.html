@@ -51,7 +51,7 @@
                           <img src="../resources/logo.png" alt="" class="logomark">
                           <span class="brand-title"></span>
                         </a>  </div>
-
+                    
                       <div class="sidesearch">
                         <form id="search" role="search" class="search">
                             <i class="bi bi-search search-icon"></i>
@@ -108,7 +108,7 @@
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
   <h5 id="Nitro_Collidable_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class Collidable : MonoBehaviour</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class Collidable : MonoBehaviour</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -138,213 +138,52 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="methods">Methods
+  <h3 id="events">Events
   </h3>
   
   
-  <a id="Nitro_Collidable_LateUpdate_" data-uid="Nitro.Collidable.LateUpdate*"></a>
-  <h4 id="Nitro_Collidable_LateUpdate" data-uid="Nitro.Collidable.LateUpdate">LateUpdate()</h4>
+  <h4 id="Nitro_Collidable_OnCollideStart" data-uid="Nitro.Collidable.OnCollideStart">OnCollideStart</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void LateUpdate()</code></pre>
+    <pre><code class="lang-csharp hljs">public event Action&lt;Collider&gt; OnCollideStart</code></pre>
   </div>
-  
-  
-  <a id="Nitro_Collidable_OnCollideStart_" data-uid="Nitro.Collidable.OnCollideStart*"></a>
-  <h4 id="Nitro_Collidable_OnCollideStart_Collider_" data-uid="Nitro.Collidable.OnCollideStart(Collider)">OnCollideStart(Collider)</h4>
-  <div class="markdown level1 summary"><p>Called when an object collides with this object.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void OnCollideStart(Collider collider)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Collider</span></td>
-        <td><span class="parametername">collider</span></td>
+        <td><span class="xref">Action</span>&lt;<span class="xref">Collider</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Nitro_Collidable_OnCollideStop_" data-uid="Nitro.Collidable.OnCollideStop*"></a>
-  <h4 id="Nitro_Collidable_OnCollideStop_Collider_System_Boolean_" data-uid="Nitro.Collidable.OnCollideStop(Collider,System.Boolean)">OnCollideStop(Collider, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Called when an object is no longer colliding with this object.</p>
-</div>
+  <h4 id="Nitro_Collidable_OnCollideStop" data-uid="Nitro.Collidable.OnCollideStop">OnCollideStop</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void OnCollideStop(Collider collider, bool destroyed)</code></pre>
+    <pre><code class="lang-csharp hljs">public event Action&lt;Collider, bool&gt; OnCollideStop</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Collider</span></td>
-        <td><span class="parametername">collider</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><span class="parametername">destroyed</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Nitro_Collidable_OnCollisionEnter_" data-uid="Nitro.Collidable.OnCollisionEnter*"></a>
-  <h4 id="Nitro_Collidable_OnCollisionEnter_Collision_" data-uid="Nitro.Collidable.OnCollisionEnter(Collision)">OnCollisionEnter(Collision)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnCollisionEnter(Collision collision)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Collision</span></td>
-        <td><span class="parametername">collision</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Nitro_Collidable_OnCollisionExit_" data-uid="Nitro.Collidable.OnCollisionExit*"></a>
-  <h4 id="Nitro_Collidable_OnCollisionExit_Collision_" data-uid="Nitro.Collidable.OnCollisionExit(Collision)">OnCollisionExit(Collision)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnCollisionExit(Collision collision)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Collision</span></td>
-        <td><span class="parametername">collision</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Nitro_Collidable_OnDestroy_" data-uid="Nitro.Collidable.OnDestroy*"></a>
-  <h4 id="Nitro_Collidable_OnDestroy" data-uid="Nitro.Collidable.OnDestroy">OnDestroy()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnDestroy()</code></pre>
-  </div>
-  
-  
-  <a id="Nitro_Collidable_OnDisable_" data-uid="Nitro.Collidable.OnDisable*"></a>
-  <h4 id="Nitro_Collidable_OnDisable" data-uid="Nitro.Collidable.OnDisable">OnDisable()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnDisable()</code></pre>
-  </div>
-  
-  
-  <a id="Nitro_Collidable_OnEnable_" data-uid="Nitro.Collidable.OnEnable*"></a>
-  <h4 id="Nitro_Collidable_OnEnable" data-uid="Nitro.Collidable.OnEnable">OnEnable()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnEnable()</code></pre>
-  </div>
-  
-  
-  <a id="Nitro_Collidable_OnTriggerEnter_" data-uid="Nitro.Collidable.OnTriggerEnter*"></a>
-  <h4 id="Nitro_Collidable_OnTriggerEnter_Collider_" data-uid="Nitro.Collidable.OnTriggerEnter(Collider)">OnTriggerEnter(Collider)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnTriggerEnter(Collider other)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Collider</span></td>
-        <td><span class="parametername">other</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Nitro_Collidable_OnTriggerExit_" data-uid="Nitro.Collidable.OnTriggerExit*"></a>
-  <h4 id="Nitro_Collidable_OnTriggerExit_Collider_" data-uid="Nitro.Collidable.OnTriggerExit(Collider)">OnTriggerExit(Collider)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnTriggerExit(Collider other)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Collider</span></td>
-        <td><span class="parametername">other</span></td>
+        <td><span class="xref">Action</span>&lt;<span class="xref">Collider</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>

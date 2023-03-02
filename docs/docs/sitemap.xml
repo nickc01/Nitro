@@ -2,133 +2,193 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nickc01.github.io/Nitro/api/Nitro.Collector.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/api/Nitro.Collidable.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/api/Nitro.Collidable2D.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/api/Nitro.CombinablePowerup.Comparer.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/api/Nitro.CombinablePowerup.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://nickc01.github.io/Nitro/api/Nitro.Extensions.html</loc>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/api/Nitro.GenericMath.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://nickc01.github.io/Nitro/api/Nitro.ICollector.html</loc>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://nickc01.github.io/Nitro/api/Nitro.ICombinablePowerup.html</loc>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://nickc01.github.io/Nitro/api/Nitro.IModifier.Operation.html</loc>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/api/Nitro.IModifier.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://nickc01.github.io/Nitro/api/Nitro.IMultiplePowerupCollector.html</loc>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://nickc01.github.io/Nitro/api/Nitro.IPowerup.html</loc>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/api/Nitro.IRevertableVar.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://nickc01.github.io/Nitro/api/Nitro.Mirror.RevertableVarReaderWriter.html</loc>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://nickc01.github.io/Nitro/api/Nitro.Mirror.html</loc>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/api/Nitro.Modifier-1.Sorter.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/api/Nitro.Modifier-1.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/api/Nitro.ModifierCollection.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/api/Nitro.MultiplePowerupCollector.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/api/Nitro.Powerup.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://nickc01.github.io/Nitro/api/Nitro.RevertableVar-1.OnValueUpdatedDelegate.html</loc>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/api/Nitro.RevertableVar-1.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/api/Nitro.SinglePowerupCollector.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://nickc01.github.io/Nitro/api/Nitro.Utilities.html</loc>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/api/Nitro.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/index.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/manual/collidables_and_hazards.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/manual/combinable_powerups.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/manual/index.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/manual/quickstart.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://nickc01.github.io/Nitro/manual/revertable_variables.html</loc>
-    <lastmod>2022-12-13T01:25:05-06:00</lastmod>
+    <lastmod>2023-03-01T05:57:03-06:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

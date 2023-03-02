@@ -51,7 +51,7 @@
                           <img src="../resources/logo.png" alt="" class="logomark">
                           <span class="brand-title"></span>
                         </a>  </div>
-
+                    
                       <div class="sidesearch">
                         <form id="search" role="search" class="search">
                             <i class="bi bi-search search-icon"></i>
@@ -105,6 +105,10 @@
     <div class="level1"><a class="xref" href="Nitro.Collector.html">Collector</a></div>
     <div class="level2"><span class="xref">SinglePowerupCollector</span></div>
   </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Nitro.ICollector.html">ICollector</a></div>
+  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -117,7 +121,7 @@
       <a class="xref" href="Nitro.Collector.html#Nitro_Collector_PowerupCollectEvent">Collector.PowerupCollectEvent</a>
     </div>
     <div>
-      <a class="xref" href="Nitro.Collector.html#Nitro_Collector_CollectPowerup_Nitro_Powerup_">Collector.CollectPowerup(Powerup)</a>
+      <a class="xref" href="Nitro.Collector.html#Nitro_Collector_CollectPowerup_Nitro_IPowerup_">Collector.CollectPowerup(IPowerup)</a>
     </div>
     <div>
       <a class="xref" href="Nitro.Collector.html#Nitro_Collector_OnTriggerEnter_Collider_">Collector.OnTriggerEnter(Collider)</a>
@@ -136,7 +140,7 @@
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
   <h5 id="Nitro_SinglePowerupCollector_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SinglePowerupCollector : Collector</code></pre>
+    <pre><code class="lang-csharp hljs">public class SinglePowerupCollector : Collector, ICollector</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -149,7 +153,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Powerup CurrentPowerup { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IPowerup CurrentPowerup { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -161,7 +165,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Nitro.Powerup.html">Powerup</a></td>
+        <td><a class="xref" href="Nitro.IPowerup.html">IPowerup</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -171,13 +175,13 @@
   
   
   <a id="Nitro_SinglePowerupCollector_CanCollectPowerup_" data-uid="Nitro.SinglePowerupCollector.CanCollectPowerup*"></a>
-  <h4 id="Nitro_SinglePowerupCollector_CanCollectPowerup_Nitro_Powerup_" data-uid="Nitro.SinglePowerupCollector.CanCollectPowerup(Nitro.Powerup)">CanCollectPowerup(Powerup)</h4>
+  <h4 id="Nitro_SinglePowerupCollector_CanCollectPowerup_Nitro_IPowerup_" data-uid="Nitro.SinglePowerupCollector.CanCollectPowerup(Nitro.IPowerup)">CanCollectPowerup(IPowerup)</h4>
   <div class="markdown level1 summary"><p>Whether the powerup can be collected or not</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool CanCollectPowerup(Powerup powerup)</code></pre>
+    <pre><code class="lang-csharp hljs">public override bool CanCollectPowerup(IPowerup powerup)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -190,7 +194,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Nitro.Powerup.html">Powerup</a></td>
+        <td><a class="xref" href="Nitro.IPowerup.html">IPowerup</a></td>
         <td><span class="parametername">powerup</span></td>
         <td><p>The powerup to test if it can be collected</p>
 </td>
@@ -214,7 +218,7 @@
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Nitro.Collector.html#Nitro_Collector_CanCollectPowerup_Nitro_Powerup_">Collector.CanCollectPowerup(Powerup)</a></div>
+  <div><a class="xref" href="Nitro.Collector.html#Nitro_Collector_CanCollectPowerup_Nitro_IPowerup_">Collector.CanCollectPowerup(IPowerup)</a></div>
   
   
   <a id="Nitro_SinglePowerupCollector_Execute_" data-uid="Nitro.SinglePowerupCollector.Execute*"></a>
@@ -231,13 +235,13 @@
   
   
   <a id="Nitro_SinglePowerupCollector_OnCollect_" data-uid="Nitro.SinglePowerupCollector.OnCollect*"></a>
-  <h4 id="Nitro_SinglePowerupCollector_OnCollect_Nitro_Powerup_" data-uid="Nitro.SinglePowerupCollector.OnCollect(Nitro.Powerup)">OnCollect(Powerup)</h4>
+  <h4 id="Nitro_SinglePowerupCollector_OnCollect_Nitro_IPowerup_" data-uid="Nitro.SinglePowerupCollector.OnCollect(Nitro.IPowerup)">OnCollect(IPowerup)</h4>
   <div class="markdown level1 summary"><p>A function that is triggered when a powerup is collected</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void OnCollect(Powerup powerup)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override void OnCollect(IPowerup powerup)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -250,7 +254,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Nitro.Powerup.html">Powerup</a></td>
+        <td><a class="xref" href="Nitro.IPowerup.html">IPowerup</a></td>
         <td><span class="parametername">powerup</span></td>
         <td><p>The powerup that has been collected</p>
 </td>
@@ -258,7 +262,7 @@
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Nitro.Collector.html#Nitro_Collector_OnCollect_Nitro_Powerup_">Collector.OnCollect(Powerup)</a></div>
+  <div><a class="xref" href="Nitro.Collector.html#Nitro_Collector_OnCollect_Nitro_IPowerup_">Collector.OnCollect(IPowerup)</a></div>
   
   
   <a id="Nitro_SinglePowerupCollector_RemovePowerup_" data-uid="Nitro.SinglePowerupCollector.RemovePowerup*"></a>
@@ -269,6 +273,10 @@
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RemovePowerup()</code></pre>
+  </div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Nitro.ICollector.html">ICollector</a>
   </div>
 </article>
                 </div>

@@ -49,7 +49,7 @@
                           <img src="../resources/logo.png" alt="" class="logomark">
                           <span class="brand-title"></span>
                         </a>  </div>
-
+                    
                       <div class="sidesearch">
                         <form id="search" role="search" class="search">
                             <i class="bi bi-search search-icon"></i>
@@ -91,40 +91,47 @@
 
                     <article class="content wrap" id="_content" data-uid="">
 
-<p>The <a class="xref" href="../api/Nitro.Collidable.html">Collidable</a> and <a class="xref" href="../api/Nitro.Collidable2D.html">Collidable2D</a> classes make it very easy to create hazards such as oil slicks or water puddles that can slow down drivers. When you derive from either one of these classes, you can override the <a class="xref" href="../api/Nitro.Collidable.html#Nitro_Collidable_OnCollideStart_Collider_">OnCollideStart</a> and <a class="xref" href="../api/Nitro.Collidable.html#Nitro_Collidable_OnCollideStop_Collider_System_Boolean_">OnCollideStop</a> functions to detect when the player has touched and untouched the hazard.</p>
+<p>The <a class="xref" href="../api/Nitro.Collidable.html">Collidable</a> and <a class="xref" href="../api/Nitro.Collidable2D.html">Collidable2D</a> components make it very easy to create hazards such as oil slicks or water puddles that can slow down drivers. When you derive from either one of these classes, you can override the <a class="xref" href="https://nickc01.github.io/Nitro/docs/api/Nitro.Collidable.html#Nitro_Collidable_OnCollideStart_Collider_">OnCollideStart</a> and <a class="xref" href="https://nickc01.github.io/Nitro/docs/api/Nitro.Collidable.html#Nitro_Collidable_OnCollideStop_Collider_System_Boolean_">OnCollideStop</a> functions to detect when the player has touched and untouched the hazard.
+These components can be attached to any gameobject and they will start keeping track of collisions on the object. In order to tap into this collision data, you can override the <a class="xref" href="../api/Nitro.Collidable.html#Nitro_Collidable_OnCollideStart">OnCollideStart</a> and the <a class="xref" href="../api/Nitro.Collidable.html#Nitro_Collidable_OnCollideStop">OnCollideStop</a> events. OnCollideStart is called whenever the gameObject collides with something, while the OnCollideStop is called anytime the gameObject stops colliding with something.</p>
 <p>You can also use a <a class="xref" href="../api/Nitro.ModifierCollection.html">ModifierCollection</a> to easily keep track of all the modifications that have been made</p>
 <pre><code class="lang-csharp">using Nitro;
-using System.Collections.Generic;
 using UnityEngine;
 
-
-public class OilSlick : Collidable
+public class OilSlick : MonoBehaviour
 {
     //Used to easily store all the modifiers currently applied
     ModifierCollection modifiers = new ModifierCollection();
 
-    //Called when this object comes in contact with another collider
-    protected override void OnCollideStart(Collider collider)
+    private void Awake()
     {
-        //If the collider is a player object
-        if (collider.attachedRigidbody.TryGetComponent&lt;Player&gt;(out var player))
-        {
-            //Modify the player&#39;s terminal velocity, and store the modifier in the ModifierCollection
-            //       The modifier is also tied to the player&#39;s collider ↓↓↓↓↓↓↓↓ so it can be easily reverted later
-            modifiers.Add(player.Movement.TerminalVelocity.DivideBy(8f),collider);
-        }
+        //Get the attached Collidable component and hook into the OnCollideStart and OnCollidedStop events
+        var collidable = GetComponent&lt;Collidable&gt;();
+        collidable.OnCollideStart += OnCollideStart;
+        collidable.OnCollideStop += OnCollideStop;
+    }
+
+    //Called when this object comes in contact with another collider
+    private void OnCollideStop(Collider collider, bool destroyed)
+    {
+        //Revert any modifiers that are bound to the collider
+        modifiers.RevertAllByObject(collider);
     }
 
     //Called when this object is no longer in contact with another collider
-    protected override void OnCollideStop(Collider collider, bool destroyed)
+    private void OnCollideStart(Collider collider)
     {
-        //Revert any modifiers that are tied to the collider
-        modifiers.RevertAllByObject(collider);
+        //If the collider is a player object
+        if (collider.attachedRigidbody.TryGetComponent&lt;RollCage&gt;(out var rc))
+        {
+            //Modify the player&#39;s terminal velocity, and store the modifier in the ModifierCollection
+            //The modifier is also tied to the player&#39;s collider ↓↓↓↓↓↓ so it can be easily reverted later
+            modifiers.Add(rc.Car.Manager.CarDrag.MultiplyBy(2f),collider);
+        }
     }
 }
 </code></pre><p>The reason you would use the <a class="xref" href="../api/Nitro.Collidable.html">Collidable</a> class over traditional methods of detecting collision is because the Collidable class keeps track of the what it has collided with.
 And because of this, it will automatically call OnCollideStop whenever the component gets disabled or destroyed, or when a collider gets destroyed while colliding with it.</p>
-<p>This guarantees that anything done to a collider done in <a class="xref" href="../api/Nitro.Collidable.html#Nitro_Collidable_OnCollideStart_Collider_">OnCollideStart</a> will be undone in <a class="xref" href="../api/Nitro.Collidable.html#Nitro_Collidable_OnCollideStop_Collider_System_Boolean_">OnCollideStop</a></p>
+<p>This guarantees that anything done to a collider done in <a class="xref" href="../api/Nitro.Collidable.html#Nitro_Collidable_OnCollideStart">OnCollideStart</a> will be undone in <a class="xref" href="../api/Nitro.Collidable.html#Nitro_Collidable_OnCollideStop">OnCollideStop</a></p>
 <p>Here is the <a class="xref" href="../api/Nitro.Collidable.html">Collidable</a> class in action. An object called &quot;Puddle&quot; is placed in the world and has a <a href="https://github.com/nickc01/Nitro/blob/master/Assets/Scripts/Powerup%20Related/Puddle.cs">Puddle</a> and <a class="xref" href="../api/Nitro.Collidable.html">Collidable</a> component attached</p>
 <p>The puddle will cut the player&#39;s terminal velocity in half, and restore it when the puddle is no longer in contact with the player.</p>
 <p><img src="https://user-images.githubusercontent.com/12601671/118349803-98109c00-b518-11eb-8383-490496549dd6.gif" alt="Puddle V2"></p>

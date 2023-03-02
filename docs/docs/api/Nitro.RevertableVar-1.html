@@ -51,7 +51,7 @@
                           <img src="../resources/logo.png" alt="" class="logomark">
                           <span class="brand-title"></span>
                         </a>  </div>
-
+                    
                       <div class="sidesearch">
                         <form id="search" role="search" class="search">
                             <i class="bi bi-search search-icon"></i>
@@ -112,7 +112,7 @@
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
   <h5 id="Nitro_RevertableVar_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class RevertableVar&lt;T&gt; : IRevertableVar</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class RevertableVar&lt;T&gt; : IRevertableVar</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -981,6 +981,32 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a></div>
+  <h3 id="events">Events
+  </h3>
+  
+  
+  <h4 id="Nitro_RevertableVar_1_OnValueUpdated" data-uid="Nitro.RevertableVar`1.OnValueUpdated">OnValueUpdated</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event RevertableVar&lt;T&gt;.OnValueUpdatedDelegate OnValueUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.RevertableVar-1.OnValueUpdatedDelegate.html">RevertableVar.OnValueUpdatedDelegate</a>&lt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="operators">Operators
   </h3>
   
@@ -1289,6 +1315,31 @@
   </table>
   
   
+  <a id="Nitro_RevertableVar_1_Nitro_IRevertableVar_GetModifiers_" data-uid="Nitro.RevertableVar`1.Nitro#IRevertableVar#GetModifiers*"></a>
+  <h4 id="Nitro_RevertableVar_1_Nitro_IRevertableVar_GetModifiers" data-uid="Nitro.RevertableVar`1.Nitro#IRevertableVar#GetModifiers">IRevertableVar.GetModifiers()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;IModifier&gt; IRevertableVar.GetModifiers()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Nitro.IModifier.html">IModifier</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Nitro_RevertableVar_1_Nitro_IRevertableVar_ModifiersApplied_" data-uid="Nitro.RevertableVar`1.Nitro#IRevertableVar#ModifiersApplied*"></a>
   <h4 id="Nitro_RevertableVar_1_Nitro_IRevertableVar_ModifiersApplied" data-uid="Nitro.RevertableVar`1.Nitro#IRevertableVar#ModifiersApplied">IRevertableVar.ModifiersApplied</h4>
   <div class="markdown level1 summary"><p>How many variable modifiers are currently applied to the revertible variable</p>
@@ -1309,6 +1360,33 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_RevertableVar_1_Nitro_IRevertableVar_Revert_" data-uid="Nitro.RevertableVar`1.Nitro#IRevertableVar#Revert*"></a>
+  <h4 id="Nitro_RevertableVar_1_Nitro_IRevertableVar_Revert_Nitro_IModifier_" data-uid="Nitro.RevertableVar`1.Nitro#IRevertableVar#Revert(Nitro.IModifier)">IRevertableVar.Revert(IModifier)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IRevertableVar.Revert(IModifier modifier)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.IModifier.html">IModifier</a></td>
+        <td><span class="parametername">modifier</span></td>
         <td></td>
       </tr>
     </tbody>

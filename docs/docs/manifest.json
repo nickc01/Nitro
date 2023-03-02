@@ -10,7 +10,7 @@
     "changefreq": "weekly"
   },
   "homepages": [],
-  "source_base_path": "H:/Extra Unity Projects/Nitro/docsSrc",
+  "source_base_path": "C:/Users/Nicholas/source/repos/Nitro/docsSrc",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -28,7 +28,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Nitro.Collector.html",
-          "hash": "83RG1qZqwzPGx35DuDDILVMR7qcgL+AcpZPXtq9iQG8="
+          "hash": "33vAZ3zUqCjYe3daQ854nBjN6U7WApA2MCNtVRvdCys="
         }
       },
       "is_incremental": false,
@@ -40,7 +40,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Nitro.Collidable.html",
-          "hash": "+ocMi6J5eecCCEAV5UHGtr/7KhACwAn7myGFtoWC0z8="
+          "hash": "to79a9ejPaPQFbR5s+14LTZbdhYKj1SJVeQ7zV3Dr/U="
         }
       },
       "is_incremental": false,
@@ -52,7 +52,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Nitro.Collidable2D.html",
-          "hash": "RUUo/6kjHCKevip7WgAJ8aRPwyS74cgEa1o6Gwwyqv0="
+          "hash": "FZPOh2diGvl7aCuZm3RmoTUxSLVUPsgqVTNlP7MZuUY="
         }
       },
       "is_incremental": false,
@@ -64,7 +64,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Nitro.CombinablePowerup.Comparer.html",
-          "hash": "BGzMLApG53wtlpw7h9y5bkyICnhrJVHKW/9D87Rlsdw="
+          "hash": "6/iU12gPHXxDYxSwsffbbDh+DJFr6areahAI4XifrxE="
         }
       },
       "is_incremental": false,
@@ -76,7 +76,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Nitro.CombinablePowerup.html",
-          "hash": "vNj0W08vQxJRCweE55PwszkQqXJ816UIe3KZPYKdbzg="
+          "hash": "zuBl+0WzconTox0ETE+MJkUAftbpzcXJ6GofSGaPSZc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nitro.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nitro.Extensions.html",
+          "hash": "RwV1U76OPJKjCh3WgLY2OR59QXJwa4pBUtEoNqzDJ5Y="
         }
       },
       "is_incremental": false,
@@ -88,7 +100,43 @@
       "output": {
         ".html": {
           "relative_path": "api/Nitro.GenericMath.html",
-          "hash": "AX2L/ArNH3U25icaTKV0N3anIVFeebIw6w2jrc07ldc="
+          "hash": "VDug3kf/ed3g2V5ajDe8joaF91vtz8F1dUK4cwEzGAo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nitro.ICollector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nitro.ICollector.html",
+          "hash": "sslmNRA2YnboLkzwQNoaK6Xv9Qw6Ceh8eOymnQUvklw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nitro.ICombinablePowerup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nitro.ICombinablePowerup.html",
+          "hash": "+IIh78n9Z1k2HTxLJYx0cDZ1vzv11jUvbNNErzTf7Qc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nitro.IModifier.Operation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nitro.IModifier.Operation.html",
+          "hash": "ADAoqlb0/LZkBn1/rbZIdjajrIz8dZiddkKyQ6mAxgE="
         }
       },
       "is_incremental": false,
@@ -100,7 +148,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Nitro.IModifier.html",
-          "hash": "8wnooO/GTy3dz9zv3nSlqEtYJCXypYXEf9obsfP8OmY="
+          "hash": "1zw1ljCWYqeLrIAkB0kiCG8sSVzqfzymI6p17UI/Sig="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nitro.IMultiplePowerupCollector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nitro.IMultiplePowerupCollector.html",
+          "hash": "s1TxKDMkE1xB6UXGMcR5glzig2ri4bGS4W0ulKlaczA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nitro.IPowerup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nitro.IPowerup.html",
+          "hash": "XpehfCw6jPNrMHeYhSH9PnWt/jo3uYi36cqv+AEekVQ="
         }
       },
       "is_incremental": false,
@@ -112,7 +184,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Nitro.IRevertableVar.html",
-          "hash": "0FmfMeQ8neYGk/Dd2JhxFag8EC3Kq1SBX4YYuAe097c="
+          "hash": "XP/v0BEFPKNN9NboGGAkB4KOWueMktaBt0Emtldw7U8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nitro.Mirror.RevertableVarReaderWriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nitro.Mirror.RevertableVarReaderWriter.html",
+          "hash": "pUCUenOk7pol4/E3O1r08YMyJRdgQ1hmH0q7tLn/Jy4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nitro.Mirror.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nitro.Mirror.html",
+          "hash": "IN9nlVTEXhD/qsy0tDjxeaJwpmUxE30ZJlYmxTGvGII="
         }
       },
       "is_incremental": false,
@@ -124,7 +220,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Nitro.Modifier-1.Sorter.html",
-          "hash": "Q+wNaJVmvNrjeh3EPVVUv2epxdhJtCCcTjlUse7RsYY="
+          "hash": "eRFtFsjHMOSwdnKonblGFXMoyxZDmSMd6Zm0MaXPfBY="
         }
       },
       "is_incremental": false,
@@ -136,7 +232,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Nitro.Modifier-1.html",
-          "hash": "QLKxmsK0g4RZX2grbpsPeqa4GdQ4HPkbl5g6Nxfu4r8="
+          "hash": "3ayP9RdBr+8gac9g1DL9+U8eWD2lj5e2jtePXlot/l8="
         }
       },
       "is_incremental": false,
@@ -148,7 +244,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Nitro.ModifierCollection.html",
-          "hash": "6mMTPgHC/vY6Bn3gZMZEo9FETbtZAx+mEpawpVJm6ks="
+          "hash": "YhgyAUmeuJ2a4cg+T/H0KmVFcLGZQKb9ShtAvQyl2XA="
         }
       },
       "is_incremental": false,
@@ -160,7 +256,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Nitro.MultiplePowerupCollector.html",
-          "hash": "oBhl8lLB5JrZAx3P2+4i6UgUdZHYXdelAlSeSdABeoQ="
+          "hash": "qLOH7uueyB3BG6i849HuT+EI0LO1VIDPZMV1Cw0kpnA="
         }
       },
       "is_incremental": false,
@@ -172,7 +268,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Nitro.Powerup.html",
-          "hash": "O1WHXLPP+wxQ3fwrweuDt9JEmgT1Q6AcPLKrNTrP9aw="
+          "hash": "cEn9Lv4lcDYZBN4RqsCsB9kMyhguhix5WbYwk8/Jxx4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nitro.RevertableVar-1.OnValueUpdatedDelegate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nitro.RevertableVar-1.OnValueUpdatedDelegate.html",
+          "hash": "Q+oqNotnk9gPms76CH4k1/lN3veoT0SUkDv2OibfCug="
         }
       },
       "is_incremental": false,
@@ -184,7 +292,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Nitro.RevertableVar-1.html",
-          "hash": "9Gtx8VtcyH4Go8ROH2TrmA/grwJETSDmQmyg7OVBxeU="
+          "hash": "A+A92/mk/slmNGLPT7uJORvx/mGNK+oAwuY/kEIv9Ts="
         }
       },
       "is_incremental": false,
@@ -196,7 +304,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Nitro.SinglePowerupCollector.html",
-          "hash": "C2nYRvADHyxScls76nIjRA1gKTnSVX/8xR86IBdCLSQ="
+          "hash": "OmDowN2sEljr7LpnbltbeDV8Kk9m/+enfhNDn0v2mXs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Nitro.Utilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Nitro.Utilities.html",
+          "hash": "A8uO/nlNdzP1oF3f2x7uiyhysneh5YAx6TK23CAI73M="
         }
       },
       "is_incremental": false,
@@ -208,7 +328,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Nitro.html",
-          "hash": "3UshDVBxcB+vmHgvUyRrhgzbKrm9l+XfTb1Pu+AJ6a4="
+          "hash": "WVILIYSdjXdDbcSvTA2jWlWBdks/xmcYAd36ys/2/gg="
         }
       },
       "is_incremental": false,
@@ -220,7 +340,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "9RqSkVc13+9lsYm7Ritzy0hLuPaay3sbiFxyv5VWADc="
+          "hash": "Z6N1dlsfGw8NmNrhRUObaV3Te9TxUHTXZSi6xQO6dTY="
         }
       },
       "is_incremental": false,
@@ -232,7 +352,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "My+caZdp1hAP4jAPpEn9FY1cyEAtXDij415AH+HJlhs="
+          "hash": "9OCzsvACsAqUDVYnuvyUyVRrspwx9om375rOC5ZTVss="
         }
       },
       "is_incremental": false,
@@ -244,7 +364,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/collidables_and_hazards.html",
-          "hash": "CHyN4mD+N1ZZCW78T4KnLy+L1xO3qUux+KpRs/OgPGI="
+          "hash": "XgXUZ4LPb9GP+wX61aL3h3+GcK4MBDCntNJgHdDfFZw="
         }
       },
       "is_incremental": false,
@@ -256,7 +376,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/combinable_powerups.html",
-          "hash": "pSgF0DaEceMPfFy4J+GviwN/K0BKTuCNUzrYQIqW+SM="
+          "hash": "A02WlGTJHzjNwyWEmcf68lmhHuSohIySqWjQAAWHJw0="
         }
       },
       "is_incremental": false,
@@ -268,7 +388,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/index.html",
-          "hash": "73R3qtX3+5uqc1IG1/dyPE8HXModUyzQf0JuaXiW3R0="
+          "hash": "/2dqKIc3NgfdsQZwA62PJ/5oldgJMJcLN/Q45gT1zIc="
         }
       },
       "is_incremental": false,
@@ -280,7 +400,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/quickstart.html",
-          "hash": "7vMfg1g9TYa45owI++8l66jxFnBK0kkp3b+wkmWSxgE="
+          "hash": "QZZ0SClNwX6qTha/v7wyBlKwy/o4fjLWokcIRB7zi8c="
         }
       },
       "is_incremental": false,
@@ -292,7 +412,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/revertable_variables.html",
-          "hash": "6gFwbV3rnpY8Vvga+VaeXD1oOmqYM2UyrddGWAn8Suc="
+          "hash": "VEJcqDoKW79vF2w7MNiAslpIXiRTB0p4WRufLKlhGqY="
         }
       },
       "is_incremental": false,
@@ -304,7 +424,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/toc.html",
-          "hash": "Me2211F8lQWHn+5WkvEquLfTc1aWr9zGpbxW36LCipQ="
+          "hash": "MCgejJTVXWWOwZuI4gTEAws4WeShbIzK7UZD1TWLYwM="
         }
       },
       "is_incremental": false,
@@ -360,7 +480,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "BihjhjN3Ryv3ohtuxfCSKzShK4TgxMC+eeTi2IIVPng="
+          "hash": "diSzbtJ5254K2wx7C3kzH1pvE/t4x5qzzj6KYYhehTY="
         }
       },
       "is_incremental": false,
@@ -370,25 +490,23 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because config changed.",
+        "can_incremental": true,
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "ConfigChanged"
+        "skipped_file_count": 0
       },
       "processors": {
         "ConceptualDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 6,
-          "skipped_file_count": 0
+          "skipped_file_count": 3
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 16,
-          "skipped_file_count": 0
+          "total_file_count": 26,
+          "skipped_file_count": 26
         },
         "ResourceDocumentProcessor": {
           "can_incremental": false,

@@ -51,7 +51,7 @@
                           <img src="../resources/logo.png" alt="" class="logomark">
                           <span class="brand-title"></span>
                         </a>  </div>
-
+                    
                       <div class="sidesearch">
                         <form id="search" role="search" class="search">
                             <i class="bi bi-search search-icon"></i>
@@ -105,6 +105,11 @@
     <div class="level1"><a class="xref" href="Nitro.Collector.html">Collector</a></div>
     <div class="level2"><span class="xref">MultiplePowerupCollector</span></div>
   </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Nitro.IMultiplePowerupCollector.html">IMultiplePowerupCollector</a></div>
+    <div><a class="xref" href="Nitro.ICollector.html">ICollector</a></div>
+  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -117,7 +122,7 @@
       <a class="xref" href="Nitro.Collector.html#Nitro_Collector_PowerupCollectEvent">Collector.PowerupCollectEvent</a>
     </div>
     <div>
-      <a class="xref" href="Nitro.Collector.html#Nitro_Collector_CollectPowerup_Nitro_Powerup_">Collector.CollectPowerup(Powerup)</a>
+      <a class="xref" href="Nitro.Collector.html#Nitro_Collector_CollectPowerup_Nitro_IPowerup_">Collector.CollectPowerup(IPowerup)</a>
     </div>
     <div>
       <a class="xref" href="Nitro.Collector.html#Nitro_Collector_OnTriggerEnter_Collider_">Collector.OnTriggerEnter(Collider)</a>
@@ -136,7 +141,7 @@
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
   <h5 id="Nitro_MultiplePowerupCollector_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class MultiplePowerupCollector : Collector</code></pre>
+    <pre><code class="lang-csharp hljs">public class MultiplePowerupCollector : Collector, IMultiplePowerupCollector, ICollector</code></pre>
   </div>
   <h3 id="fields">Fields
   </h3>
@@ -166,13 +171,12 @@
   </table>
   
   
-  <h4 id="Nitro_MultiplePowerupCollector_HeldPowerups" data-uid="Nitro.MultiplePowerupCollector.HeldPowerups">HeldPowerups</h4>
-  <div class="markdown level1 summary"><p>A list of all the currently held powerups, sorted by <a class="xref" href="Nitro.CombinablePowerup.html#Nitro_CombinablePowerup_Priority">Priority</a></p>
-</div>
+  <h4 id="Nitro_MultiplePowerupCollector_maxPowerupsHeld" data-uid="Nitro.MultiplePowerupCollector.maxPowerupsHeld">maxPowerupsHeld</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SortedSet&lt;CombinablePowerup&gt; HeldPowerups</code></pre>
+    <pre><code class="lang-csharp hljs">public int maxPowerupsHeld</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -184,21 +188,49 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;<a class="xref" href="Nitro.CombinablePowerup.html">CombinablePowerup</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Nitro_MultiplePowerupCollector_CollectedPowerups_" data-uid="Nitro.MultiplePowerupCollector.CollectedPowerups*"></a>
+  <h4 id="Nitro_MultiplePowerupCollector_CollectedPowerups" data-uid="Nitro.MultiplePowerupCollector.CollectedPowerups">CollectedPowerups</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;ICombinablePowerup&gt; CollectedPowerups { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Nitro.ICombinablePowerup.html">ICombinablePowerup</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
+  <a id="Nitro_MultiplePowerupCollector_MaxPowerupsHeld_" data-uid="Nitro.MultiplePowerupCollector.MaxPowerupsHeld*"></a>
   <h4 id="Nitro_MultiplePowerupCollector_MaxPowerupsHeld" data-uid="Nitro.MultiplePowerupCollector.MaxPowerupsHeld">MaxPowerupsHeld</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int MaxPowerupsHeld</code></pre>
+    <pre><code class="lang-csharp hljs">public int MaxPowerupsHeld { get; }</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -218,13 +250,13 @@
   
   
   <a id="Nitro_MultiplePowerupCollector_CanCollectPowerup_" data-uid="Nitro.MultiplePowerupCollector.CanCollectPowerup*"></a>
-  <h4 id="Nitro_MultiplePowerupCollector_CanCollectPowerup_Nitro_Powerup_" data-uid="Nitro.MultiplePowerupCollector.CanCollectPowerup(Nitro.Powerup)">CanCollectPowerup(Powerup)</h4>
+  <h4 id="Nitro_MultiplePowerupCollector_CanCollectPowerup_Nitro_IPowerup_" data-uid="Nitro.MultiplePowerupCollector.CanCollectPowerup(Nitro.IPowerup)">CanCollectPowerup(IPowerup)</h4>
   <div class="markdown level1 summary"><p>Whether the powerup can be collected or not</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool CanCollectPowerup(Powerup powerup)</code></pre>
+    <pre><code class="lang-csharp hljs">public override bool CanCollectPowerup(IPowerup powerup)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -237,7 +269,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Nitro.Powerup.html">Powerup</a></td>
+        <td><a class="xref" href="Nitro.IPowerup.html">IPowerup</a></td>
         <td><span class="parametername">powerup</span></td>
         <td><p>The powerup to test if it can be collected</p>
 </td>
@@ -261,7 +293,7 @@
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Nitro.Collector.html#Nitro_Collector_CanCollectPowerup_Nitro_Powerup_">Collector.CanCollectPowerup(Powerup)</a></div>
+  <div><a class="xref" href="Nitro.Collector.html#Nitro_Collector_CanCollectPowerup_Nitro_IPowerup_">Collector.CanCollectPowerup(IPowerup)</a></div>
   
   
   <a id="Nitro_MultiplePowerupCollector_Execute_" data-uid="Nitro.MultiplePowerupCollector.Execute*"></a>
@@ -278,13 +310,13 @@
   
   
   <a id="Nitro_MultiplePowerupCollector_OnCollect_" data-uid="Nitro.MultiplePowerupCollector.OnCollect*"></a>
-  <h4 id="Nitro_MultiplePowerupCollector_OnCollect_Nitro_Powerup_" data-uid="Nitro.MultiplePowerupCollector.OnCollect(Nitro.Powerup)">OnCollect(Powerup)</h4>
+  <h4 id="Nitro_MultiplePowerupCollector_OnCollect_Nitro_IPowerup_" data-uid="Nitro.MultiplePowerupCollector.OnCollect(Nitro.IPowerup)">OnCollect(IPowerup)</h4>
   <div class="markdown level1 summary"><p>A function that is triggered when a powerup is collected</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void OnCollect(Powerup powerup)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override void OnCollect(IPowerup powerup)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -297,7 +329,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Nitro.Powerup.html">Powerup</a></td>
+        <td><a class="xref" href="Nitro.IPowerup.html">IPowerup</a></td>
         <td><span class="parametername">powerup</span></td>
         <td><p>The powerup that has been collected</p>
 </td>
@@ -305,7 +337,14 @@
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Nitro.Collector.html#Nitro_Collector_OnCollect_Nitro_Powerup_">Collector.OnCollect(Powerup)</a></div>
+  <div><a class="xref" href="Nitro.Collector.html#Nitro_Collector_OnCollect_Nitro_IPowerup_">Collector.OnCollect(IPowerup)</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Nitro.IMultiplePowerupCollector.html">IMultiplePowerupCollector</a>
+  </div>
+  <div>
+      <a class="xref" href="Nitro.ICollector.html">ICollector</a>
+  </div>
 </article>
                 </div>
 

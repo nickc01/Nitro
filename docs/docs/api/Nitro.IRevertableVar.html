@@ -51,7 +51,7 @@
                           <img src="../resources/logo.png" alt="" class="logomark">
                           <span class="brand-title"></span>
                         </a>  </div>
-
+                    
                       <div class="sidesearch">
                         <form id="search" role="search" class="search">
                             <i class="bi bi-search search-icon"></i>
@@ -207,6 +207,63 @@
       <tr>
         <td><span class="xref">Type</span></td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Nitro_IRevertableVar_GetModifiers_" data-uid="Nitro.IRevertableVar.GetModifiers*"></a>
+  <h4 id="Nitro_IRevertableVar_GetModifiers" data-uid="Nitro.IRevertableVar.GetModifiers">GetModifiers()</h4>
+  <div class="markdown level1 summary"><p>Gets a list of all the added modifiers to this revertable variable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;IModifier&gt; GetModifiers()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Nitro.IModifier.html">IModifier</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Nitro_IRevertableVar_Revert_" data-uid="Nitro.IRevertableVar.Revert*"></a>
+  <h4 id="Nitro_IRevertableVar_Revert_Nitro_IModifier_" data-uid="Nitro.IRevertableVar.Revert(Nitro.IModifier)">Revert(IModifier)</h4>
+  <div class="markdown level1 summary"><p>Reverts a modifier</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Revert(IModifier modifier)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Nitro.IModifier.html">IModifier</a></td>
+        <td><span class="parametername">modifier</span></td>
+        <td><p>The modifier to revert</p>
+</td>
       </tr>
     </tbody>
   </table>

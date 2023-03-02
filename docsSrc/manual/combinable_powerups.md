@@ -57,16 +57,17 @@ public override void Execute(CombinablePowerup previous, Vector3 position, Quate
 	if (previous == null)
 	{
 		//Spawn a fireball
-		DoFireball(position, rotation, runNextPowerup);
+		DoFireball(position, rotation);
 	}
 	//If this powerup isn't the first in the powerup chain
 	else
 	{
 		//Spawn a circular pit of flames
 		DoFirepit(position);
-		//Trigger the next powerup in the chain to run
-		runNextPowerup(position, rotation);
 	}
+
+	//Trigger the next powerup in the chain to run
+	runNextPowerup(position, rotation);
 	
 	//Signal that this powerup is done with its execution
 	DoneUsingPowerup();
