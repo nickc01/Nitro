@@ -97,6 +97,8 @@ public class CarController : NetworkBehaviour
     [SerializeField]
     Vector2 pitchMinMax = new Vector2(0f,0.5f);
 
+    float audioFadeIn = 0f;
+
     public bool ControlCamera
     {
         get => _controlCamera;
@@ -134,6 +136,7 @@ public class CarController : NetworkBehaviour
 
     private void Start()
     {
+        audioFadeIn = 0f;
         RollCage.Car = this;
         RollCage.transform.SetParent(null, true);
         sphereLocalPos = RollCage.transform.position - transform.position;
@@ -309,11 +312,21 @@ public class CarController : NetworkBehaviour
         }
 
         var velocity = RollCage.RB.velocity;
-        audioSource.pitch = Mathf.LerpUnclamped(pitchMinMax.x, pitchMinMax.y,new Vector2(velocity.x, velocity.z).magnitude);
+        audioSource.pitch = audioFadeIn * Mathf.LerpUnclamped(pitchMinMax.x, pitchMinMax.y,new Vector2(velocity.x, velocity.z).magnitude);
     }
+
 
     private void FixedUpdate()
     {
+        if (audioFadeIn < 1f)
+        {
+            audioFadeIn += Time.fixedDeltaTime;
+            if (audioFadeIn > 1f)
+            {
+                audioFadeIn = 1f;
+            }
+        }
+
         if (authority)
         {
             float vertical = 0f;

@@ -6401,8 +6401,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3603375874904273973, guid: ae2f87e52970f454d842680c7b234db6, type: 2}
   m_audioClip: {fileID: 8300000, guid: 977a146041eeb6047adb2aa8416241a7, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7983,7 +7983,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 172.3
+  m_fontSize: 176.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

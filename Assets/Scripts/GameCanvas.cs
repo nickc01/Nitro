@@ -60,20 +60,7 @@ public class GameCanvas : MonoBehaviour
 
     public void QuitGameButton()
     {
-        switch (GameSettings.Instance.Mode)
-        {
-            case PlayerMode.SinglePlayer:
-                MainNetworkManager.Instance.StopHost();
-                break;
-            case PlayerMode.MultiPlayerHost:
-                MainNetworkManager.Instance.StopServer();
-                break;
-            case PlayerMode.MultiplayerJoin:
-                MainNetworkManager.Instance.StopClient();
-                break;
-            default:
-                break;
-        }
+        GameSettings.Instance.StartCoroutine(GameSettings.Instance.QuitGameRoutine());
     }
 
     public void ShowMenuButton()

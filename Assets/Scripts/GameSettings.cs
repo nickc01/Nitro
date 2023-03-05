@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets
 {
@@ -175,6 +176,38 @@ namespace Assets
                 yield return new WaitUntil(() => PlayerManager.Players.All(p => p.MapGenerated));
                 yield return new WaitForSeconds(transition.HideAndDestroy());
             }
+        }
+
+        public IEnumerator QuitGameRoutine()
+        {
+            // Create a transition object
+            var transition = GameObject.Instantiate(transitionPrefab);
+            transition.HideInstant();
+            yield return new WaitForSeconds(transition.Show());
+
+            var oldActiveScene = SceneManager.GetActiveScene();
+
+            //Stop the game
+            switch (GameSettings.Instance.Mode)
+            {
+                case PlayerMode.SinglePlayer:
+                    MainNetworkManager.Instance.StopHost();
+                    break;
+                case PlayerMode.MultiPlayerHost:
+                    MainNetworkManager.Instance.StopServer();
+                    break;
+                case PlayerMode.MultiplayerJoin:
+                    MainNetworkManager.Instance.StopClient();
+                    break;
+                default:
+                    break;
+            }
+
+            //Wait until the main menu scene has been loaded
+            yield return new WaitUntil(() => SceneManager.GetActiveScene().name != oldActiveScene.name);
+
+            //Hide the transition object
+            yield return new WaitForSeconds(transition.HideAndDestroy());
         }
     }
 }

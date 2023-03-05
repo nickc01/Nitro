@@ -25,6 +25,11 @@ public class MusicPlayer : MonoBehaviour
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
+        audioSource.Play();
         audioSource.volume = 1f;
     }
 

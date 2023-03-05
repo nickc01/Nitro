@@ -628,12 +628,15 @@ public class MapGenerator : MonoBehaviour
         IEnumerator Routine()
         {
             yield return new WaitForSeconds(time);
-            var powerups = SpecialPieces.Where(s => s.Prefab != null && s.Prefab.name.ToLower().Contains("powerup")).ToList();
-            var randomPowerup = powerups[UnityEngine.Random.Range(0, powerups.Count)].Prefab;
+            if (PlayerManager.OwnedManager != null)
+            {
+                var powerups = SpecialPieces.Where(s => s.Prefab != null && s.Prefab.name.ToLower().Contains("powerup")).ToList();
+                var randomPowerup = powerups[UnityEngine.Random.Range(0, powerups.Count)].Prefab;
 
-            var instance = GameObject.Instantiate(randomPowerup, position, rotation);
+                var instance = GameObject.Instantiate(randomPowerup, position, rotation);
 
-            NetworkServer.Spawn(instance.gameObject, PlayerManager.OwnedManager.gameObject);
+                NetworkServer.Spawn(instance.gameObject, PlayerManager.OwnedManager.gameObject);
+            }
         }
 
         StartCoroutine(Routine());
