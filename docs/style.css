@@ -210,6 +210,15 @@ h2 {
         justify-content:center;
     }
 
+#small-game-release-section {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+}
+
+#qol-section {
+    margin-right: 2.5rem;
+    margin-left: 2.5rem;
+}
 
 .container:not(.secondary-container) {
     background-color: var(--code-bg-color);
