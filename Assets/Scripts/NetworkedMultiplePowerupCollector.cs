@@ -78,6 +78,9 @@ namespace Assets
 
         public int HeldPowerupCount = 0;
 
+        [SerializeField]
+        AudioSource collectPowerupSound;
+
         [Tooltip("If set to true, the collector will require that the powerups collected are different types")]
         public bool DifferingTypesRequired = true;
 
@@ -112,6 +115,9 @@ namespace Assets
                     var powerupIndex = GameSettings.Instance.PossiblePowerupTypes.IndexOf(powerup.GetType());
                     addedPowerups.Add(powerupIndex);
                     HeldPowerupCount++;
+
+                    Debug.Log("PLAYING SOUND");
+                    PlaySound();
                 }
                 else
                 {
@@ -159,6 +165,16 @@ namespace Assets
             }
         }
 
+        [TargetRpc]
+        void PlaySound()
+        {
+            Debug.Log("A");
+            if (collectPowerupSound != null)
+            {
+                Debug.Log("B");
+                collectPowerupSound.Play();
+            }
+        }
 
         [Command]
         void Execute_Server()

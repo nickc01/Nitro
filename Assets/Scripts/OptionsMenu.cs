@@ -26,12 +26,19 @@ public class OptionsMenu : MonoBehaviour
 
     private void Awake()
     {
+        SetMasterVolume(0f);
+        SetMusicVolume(0f);
+        SetSFXVolume(0f);
+    }
+
+    private void Start()
+    {
         master = PlayerPrefs.GetFloat("MasterVolume", 1f);
         music = PlayerPrefs.GetFloat("MusicVolume", 1f);
         sfx = PlayerPrefs.GetFloat("SFXVolume", 1f);
 
         SetMasterVolume(master);
-        SetMasterVolume(music);
+        SetMusicVolume(music);
         SetSFXVolume(sfx);
 
         masterSlider.value = master;

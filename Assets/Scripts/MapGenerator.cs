@@ -74,6 +74,8 @@ public class MapGenerator : MonoBehaviour
 
     public State CurrentState { get; private set; } = State.Idle;
 
+    List<StructurePiece> generatedBuildings = new List<StructurePiece>();
+
     public void GenerateMap(uint seed)
     {
         if (CurrentState != State.Idle)
@@ -89,8 +91,11 @@ public class MapGenerator : MonoBehaviour
         List<RoadPiece> downRoads = new List<RoadPiece>();
         List<RoadPiece> neutralRoads = new List<RoadPiece>();
 
+
         GameObject startingLineInstance = null;
         GameObject finishLineInstance = null;
+
+        generatedBuildings.Clear();
 
         mapPiecesContainer.GetComponentsInChildren(true, roads);
 
@@ -390,6 +395,12 @@ public class MapGenerator : MonoBehaviour
                     GameObject.Destroy(finishLineInstance);
                     finishLineInstance = null;
                 }
+
+                foreach (var building in generatedBuildings)
+                {
+                    GameObject.Destroy(building.gameObject);
+                }
+                generatedBuildings.Clear();
             }
         }
     }
@@ -431,6 +442,7 @@ public class MapGenerator : MonoBehaviour
 
     void GenerateBuildings(RoadMap map, ref Unity.Mathematics.Random randomizer)
     {
+        Debug.Log("Starting Road Pos = " + GeneratedRoads[0].transform.position);
         bool OccupiedByRoad(float3 worldPosition)
         {
             const float padding = 0f;
@@ -497,6 +509,9 @@ public class MapGenerator : MonoBehaviour
         roadBounds.min -= new Vector3(10f * TileSize.x,0f, 10f * TileSize.z);
         roadBounds.max += new Vector3(10f * TileSize.x, 0f,10f * TileSize.z);
 
+        roadBounds.min = new Vector3(floor(roadBounds.min.x),0f,floor(roadBounds.min.z));
+        roadBounds.max = new Vector3(ceil(roadBounds.max.x),0f,ceil(roadBounds.max.z));
+
         for (float x = roadBounds.min.x; x <= roadBounds.max.x; x++)
         {
             for (float z = roadBounds.min.z; z <= roadBounds.max.z; z++)
@@ -551,7 +566,7 @@ public class MapGenerator : MonoBehaviour
                         foreach (var worldPos in worldPositions)
                         {
                             var alignedPos = map.AlignToGrid(worldPos);
-                            if (OccupiedByRoad(worldPos) || occupiedBuildingPositions.TryGetValue(alignedPos, out var _))
+                            if (OccupiedByRoad(alignedPos) || occupiedBuildingPositions.TryGetValue(alignedPos, out var _))
                             {
                                 occupied = true;
                                 break;
@@ -571,7 +586,7 @@ public class MapGenerator : MonoBehaviour
                             {
                                 occupiedBuildingPositions.Add(worldPos);
                             }
-                            GameObject.Instantiate(prefab, new float3(randX, 0f, randZ) + (float3)(direction * prefab.Center), direction);
+                            generatedBuildings.Add(GameObject.Instantiate(prefab, new float3(randX, 0f, randZ) + (float3)(direction * prefab.Center), direction));
                             break;
                         }
                     }

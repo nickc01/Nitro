@@ -23,6 +23,9 @@ public class Cloud : NetworkBehaviour
     [SerializeField]
     LayerMask strikeMask;
 
+    [SerializeField]
+    AudioClip strikeClip;
+
     public override void OnStartServer()
     {
         StartCoroutine(PositionRoutine());
@@ -127,6 +130,8 @@ public class Cloud : NetworkBehaviour
         // Spawn a lightning bolt between the source and the target
         SpawnLightningBolt(source, selectedTarget.transform.position);
 
+        PlaySound(selectedTarget.transform.position);
+
         // Create a distance vector between the source and the selected target
         var distanceVector = new Vector3(selectedTarget.transform.position.x, source.y, selectedTarget.transform.position.z) - source;
         // Calculate the force to apply to the target
@@ -149,6 +154,12 @@ public class Cloud : NetworkBehaviour
 
         // End the function
         yield break;
+    }
+
+    [ClientRpc]
+    void PlaySound(Vector3 target)
+    {
+        AudioPool.PlaySoundTillDone(strikeClip, target);
     }
 
     [Server]

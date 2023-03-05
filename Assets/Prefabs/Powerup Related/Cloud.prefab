@@ -308,6 +308,7 @@ MonoBehaviour:
   strikeMask:
     serializedVersion: 2
     m_Bits: 135168
+  strikeClip: {fileID: 8300000, guid: 9a63038c0c580f44dbe5d779ebfc3ec2, type: 3}
 --- !u!114 &2140815506213562091
 MonoBehaviour:
   m_ObjectHideFlags: 0
