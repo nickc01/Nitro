@@ -225,9 +225,6 @@ For example, if you have a fire powerup that has a higher priority than a water 
                 base.DoneUsingPowerup();
                 return;
             }
-            else
-            {
-            }
             for (int i = 0; i < selfInfo.powerups.Length; i++)
             {
                 if (System.Object.Equals(selfInfo.powerups[i],this))
